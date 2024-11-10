@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Liang Lookup Tool</title>
+        <meta name="description" content="A tool for looking up words in the Liang conlang" />
+
+        <link rel="icon" href="assets/icon.png">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div id="container">
+
+            <header class="header box" id="header">
+            </header>
+
+            <div class="filters box">
+                <div id="searchbar-container">
+                    <p>Filter by:</p>
+                    <div class="search-bar">
+                        <input type="text" id="search-bar" value="" placeholder="Enter search term here...">
+                    </div>
+                    <div class="submit-filter-button" id="submit-filter">Submit Filters</div>
+                </div>
+                <div id="filter-button-container">
+                    <label class="filter-button">
+                        <input type="radio" name="search-filter" id="word-box" checked="checked">
+                        Words
+                    </label>
+                    <label class="filter-button">
+                        <input type="radio" name="search-filter" id="number-box">
+                        Numbers
+                    </label>
+                    <label class="filter-button">
+                        <input type="radio" name="search-filter" id="grammar-box">
+                        Grammar
+                    </label>
+                </div>
+            </div>
+
+            <div class="card-results box">
+                <h2>Words:</h2>
+                <div id="card-container">
+                    <!-- Cards go here! -->
+                </div>
+            </div>
+
+            <footer class="footer box">
+                <div class="left">
+                    Portfolio.
+                </div>
+                <div class="center">
+
+                </div>
+                <div class="right">
+                    Footer Right goes here.
+                </div>
+                </footer>
+        </div>
+
+        <div id="modals"></div>
+
+        <script src="js/data.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
