@@ -1951,4 +1951,16 @@ const wordData = [
             "lia"
         ]
     },
+
+    {
+        word: "kaziu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "cheese"
+                ]
+            }
+        ]
+    },
 ]
