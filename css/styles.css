@@ -61,12 +61,19 @@
     }
 }
 
+.romanisation {
+    text-align: center;
+}
+
 .number-container {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 
     .number-word {
-        width: 50%;
+        width: 30%;
     }
 
     .card-type-header {
@@ -167,4 +174,10 @@
 
 .determiner {
     background-color: yellow;
+}
+
+@media screen and (min-width: 800px) {
+    .number-container {
+        flex-direction: row;
+    }
 }
