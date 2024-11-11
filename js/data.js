@@ -240,6 +240,57 @@ const numberData = [
             }
         ]
     },
+    {
+        number: 100,
+        data: [
+            {
+                type: numberType.disjunctive,
+                word: "ti"
+            },
+            {
+                type: numberType.counting,
+                word: "timi"
+            },
+            {
+                type: numberType.ordinal,
+                word: "tivu"
+            }
+        ]
+    },
+    {
+        number: 1000,
+        data: [
+            {
+                type: numberType.disjunctive,
+                word: "za"
+            },
+            {
+                type: numberType.counting,
+                word: "zami"
+            },
+            {
+                type: numberType.ordinal,
+                word: "zavu"
+            }
+        ]
+    },
+    // {
+    //     number: 10000,
+    //     data: [
+    //         {
+    //             type: numberType.disjunctive,
+    //             word: "giza"
+    //         },
+    //         {
+    //             type: numberType.counting,
+    //             word: "gizami"
+    //         },
+    //         {
+    //             type: numberType.ordinal,
+    //             word: "gizavu"
+    //         }
+    //     ]
+    // },
 ]
 
 const wordData = [

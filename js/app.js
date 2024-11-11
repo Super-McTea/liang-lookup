@@ -65,6 +65,7 @@ function createNumberCard(number) {
                 <div class="name-container">
                     ${createCardSpelling(word)}
                 </div>
+                <p class="romanisation">${word}</p>
             </div>`;
         }
     }
@@ -187,42 +188,177 @@ function updateSearch() {
 }
 
 function populateCards() {
-    // Filter and Sort
-    const displayWords = wordData.filter(
-        (word) => {
-            return verifyLiangWord(word.word)
-        }).filter(
-            (word) => {
-            if (searchFilter) {
-                let found = false;
-                for (const wordData of word.data) {
-                    const lowerDef = wordData.definition.map(value => value.toLowerCase());
-                    for (const def of lowerDef) {
-                        if (def.includes(searchFilter)) {
-                            found = true;
-                        }
-                    }
-                }
-                return found;
-            }
-            return true;
-        }).sort(
-        (a, b) => {
-            return sortAlphabetically(a.word, b.word)
-        });
-
-
+    
     cardContainer.innerHTML = "";
     if (showNumbers) {
-        for (numb of numberData) {
-            createNumberCard(numb);
+        const numberWord = isNumeric(searchFilter) ? createNumberWords(searchFilter) : null;
+        if (numberWord) {
+            createNumberCard(numberWord);
+        }
+        else {
+            for (numb of numberData) {
+                createNumberCard(numb);
+            }
         }
     }
     if (showWords) {
+        // Filter and Sort
+        const descWords = wordData.filter(
+            (word) => {
+                return verifyLiangWord(word.word)
+            }).filter(filterDesc).sort(
+                (a, b) => {
+                    return sortAlphabetically(a.word, b.word)
+                });
+
+        const nameWords = wordData.filter(
+            (word) => {
+                return verifyLiangWord(word.word)
+            }).filter(filterName).sort(
+                (a, b) => {
+                    return sortAlphabetically(a.word, b.word)
+                });
+
+        let displayWords = nameWords.concat(descWords);
+
+        if (displayWords.length == 0) {
+            displayWords = wordData.filter(
+                (word) => {
+                    return verifyLiangWord(word.word)
+                }).sort(
+                    (a, b) => {
+                        return sortAlphabetically(a.word, b.word)
+                    });
+        }
+
         for (word of displayWords) {
             createWordCard(word);
         }
     }
+}
+
+function filterDesc(word) {
+    if (searchFilter) {
+        let found = false;
+        for (const wordData of word.data) {
+            const lowerDef = wordData.definition.map(value => value.toLowerCase());
+            for (const def of lowerDef) {
+                if (def.includes(searchFilter)) {
+                    found = true;
+                }
+            }
+        }
+        return found;
+    }
+    return true;
+}
+
+function filterName(word) {
+    if (searchFilter) {
+        if (word.word.includes(searchFilter)) {
+            return true;
+        }
+    }
+}
+
+function createNumberWords(numberToString) {
+
+    numberToString = Math.floor(Math.abs(numberToString));
+
+    if (getDigitWord(numberToString)) {
+        return getDigitWord(numberToString);
+    }
+
+    try {
+        let numberRemaining = numberToString;
+        let nextDigit = numberRemaining % 10;
+
+        let disjunctive = "";
+        let counting = "";
+        let ordinal = "";
+
+        let placeValue = 0;
+        let placeGrouping = 0;
+
+        while (nextDigit == 0) {
+            numberRemaining = Math.floor(numberRemaining / 10);
+            nextDigit = numberRemaining % 10;
+            placeValue++;
+        }
+
+        let digitWord = getDigitWord(nextDigit);
+
+        const placePrefix = getDigitWord(Math.pow(10, placeValue));
+
+        disjunctive = 
+            (nextDigit == 1 && placeValue != 0 ? "" : (placeValue == 0 ? digitWord.data[0].word : firstLiangCharacter(digitWord.data[0].word))) + 
+            (placeValue == 0 ? "" : placePrefix.data[0].word);
+        counting =
+            (nextDigit == 1 && placeValue != 0 ? "" : (placeValue == 0 ? digitWord.data[1].word : firstLiangCharacter(digitWord.data[1].word))) + 
+            (placeValue == 0 ? "" : placePrefix.data[1].word);
+        ordinal = 
+            (nextDigit == 1 && placeValue != 0 ? "" : (placeValue == 0 ? digitWord.data[2].word : firstLiangCharacter(digitWord.data[2].word))) + 
+            (placeValue == 0 ? "" : placePrefix.data[2].word);
+        
+        numberRemaining = Math.floor(numberRemaining / 10);
+        placeValue++;
+
+        while (numberRemaining > 0) {
+            nextDigit = numberRemaining % 10;
+            digitWord = getDigitWord(nextDigit);
+
+            if (nextDigit != 0) {
+                const placePrefix = getDigitWord(Math.pow(10, placeValue)).data[0].word;
+                const numPrefix = nextDigit != 1 ? (firstLiangCharacter(digitWord.data[0].word)) : "";
+
+                disjunctive = numPrefix + placePrefix + disjunctive;
+                counting = numPrefix + placePrefix + counting;
+                ordinal = numPrefix + placePrefix + ordinal;
+            }
+
+            numberRemaining = Math.floor(numberRemaining / 10);
+            placeValue++;
+        }
+
+        return {
+            number:numberToString,
+            data: [
+                {
+                    type: numberType.disjunctive,
+                    word: disjunctive
+                },
+                {
+                    type: numberType.counting,
+                    word: counting
+                },
+                {
+                    type: numberType.ordinal,
+                    word: ordinal
+                },
+            ]
+        }
+    }
+    catch (e) {
+        console.log("Error generating number:", e)
+        return null;
+    }
+}
+
+function getTenPowerWord(power) {
+    let value = Math.pow(10, power);
+    const tenPower = getDigitWord(value);
+    if (tenPower) {
+        return tenPower;
+    }
+}
+
+function getDigitWord(digit) {
+    for (const digitData of numberData) {
+        if (digitData.number == digit) {
+            return digitData;
+        }
+    }
+    return null;
 }
 
 // Global Variables
@@ -249,17 +385,24 @@ let showWords = false;
 let showNumbers = false;
 let showGrammar = false;
 
-
-submitFilter.addEventListener('click', (event) => {
-    event.preventDefault();
+filterButtonContainer.addEventListener('click', (event) => {
+    // event.preventDefault();
     updateFilters();
+    populateCards();
+})
 
+searchBar.addEventListener('input', (event) => {
+    event.preventDefault();
     updateSearch();
-
-    // console.log("Clicked submit!");
     populateCards();
 })
 
 // Populate data
+updateSearch();
 updateFilters();
 populateCards();
+
+
+function isNumeric(value) {
+    return /^-?\d+$/.test(value);
+}
