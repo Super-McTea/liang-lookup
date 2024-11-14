@@ -167,6 +167,10 @@ function createCardSpelling(wordToSpell) {
 
     const firstChar = firstLiangCharacter(wordToSpell);
 
+    if (!firstChar) {
+        return "";
+    }
+
     return `<div class="display-character" style="background-image: url(assets/characters/${firstChar}.png)"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length));
 }
 
@@ -184,7 +188,8 @@ function updateSearch() {
     else {
         searchFilter = searchTerm.toLowerCase();
     }
-    console.log("Searched:", searchFilter);
+    searchError = "";
+    searchErrorText.innerHTML = searchError;
 }
 
 function populateCards() {
@@ -202,8 +207,11 @@ function populateCards() {
         }
     }
     if (showWords) {
+
+        const liangWordData = wordData.concat(grammarWordData);
+
         // Filter and Sort
-        const descWords = wordData.filter(
+        const descWords = liangWordData.filter(
             (word) => {
                 return verifyLiangWord(word.word)
             }).filter(filterDesc).sort(
@@ -211,7 +219,7 @@ function populateCards() {
                     return sortAlphabetically(a.word, b.word)
                 });
 
-        const nameWords = wordData.filter(
+        const nameWords = liangWordData.filter(
             (word) => {
                 return verifyLiangWord(word.word)
             }).filter(filterName).sort(
@@ -265,59 +273,130 @@ function createNumberWords(numberToString) {
 
     numberToString = Math.floor(Math.abs(numberToString));
 
-    if (getDigitWord(numberToString)) {
-        return getDigitWord(numberToString);
-    }
+    console.log(numberToString);
 
+    // if (getDigitWord(numberToString)) {
+    //     return getDigitWord(numberToString);
+    // }
+    const rawnum = numberToString.toString().split('');
+    const numString = rawnum.reverse();
+    console.log(numString);
+    const placeRadix = 3;
+    
     try {
-        let numberRemaining = numberToString;
-        let nextDigit = numberRemaining % 10;
-
         let disjunctive = "";
         let counting = "";
         let ordinal = "";
 
-        let placeValue = 0;
-        let placeGrouping = 0;
+        let firstDigitSeen = false;
 
-        while (nextDigit == 0) {
-            numberRemaining = Math.floor(numberRemaining / 10);
-            nextDigit = numberRemaining % 10;
-            placeValue++;
-        }
+        for (const placeValue in numString) {
+            console.log(`Current Index: ${placeValue}`);
 
-        let digitWord = getDigitWord(nextDigit);
+            const placePrefixes = (index) => {
+                const prefixChecker = getTenWord(placeValue);
+                let placePrefix = placeValue;
+                if (prefixChecker) {
+                    placePrefix = prefixChecker.data[index].word;
+                }
+                
+                const showPrefix = () => {
+                    if (placeValue == 0) {
+                        // No prefixes on the zeroth place - no aka 
+                        return false;
+                    }
 
-        const placePrefix = getDigitWord(Math.pow(10, placeValue));
+                    if (placeValue%placeRadix == 0) {
+                        // Thousands, Millions, Billions, etc
+                        console.log(`Checking radix value: ${placeValue}`);
 
-        disjunctive = 
-            (nextDigit == 1 && placeValue != 0 ? "" : (placeValue == 0 ? digitWord.data[0].word : firstLiangCharacter(digitWord.data[0].word))) + 
-            (placeValue == 0 ? "" : placePrefix.data[0].word);
-        counting =
-            (nextDigit == 1 && placeValue != 0 ? "" : (placeValue == 0 ? digitWord.data[1].word : firstLiangCharacter(digitWord.data[1].word))) + 
-            (placeValue == 0 ? "" : placePrefix.data[1].word);
-        ordinal = 
-            (nextDigit == 1 && placeValue != 0 ? "" : (placeValue == 0 ? digitWord.data[2].word : firstLiangCharacter(digitWord.data[2].word))) + 
-            (placeValue == 0 ? "" : placePrefix.data[2].word);
-        
-        numberRemaining = Math.floor(numberRemaining / 10);
-        placeValue++;
+                        if (placeValue > placeRadix) {
+                            const newTen = () => {
+                                let k = 2;
+                                while (placeValue % (placeRadix * k) == 0) {
+                                    k *= 2;
+                                }
+                                return placeValue % (placeRadix * k);
+                            };
+                            console.log(`New ten value: ${newTen()}`);
+                            placePrefix = getTenWord(newTen()).data[index].word;
+                        }
 
-        while (numberRemaining > 0) {
-            nextDigit = numberRemaining % 10;
-            digitWord = getDigitWord(nextDigit);
+                        for (let i = 0; i < placeValue; i++) {
+                            console.log(`Value at ${Number(placeValue) + i}: ${numString[Number(placeValue) + i]}`)
+                            if (numString[Number(placeValue) + i] && numString[Number(placeValue) + i] != 0) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    }
 
-            if (nextDigit != 0) {
-                const placePrefix = getDigitWord(Math.pow(10, placeValue)).data[0].word;
-                const numPrefix = nextDigit != 1 ? (firstLiangCharacter(digitWord.data[0].word)) : "";
+                    if (placeValue > placeRadix) {
+                        console.log(`Checking bonus value: ${placeValue}`);
+                        const newTen = placeValue%placeRadix;
+                        console.log(`New ten value: ${newTen}`);
+                        placePrefix = getTenWord(newTen == 0 ? placeRadix : newTen).data[index].word;
+                    }
 
-                disjunctive = numPrefix + placePrefix + disjunctive;
-                counting = numPrefix + placePrefix + counting;
-                ordinal = numPrefix + placePrefix + ordinal;
+                    if (numString[placeValue] == 0) {
+                        return false;
+                    }
+                    return true;
+                }
+
+                return (showPrefix() ? placePrefix : "");
             }
 
-            numberRemaining = Math.floor(numberRemaining / 10);
-            placeValue++;
+            const numberPrefixes = (index) => {
+                const showNumber = () => {
+                    if (numString.length == 1) {
+                        return true;
+                    }
+
+                    if (numString[placeValue] == 0) {
+                        return false;
+                    }
+
+                    if (numString[placeValue] == 1) {
+                        if (placeValue%placeRadix == 0 && placeValue != numString.length-1) {
+                            // Thousands, Millions, Billions, etc
+                            console.log(`DIGIT - Checking radix value: ${placeValue}`);
+                            return true;
+                        }
+
+                        return false;
+                    }
+                    return true;
+                }
+
+                return (showNumber() ? getDigitWord(numString[placeValue]).data[index].word : "");
+            }
+
+            // Setting the numbers
+            disjunctive = 
+            // Number Prefix
+                (placeValue == 0 ? numberPrefixes(0) : firstLiangCharacter(numberPrefixes(0))) + 
+            // Place Value
+                placePrefixes(0) + disjunctive;
+
+            counting = 
+            // Number Prefix
+                (placeValue == 0 ? numberPrefixes(firstDigitSeen ? 0 : 1) : firstLiangCharacter(numberPrefixes(firstDigitSeen ? 0 : 1))) + 
+            // Place Value
+                placePrefixes(firstDigitSeen ? 0 : 1) + counting;
+
+            ordinal = 
+            // Number Prefix
+                (placeValue == 0 ? numberPrefixes(firstDigitSeen ? 0 : 2) : firstLiangCharacter(numberPrefixes(firstDigitSeen ? 0 : 2))) + 
+            // Place Value
+                placePrefixes(firstDigitSeen ? 0 : 2) + ordinal;
+
+            console.log(disjunctive);
+
+            // First digit checker
+            if (disjunctive != "") {
+                firstDigitSeen = true;
+            }
         }
 
         return {
@@ -339,17 +418,20 @@ function createNumberWords(numberToString) {
         }
     }
     catch (e) {
-        console.log("Error generating number:", e)
+        searchError = "Error: Please enter a lower number"
+
+        searchErrorText.innerHTML = searchError;
+        console.log("Error:",e);
         return null;
     }
 }
 
-function getTenPowerWord(power) {
-    let value = Math.pow(10, power);
-    const tenPower = getDigitWord(value);
-    if (tenPower) {
-        return tenPower;
+function getTenWord(ten) {
+    const result = getDigitWord(Math.pow(10, ten));
+    if (result) {
+        return result;
     }
+    return null;
 }
 
 function getDigitWord(digit) {
@@ -374,6 +456,8 @@ const submitFilter = document.getElementById("submit-filter");
 // Search Bar
 const searchBar = document.getElementById('search-bar');
 let searchFilter = null;
+const searchErrorText = document.getElementById('search-error');
+let searchError = "";
 
 // Filter Checkboxes
 const wordBox = document.getElementById('word-box');

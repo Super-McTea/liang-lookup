@@ -5,9 +5,14 @@ const wordType = {
     adjective: "adjective",
     adverb: "adverb",
     exclamation: "exclamation",
+    demonstrative: "demonstrative",
     determiner: "determiner",
 
-    number: "number",
+    prefix: "prefix",
+    suffix: "suffix",
+    auxillary: "auxillary",
+
+    postposition: "postposition",
 }
 
 const numberType = {
@@ -274,23 +279,23 @@ const numberData = [
             }
         ]
     },
-    // {
-    //     number: 10000,
-    //     data: [
-    //         {
-    //             type: numberType.disjunctive,
-    //             word: "giza"
-    //         },
-    //         {
-    //             type: numberType.counting,
-    //             word: "gizami"
-    //         },
-    //         {
-    //             type: numberType.ordinal,
-    //             word: "gizavu"
-    //         }
-    //     ]
-    // },
+    {
+        number: 1000000,
+        data: [
+            {
+                type: numberType.disjunctive,
+                word: "mili"
+            },
+            {
+                type: numberType.counting,
+                word: "milimi"
+            },
+            {
+                type: numberType.ordinal,
+                word: "milivu"
+            }
+        ]
+    },
 ]
 
 const wordData = [
@@ -680,7 +685,12 @@ const wordData = [
                 definition: [
                     "to be",
                     "to exist",
-                    "(auxillary) is"
+                ]
+            },
+            {
+                type: wordType.auxillary,
+                definition: [
+                    "is"
                 ]
             }
         ]
@@ -2012,6 +2022,536 @@ const wordData = [
                     "cheese"
                 ]
             }
+        ]
+    },
+]
+
+const grammarWordData = [
+    {
+        word: "b",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "Past tense verb suffix"
+                ]
+            }
+        ]
+    },
+    {
+        word: "d",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "Future tense verb suffix"
+                ]
+            }
+        ]
+    },
+    {
+        word: "g",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "Present tense verb suffix"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "m",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "Nominalisation suffix",
+                    "Subject/Topic Marker"
+                ]
+            }
+        ]
+    },
+    {
+        word: "n",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "plural noun suffix"
+                ]
+            }
+        ]
+    },
+    {
+        word: "ng",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "Proper noun suffix"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "maba",
+        data: [
+            {
+                type: wordType.auxillary,
+                definition: [
+                    "not",
+                    "Negative Auxillary Verb"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "ra",
+        data: [
+            {
+                type: wordType.prefix,
+                definition: [
+                    "Imperfective modifier verb prefix, for verbs that end in /a/"
+                ]
+            }
+        ]
+    },
+    {
+        word: "pi",
+        data: [
+            {
+                type: wordType.prefix,
+                definition: [
+                    "Imperfective modifier verb prefix, for verbs that end in /i/"
+                ]
+            }
+        ]
+    },
+    {
+        word: "mu",
+        data: [
+            {
+                type: wordType.prefix,
+                definition: [
+                    "Imperfective modifier verb prefix, for verbs that end in /u/"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "iu",
+        data: [
+            {
+                type: wordType.auxillary,
+                definition: [
+                    "?",
+                    "Interrogative particle"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "niri",
+        data: [
+            {
+                type: wordType.demonstrative,
+                definition: [
+                    "this",
+                    "Object closest to the first person",
+                ]
+            }
+        ]
+    },
+    {
+        word: "navu",
+        data: [
+            {
+                type: wordType.demonstrative,
+                definition: [
+                    "that",
+                    "Object closest to the second person",
+                ]
+            }
+        ]
+    },
+    {
+        word: "nuza",
+        data: [
+            {
+                type: wordType.demonstrative,
+                definition: [
+                    "that over there",
+                    "Object closest to the third person",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "na",
+        data: [
+            {
+                type: wordType.determiner,
+                definition: [
+                    "the (thing)",
+                    "Definite article",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "navu"
+        ]
+    },
+    {
+        word: "ka",
+        data: [
+            {
+                type: wordType.demonstrative,
+                definition: [
+                    "a (thing)",
+                    "indefinite article",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "aka"
+        ]
+    },
+
+    {
+        word: "mi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "(Pronoun) I, me",
+                    "First person marker",
+                ]
+            }
+        ]
+    },
+    {
+        word: "zu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "(Pronoun) You",
+                    "Second person marker",
+                ]
+            }
+        ]
+    },
+    {
+        word: "nari",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "(Pronoun) He, him",
+                    "Third person marker (male)",
+                ]
+            }
+        ]
+    },
+    {
+        word: "nuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "(Pronoun) She, her",
+                    "Third person marker (female)",
+                ]
+            }
+        ]
+    },
+    {
+        word: "ti",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "(Pronoun) it (when referring to an object)",
+                    "Third person marker (inanimate)",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "miadu",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "to, in the direction of (some thing or place)",
+                    "(Directional)",
+                ]
+            }
+        ]
+    },
+    {
+        word: "mairi",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "from, coming from (some thing or place)",
+                    "(Directional)",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "izi",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "also (particle)",
+                    "too, as well"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "mika",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "similar to \"-ation\", in English",
+                    "nominalisation particle",
+                    "noun-verb phrase suffix"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "nalu",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "Name honorific, to show respect to someone with more experience",
+                ]
+            }
+        ]
+    },
+    {
+        word: "zhibi",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "Name honorific, to acknowledge a person's interest in your experience",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "fu",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "of",
+                    "Possessive Marker",
+                    "Genitive Marker"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "liza",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "what",
+                    "Interrogative pronoun, also technically a determiner",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "nibi",
+        data: [
+            {
+                type: wordType.demonstrative,
+                definition: [
+                    "here",
+                    "Location closest to the first person",
+                ]
+            }
+        ]
+    },
+    {
+        word: "nabu",
+        data: [
+            {
+                type: wordType.demonstrative,
+                definition: [
+                    "there",
+                    "Location closest to the second person",
+                ]
+            }
+        ]
+    },
+    {
+        word: "nuaba",
+        data: [
+            {
+                type: wordType.demonstrative,
+                definition: [
+                    "over there",
+                    "Location closest to the third person",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "lizagiba",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "where, \"what place\"",
+                    "Locational interrogative",
+                ]
+            }
+        ]
+    },
+    {
+        word: "lizabulami",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "how, \"what method\"",
+                    "operational interrogative",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "tu",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "and",
+                    "accumulative particle"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "gaku",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "-like (water-like, tough-like)",
+                    "similie or comparison marker",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "piku",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "very",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "kiia",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "When",
+                    "(statement 1), when (statement 2)",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "iuku",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "yet",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "bakub",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "(Grammar) Name of the past-tense suffix, /b/",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "b"
+        ]
+    },
+    {
+        word: "tumad",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "(Grammar) Name of the future-tense suffix, /d/",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "d"
+        ]
+    },
+    {
+        word: "nazig",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "(Grammar) Name of the present-tense suffix, /g/",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "g"
         ]
     },
 ]

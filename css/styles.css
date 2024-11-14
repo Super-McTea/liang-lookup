@@ -109,6 +109,11 @@
             width: 100%;
         }
     }
+
+    .error {
+        color: red;
+        font-weight: bold;
+    }
 }
 
 #filter-button-container {
@@ -172,8 +177,20 @@
     background-color: plum;
 }
 
-.determiner {
+.auxillary {
+    background-color: palegoldenrod;
+}
+
+.determiner, .demonstrative {
     background-color: yellow;
+}
+
+.prefix, .suffix {
+    background-color: cornflowerblue;
+}
+
+.postposition {
+    background-color: white;
 }
 
 @media screen and (min-width: 800px) {
