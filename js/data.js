@@ -58,6 +58,7 @@ const alphabet = [
 ]
 
 const numberData = [
+    //#region Digits
     {
         number: 0,
         data: [
@@ -228,6 +229,8 @@ const numberData = [
             }
         ]
     },
+    //#endregion
+    //#region Tens
     {
         number: 10,
         data: [
@@ -296,9 +299,11 @@ const numberData = [
             }
         ]
     },
+    //#endregion
 ]
 
 const wordData = [
+    //#region Single Words
     {
         word: "lia",
         data: [
@@ -2024,9 +2029,58 @@ const wordData = [
             }
         ]
     },
+    //#endregion
+    //#region Compound Words
+    {
+        word: "akamuri amizha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "Birthday, as in \"Happy Birthday\""
+                ]
+            }
+        ],
+        derivedFrom: [
+            "akamuri",
+            "amizha"
+        ]
+    },
+    {
+        word: "krizubadibri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "Christmas"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "krizu",
+            "badimabri"
+        ]
+    },
+    {
+        word: "tinaka mazhi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "Potion, \"magic drink\""
+                ]
+            }
+        ],
+        derivedFrom: [
+            "tinaka",
+            "mazhi"
+        ]
+    },
+    //#endregion
 ]
 
 const grammarWordData = [
+    //#region Grammar Words
     {
         word: "b",
         data: [
@@ -2425,7 +2479,7 @@ const grammarWordData = [
     },
 
     {
-        word: "lizagiba",
+        word: "liza giba",
         data: [
             {
                 type: wordType.adverb,
@@ -2437,7 +2491,7 @@ const grammarWordData = [
         ]
     },
     {
-        word: "lizabulami",
+        word: "liza bulami",
         data: [
             {
                 type: wordType.adverb,
@@ -2554,4 +2608,5 @@ const grammarWordData = [
             "g"
         ]
     },
+    //#endregion
 ]
