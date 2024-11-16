@@ -195,6 +195,10 @@ function createCardSpelling(wordToSpell) {
         return "";
     }
 
+    if (firstChar == " ") {
+        return `<div class="blanked display-character"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length));
+    }
+
     return `<div class="display-character" style="background-image: url(assets/characters/${firstChar}.png)"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length));
 }
 

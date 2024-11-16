@@ -93,6 +93,10 @@
             background-position: center;
             background-size: cover;
         }
+        
+        .blanked.display-character {
+            aspect-ratio: 1/2;
+        }
     }
     .card-name {
         font-size: x-large;
@@ -152,11 +156,17 @@
     .name-container {
         justify-content: center;
         flex-wrap: wrap;
+
         .display-character {
             height: 4em;
             aspect-ratio: 3/4;
             background-position: center;
             background-size: cover;
+        }
+
+        .blanked.display-character {
+            height: 4em;
+            aspect-ratio: 1/4;
         }
     }
 }
