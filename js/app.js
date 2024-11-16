@@ -309,10 +309,10 @@ function populateCards() {
         tempCardContainer.appendChild(rightGroup);
         tempCardContainer.appendChild(bottomGroup);
 
-        topGroup.classList.add('top-alphabet');
-        leftGroup.classList.add('left-alphabet');
-        rightGroup.classList.add('right-alphabet');
-        bottomGroup.classList.add('bottom-alphabet');
+        topGroup.classList.add('top-alphabet','alphabet-grid');
+        leftGroup.classList.add('left-alphabet','alphabet-grid');
+        rightGroup.classList.add('right-alphabet','alphabet-grid');
+        bottomGroup.classList.add('bottom-alphabet','alphabet-grid');
 
         let sectionIndex = 0;
         for (letter of alphabet) {

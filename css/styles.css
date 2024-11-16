@@ -1,13 +1,13 @@
 #container {
     width: 1300px;
-    max-width: 80%;
+    max-width: 90%;
     margin: auto;
 
     background-color: #ffebcd;
 }
 
 #card-container {
-    padding: 1.5em 1em;
+    padding: 1.5em 0.5em;
 }
 
 #card-container.number-mode {
@@ -22,41 +22,44 @@
 
 #card-container.grammar-mode {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-        "top blank"
-        "left right"
-        "bottom bottom";
+        "top"
+        "left" 
+        "right"
+        "bottom";
     grid-gap: 2em;
+
+    .alphabet-grid {
+        display: grid;
+        row-gap: 0;
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        /* width: fit-content; */
+        width:auto;
+    }
 
     .top-alphabet {
         grid-area: top;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
     }
 
     .left-alphabet {
         grid-area: left;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
     }
 
     .right-alphabet {
         grid-area: right;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
     }
 
     .bottom-alphabet {
         grid-area: bottom;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
     }
 
     .word-card {
         text-align: center;
         .name-container {
             justify-content: center;
+        }
+        .card-name {
+            margin: auto;
         }
     }
 }
@@ -75,9 +78,6 @@
     margin: 0.5em;
 
     flex-grow: 1;
-
-    background-size: contain;
-    background-position: center;
 
     .name-container {
         display: flex;
@@ -126,7 +126,7 @@
     border: none;
 }
 .word-card.smushed {
-    max-width: 40%;
+    max-width: 100%;
 }
 
 .romanisation {
@@ -268,8 +268,38 @@
     background-color: white;
 }
 
-/* @media screen and (min-width: 900px) {
-    .number-container {
-        flex-direction: row;
+
+@media screen and (min-width: 900px) {
+    #card-container {
+        padding: 1.5em 1em;
     }
-} */
+
+    .word-card.smushed {
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #container {
+        max-width: 80%;
+    }
+
+    #card-container.grammar-mode {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "top blank"
+            "left right"
+            "bottom bottom";
+            grid-gap: 1em;
+
+        .alphabet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(50px, 1fr));
+            width: auto;
+        }
+
+        .bottom-alphabet {
+            grid-template-columns: repeat(6, minmax(50px, 1fr));
+        }
+    }
+}
