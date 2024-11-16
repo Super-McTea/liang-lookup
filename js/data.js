@@ -23,6 +23,7 @@ const numberType = {
 
 const alphabet = [
     "a", "i", "u",
+
     "la", "li", "lu",
     "ma", "mi", "mu",
     "fa", "fi", "fu",
@@ -31,22 +32,21 @@ const alphabet = [
     "pa", "pi", "pu",
     "ta", "ti", "tu",
     "ka", "ki", "ku",
-
     "b", "d", "g",
 
     "ra", "ri", "ru",
     "na", "ni", "nu",
     "va", "vi", "vu",
     "zha", "zhi", "zhu",
-    "wo", "yo",
+    "wo", "yo", " ",
     "ba", "bi", "bu",
     "da", "di", "du",
     "ga", "gi", "gu",
-
     "m", "n", "ng",
 
-    "Fra", "Fri", "Fru",
     "Mla", "Mli", "Mlu",
+
+    "Fra", "Fri", "Fru",
     "Pra", "Pri", "Pru",
     "Tra", "Tri", "Tru",
     "Kra", "Kri", "Kru",

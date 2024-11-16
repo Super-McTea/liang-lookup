@@ -6,6 +6,61 @@
     background-color: #ffebcd;
 }
 
+#card-container {
+    padding: 1.5em 1em;
+}
+
+#card-container.number-mode {
+    display: block;
+}
+
+#card-container.word-mode {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#card-container.grammar-mode {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        "top blank"
+        "left right"
+        "bottom bottom";
+    grid-gap: 2em;
+
+    .top-alphabet {
+        grid-area: top;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .left-alphabet {
+        grid-area: left;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .right-alphabet {
+        grid-area: right;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .bottom-alphabet {
+        grid-area: bottom;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .word-card {
+        text-align: center;
+        .name-container {
+            justify-content: center;
+        }
+    }
+}
+
 .box {
     padding: 0 5px;
     border: 3px solid black;
@@ -18,6 +73,8 @@
     border-radius: 5px;
     padding: 0.5em;
     margin: 0.5em;
+
+    flex-grow: 1;
 
     background-size: contain;
     background-position: center;
@@ -60,6 +117,13 @@
         margin: 0.1em 1em;
     }
 }
+.word-card.blanked {
+    background-color: #00000000;
+    border: none;
+}
+.word-card.smushed {
+    max-width: 30%;
+}
 
 .romanisation {
     text-align: center;
@@ -67,13 +131,18 @@
 
 .number-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-evenly;
+    align-items: stretch;
 
     .number-word {
-        width: 30%;
+        min-width: 30%;
+        width: fit-content;
+        max-width: 90%;
+        border: 3px solid gray;
+        border-radius: 5px;
+        margin: 0.1em 0;
     }
 
     .card-type-header {
@@ -82,6 +151,7 @@
 
     .name-container {
         justify-content: center;
+        flex-wrap: wrap;
         .display-character {
             height: 4em;
             aspect-ratio: 3/4;
@@ -193,8 +263,8 @@
     background-color: white;
 }
 
-@media screen and (min-width: 800px) {
+/* @media screen and (min-width: 900px) {
     .number-container {
         flex-direction: row;
     }
-}
+} */
