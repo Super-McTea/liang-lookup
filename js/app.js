@@ -211,10 +211,10 @@ function updateFilters() {
 function updateSearch() {
     updateErrorMessage();
     const searchTerm = searchBar.value.trim();
-    console.log(searchTerm);
+    // console.log(searchTerm);
     if (searchTerm.length == 0) {
         searchFilter = null;
-        updateErrorMessage("DEBUG Search Empty");
+        // updateErrorMessage("DEBUG Search Empty");
     }
     else {
         searchFilter = searchTerm.toLowerCase();
