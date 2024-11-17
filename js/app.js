@@ -209,14 +209,16 @@ function updateFilters() {
 }
 
 function updateSearch() {
+    updateErrorMessage();
     const searchTerm = searchBar.value.trim();
-    if (searchTerm.length === 0) {
+    console.log(searchTerm);
+    if (searchTerm.length == 0) {
         searchFilter = null;
+        updateErrorMessage("DEBUG Search Empty");
     }
     else {
         searchFilter = searchTerm.toLowerCase();
     }
-    updateErrorMessage();
 }
 
 function updateErrorMessage(errorMessage) {
@@ -259,7 +261,7 @@ function populateCards() {
                 }
             ).sort(
                 (a, b) => {
-                    return (searchFilter && searchFilter.length != 0) ? a.word.length - b.word.length : false;
+                    return (searchFilter && searchFilter.length != 0) ? a.word.length - b.word.length : null;
                 }
             );
 
@@ -273,7 +275,7 @@ function populateCards() {
                 }
             ).sort(
                 (a, b) => {
-                    return (searchFilter && searchFilter.length != 0) ? a.word.length - b.word.length : false;
+                    return (searchFilter && searchFilter.length != 0) ? a.word.length - b.word.length : null;
                 }
             );
 
