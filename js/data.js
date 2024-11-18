@@ -2029,20 +2029,6 @@ const wordData = [
             }
         ]
     },
-
-    {
-        word: "kima",
-        data: [
-            {
-                type: wordType.verb,
-                definition: [
-                    "to take",
-                    "to withdraw (money)",
-                    "to repossess"
-                ]
-            }
-        ]
-    },
     //#endregion
     //#region Compound Words
     {
@@ -2620,19 +2606,6 @@ const grammarWordData = [
         ],
         derivedFrom: [
             "g"
-        ]
-    },
-
-    {
-        word: "dili",
-        data: [
-            {
-                type: wordType.postposition,
-                definition: [
-                    "but, however",
-                    "used to introduce a statement that contrasts with a previous or following statement"
-                ]
-            }
         ]
     },
     //#endregion
