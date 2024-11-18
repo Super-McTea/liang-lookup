@@ -298,6 +298,8 @@ div.inline {
 
 #back-to-top:hover {
     background-color: burlywood;
+    cursor: pointer;
+    scale: 1.05;
 }
 
 
