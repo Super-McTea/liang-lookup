@@ -129,6 +129,52 @@
     max-width: 100%;
 }
 
+.grammar-card {
+    background-color: #fdf6e2;
+    border: 5px solid black;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 0.5em;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    div.text-line {
+        margin: 1em 0;
+        line-height: 2em;
+
+        h1, h2 {
+            text-align: center;
+        }
+    }
+
+    .name-container {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        vertical-align: middle;
+        height: 1.8em;
+        margin: 0 0.1em;
+
+        .display-character {
+            display: inline-block;
+            position: relative;
+            top: -15%;
+            height: 100%;
+            aspect-ratio: 3/4;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .blanked.display-character {
+            aspect-ratio: 1/4;
+        }
+    }
+}
+
+div.inline {
+    display: inline;
+}
+
 .romanisation {
     text-align: center;
 }
@@ -167,12 +213,12 @@
 }
 
 .filters {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-areas: "top" "bottom";
+    grid-gap: 0;
 }
 
 #searchbar-container {
-    width: 80%;
 
     .search-bar {
         padding: 0.5em;
@@ -193,7 +239,7 @@
 
 #filter-button-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
@@ -202,6 +248,8 @@
     padding: 0.5em;
     border: 3px solid gray;
     border-radius: 0.5em;
+    height: fit-content;
+    margin: auto;
     text-transform: capitalize;
 }
 
@@ -228,6 +276,31 @@
     background-color: lightsteelblue;
 }
 
+#back-to-top {
+    position: fixed;
+    bottom: 10px;
+    right: 5px;
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .back-to-top-text {
+        color: #222222;
+    }
+
+    height: 50px;
+    width: 100px;
+    background-color: lightsteelblue;
+    border: 3px solid black;
+    border-radius: 3em;
+}
+
+#back-to-top:hover {
+    background-color: burlywood;
+}
+
+
 .noun {
     background-color: aqua;
 }
@@ -242,6 +315,10 @@
 
 .adjective {
     background-color: pink;
+}
+
+.genitive {
+    background-color: cadetblue;
 }
 
 .adverb {
@@ -301,5 +378,12 @@
         .bottom-alphabet {
             grid-template-columns: repeat(6, minmax(50px, 1fr));
         }
+    }
+
+    .filters {
+        display: grid;
+        grid-template-columns: 60% 1fr;
+        grid-template-areas: "left right";
+        grid-gap: 0;
     }
 }

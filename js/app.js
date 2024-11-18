@@ -6,7 +6,7 @@ function createWordCard(word) {
     card.id = `${name}`;
     card.classList.add("word-card", "smushed");
 
-    let innerString = `<div class="card-name">${name}</div>
+    let innerString = `<div class="card-name heading">${name}</div>
     <div class="name-container">`;
         
     innerString += createCardSpelling(name) + `</div>`;
@@ -18,7 +18,7 @@ function createWordCard(word) {
             const derivation = d.derivedFrom;
 
             innerString += `
-            <p class="card-type-header">${type}</p>
+            <p class="card-type-header heading">${type}</p>
             <div class="${type}" id="${name}-${type}">
                 <ol>
                     <li>${definitions.join("</li><li>")}
@@ -26,14 +26,14 @@ function createWordCard(word) {
                 </ol>`;
 
             if (derivation) {
-                innerString += `<p>Derived from [ ${derivation.join(" + ")} ]</p>`
+                innerString += `<p class="heading">Derived from [ ${derivation.join(" + ")} ]</p>`
             }
             innerString += `</div>`;
         }
     }
 
     if (word.derivedFrom) {
-        innerString += `<p class="card-footer">Derived from [ ${word.derivedFrom.join(" + ")} ]</p>`
+        innerString += `<p class="card-footer heading">Derived from [ ${word.derivedFrom.join(" + ")} ]</p>`
     }
 
     card.innerHTML = innerString;
@@ -98,6 +98,42 @@ function createAlphabetCard(letter, parentGroup) {
 
     // console.log(card.id);
     parentGroup.appendChild(card);
+}
+
+function createGrammarCard(grammarDataItem) {
+    const grammarCard = document.createElement('div');
+    grammarCard.id = grammarDataItem.heading;
+    grammarCard.classList.add("grammar-card");
+
+    let innerText = `<div class="text-line"><h1>${replaceLiangTags(grammarDataItem.heading)}</h1></div>`;
+
+    for (const para of grammarDataItem.paragraphs) {
+        const liangReplaced = replaceLiangTags(para);
+        innerText += `<div class="text-line">${liangReplaced}</div>`;
+    }
+
+    grammarCard.innerHTML = innerText;
+
+    cardContainer.appendChild(grammarCard);
+}
+
+function replaceLiangTags(text) {
+    if (/<liang>.*<\/liang>/gm.test(text)) {
+        // console.log("Test successful for:", text);
+
+        const matches = text.match(/<liang>((?!<liang>).)*<\/liang>/gm);
+        let newText = text;
+
+        for (const match of matches) {
+            const newMatch = match.replace(/<liang>|<\/liang>/gm, "");
+            const liangifiedText = `<div class="name-container">${createCardSpelling(newMatch.trim())}</div>`;
+
+            newText = newText.replace(match, liangifiedText);
+        }
+
+        return newText;
+    }
+    return text;
 }
 
 function sortAlphabetically(first, second) {
@@ -199,12 +235,13 @@ function createCardSpelling(wordToSpell) {
         return `<div class="blanked display-character"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length));
     }
 
-    return `<div class="display-character" style="background-image: url(assets/characters/${firstChar}.png)"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length));
+    return `<div class="display-character" style="background-image: url(assets/characters/${firstChar}.png)" title="${firstChar}"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length));
 }
 
 function updateFilters() {
     showNumbers = numberBox.checked;
     showWords = wordBox.checked;
+    showAlphabet = alphaBox.checked;
     showGrammar = grammarBox.checked;
 }
 
@@ -297,7 +334,7 @@ function populateCards() {
             createWordCard(word);
         }
     }
-    if (showGrammar) {
+    if (showAlphabet) {
         cardContainer.classList.add('grammar-mode');
         const tempCardContainer = document.createDocumentFragment();
 
@@ -342,6 +379,11 @@ function populateCards() {
         }
 
         cardContainer.appendChild(tempCardContainer);
+    }
+    if (showGrammar) {
+        for (const grammarItem of grammarData) {
+            createGrammarCard(grammarItem);
+        }
     }
 }
 
@@ -549,7 +591,7 @@ const lenSorted = [...alphabet].map(a => a.toLowerCase()).sort((a,b) => {return 
 
 const cardContainer = document.getElementById("card-container");
 const filterButtonContainer = document.getElementById("filter-button-container");
-const submitFilter = document.getElementById("submit-filter");
+const backToTop = document.getElementById('back-to-top');
 
 // Search Bar
 const searchBar = document.getElementById('search-bar');
@@ -560,11 +602,13 @@ let searchError = "";
 // Filter Checkboxes
 const wordBox = document.getElementById('word-box');
 const numberBox = document.getElementById('number-box');
+const alphaBox = document.getElementById('alphabet-box');
 const grammarBox = document.getElementById('grammar-box');
 
 // Filter variables
 let showWords = false;
 let showNumbers = false;
+let showAlphabet = false;
 let showGrammar = false;
 
 filterButtonContainer.addEventListener('click', (event) => {
@@ -577,6 +621,15 @@ searchBar.addEventListener('input', (event) => {
     event.preventDefault();
     updateSearch();
     populateCards();
+})
+
+backToTop.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+    });
 })
 
 // Populate data
