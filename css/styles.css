@@ -1,9 +1,16 @@
+/* #region The Base Container */
 #container {
     width: 1300px;
     max-width: 90%;
     margin: auto;
 
     background-color: #ffebcd;
+}
+
+.box {
+    padding: 0 5px;
+    border: 3px solid black;
+    border-radius: 5px;
 }
 
 #card-container {
@@ -20,7 +27,7 @@
     justify-content: space-evenly;
 }
 
-#card-container.grammar-mode {
+#card-container.alphabet-mode {
     display: grid;
     grid-template-areas:
         "top"
@@ -28,160 +35,76 @@
         "right"
         "bottom";
     grid-gap: 2em;
-
-    .alphabet-grid {
-        display: grid;
-        row-gap: 0;
-        grid-template-columns: repeat(3, minmax(100px, 1fr));
-        /* width: fit-content; */
-        width:auto;
-    }
-
-    .top-alphabet {
-        grid-area: top;
-    }
-
-    .left-alphabet {
-        grid-area: left;
-    }
-
-    .right-alphabet {
-        grid-area: right;
-    }
-
-    .bottom-alphabet {
-        grid-area: bottom;
-    }
-
-    .word-card {
-        text-align: center;
-        .name-container {
-            justify-content: center;
-        }
-        .card-name {
-            margin: auto;
-        }
-    }
 }
 
-.box {
-    padding: 0 5px;
-    border: 3px solid black;
-    border-radius: 5px;
-}
-
-.word-card {
+.card {
     background-color: #fdf6e2;
     border: 5px solid black;
     border-radius: 5px;
     padding: 0.5em;
     margin: 0.5em;
+}
+/* #endregion */
 
+/* #region Display Characters */
+
+.name-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+
+    margin: 0.1em 1em;
+}
+
+.display-character {
+    height: 4em;
+    aspect-ratio: 3/4;
+    background-position: center;
+    background-size: cover;
+}
+
+.blanked.display-character {
+    aspect-ratio: 1/4;
+}
+
+/* #endregion */
+
+/* #region Word Mode */
+.word-card {
     flex-grow: 1;
-
-    .name-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: left;
-
-        margin: 0.1em 1em;
-
-        .display-character {
-            height: 4em;
-            aspect-ratio: 3/4;
-            background-position: center;
-            background-size: cover;
-        }
-        
-        .blanked.display-character {
-            aspect-ratio: 1/4;
-        }
-    }
-    .card-name {
-        font-size: x-large;
-        text-decoration: underline;
-        text-transform: capitalize;
-        margin: 0.1em 1em;
-    }
-
-    .card-type-header {
-        margin: 0.5em 1em 0.1em;
-        font-style: italic;
-        text-transform: capitalize;
-    }
-
-    ol, p {
-        text-transform: capitalize;
-        margin: 0.1em;
-    }
-
-    .card-footer {
-        font-style: italic;
-        margin: 0.1em 1em;
-    }
 }
-.word-card.blanked {
-    background-color: #00000000;
-    border: none;
-}
+
 .word-card.smushed {
     max-width: 100%;
 }
 
-.grammar-card {
-    background-color: #fdf6e2;
-    border: 5px solid black;
-    border-radius: 5px;
-    padding: 0.5em;
-    margin: 0.5em;
-
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 14px;
-    div.text-line {
-        margin: 1em 0;
-        line-height: 2em;
-
-        h1, h2 {
-            text-align: center;
-        }
-    }
-
-    .name-container {
-        display: flex;
-        display: inline-flex;
-
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        vertical-align: middle;
-
-        height: fit-content;
-        margin: 0 0.1em;
-
-        .display-character {
-            display: block;
-            position: relative;
-            top: -15%;
-            height: 1.8em;
-            aspect-ratio: 3/4;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .blanked.display-character {
-            aspect-ratio: 1/4;
-        }
-    }
+.word-card .card-name {
+    font-size: x-large;
+    text-decoration: underline;
+    text-transform: capitalize;
+    margin: 0.1em 1em;
 }
 
-div.inline {
-    display: inline;
+.word-card .card-type-header {
+    margin: 0.5em 1em 0.1em;
+    font-style: italic;
+    text-transform: capitalize;
 }
 
-.romanisation {
-    text-align: center;
+.word-card ol, .word-card p {
+    text-transform: capitalize;
+    margin: 0.1em;
 }
+
+.word-card .card-footer {
+    font-style: italic;
+    margin: 0.1em 1em;
+}
+
+/* #endregion */
+
+/* #region Number Mode */
 
 .number-container {
     display: flex;
@@ -189,63 +112,142 @@ div.inline {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: stretch;
-
-    .number-word {
-        min-width: 30%;
-        width: fit-content;
-        max-width: 90%;
-        border: 3px solid gray;
-        border-radius: 5px;
-        margin: 0.1em 0;
-    }
-
-    .card-type-header {
-        text-align: center;
-    }
-
-    .name-container {
-        justify-content: center;
-        flex-wrap: wrap;
-
-        .display-character {
-            height: 4em;
-            aspect-ratio: 3/4;
-            background-position: center;
-            background-size: cover;
-        }
-    }
 }
 
+.number-container .name-container {
+    justify-content: center;
+}
+
+.number-word {
+    min-width: 30%;
+    width: fit-content;
+    max-width: 90%;
+    border: 3px solid gray;
+    border-radius: 5px;
+    margin: 0.1em 0;
+}
+
+.number-container .card-type-header {
+    text-align: center;
+}
+
+.romanisation {
+    text-align: center;
+}
+
+/* #endregion */
+
+/* #region Alphabet Mode */
+
+.alphabet-grid {
+    display: grid;
+    row-gap: 0;
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    /* width: fit-content; */
+    width:auto;
+}
+
+.top-alphabet {
+    grid-area: top;
+}
+
+.left-alphabet {
+    grid-area: left;
+}
+
+.right-alphabet {
+    grid-area: right;
+}
+
+.bottom-alphabet {
+    grid-area: bottom;
+}
+
+.word-card.blanked {
+    background-color: #00000000;
+    border: none;
+}
+
+.alphabet-mode .word-card {
+    text-align: center;
+}
+
+.alphabet-mode .name-container {
+    justify-content: center;
+}
+.alphabet-mode .card-name {
+    margin: auto;
+}
+
+/* #endregion */
+
+/* #region Grammar Mode */
+
+.grammar-card {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+.text-line {
+    margin: 1em 0;
+    line-height: 2em;
+}
+
+.grammar-card h1, .grammar-card h2 {
+    text-align: center;
+}
+
+.grammar-card .name-container {
+    display: inline-flex;
+
+    align-items: center;
+    vertical-align: middle;
+
+    height: fit-content;
+    margin: 0 0.1em;
+
+    position: relative;
+    top: -0.18em;
+}
+
+.grammar-card .display-character {
+    height: 1.8em;
+}
+
+/* #endregion */
+
+/* #region Filters */
 .filters {
     display: grid;
     grid-template-areas: "top" "bottom";
     grid-gap: 0;
+    padding: 5px;
 }
 
-#searchbar-container {
-
-    .search-bar {
-        padding: 0.5em;
-        width: 90%;
-        margin: 0 auto;
-
-        #search-bar {
-            height: 2em;
-            width: 100%;
-        }
-    }
-
-    .error {
-        color: red;
-        font-weight: bold;
-    }
+/* Search Bar */
+.search-bar {
+    padding: 0.5em;
+    width: 90%;
+    margin: 0 auto;
 }
 
+#search-bar {
+    height: 2em;
+    width: 100%;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+/* Filter Buttons */
 #filter-button-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .filter-button {
@@ -253,18 +255,13 @@ div.inline {
     border: 3px solid gray;
     border-radius: 0.5em;
     height: fit-content;
-    margin: auto;
+    margin: 5px;
     text-transform: capitalize;
 }
 
-.submit-filter-button:hover {
-    scale: 1.1;
-    background-color: lightsteelblue;
-}
+/* #endregion */
 
-.filter-button.selected {
-    background-color: lightsteelblue;
-}
+/* #region Back To Top Button */
 
 #back-to-top {
     position: fixed;
@@ -275,9 +272,6 @@ div.inline {
     display: flex;
     justify-content: center;
     align-items: center;
-    .back-to-top-text {
-        color: #222222;
-    }
 
     height: 50px;
     width: 100px;
@@ -292,6 +286,13 @@ div.inline {
     scale: 1.05;
 }
 
+#back-to-top .back-to-top-text {
+    color: #222222;
+}
+
+/* #endregion */
+
+/* #region Word Types */
 
 .noun {
     background-color: aqua;
@@ -336,7 +337,7 @@ div.inline {
 .postposition {
     background-color: white;
 }
-
+/* #endregion */
 
 @media screen and (min-width: 900px) {
     #card-container {
@@ -353,23 +354,23 @@ div.inline {
         max-width: 80%;
     }
 
-    #card-container.grammar-mode {
+    #card-container.alphabet-mode {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
             "top blank"
             "left right"
             "bottom bottom";
             grid-gap: 1em;
+    }
 
-        .alphabet-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(50px, 1fr));
-            width: auto;
-        }
+    .alphabet-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(50px, 1fr));
+        width: auto;
+    }
 
-        .bottom-alphabet {
-            grid-template-columns: repeat(6, minmax(50px, 1fr));
-        }
+    .bottom-alphabet {
+        grid-template-columns: repeat(6, minmax(50px, 1fr));
     }
 
     .filters {

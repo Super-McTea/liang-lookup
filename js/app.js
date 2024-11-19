@@ -4,7 +4,7 @@ function createWordCard(word) {
 
     const card = document.createElement("div");
     card.id = `${name}`;
-    card.classList.add("word-card", "smushed");
+    card.classList.add("card", "word-card", "smushed");
 
     let innerString = `<div class="card-name heading">${name}</div>
     <div class="name-container">`;
@@ -48,7 +48,7 @@ function createNumberCard(number) {
 
     const card = document.createElement("div");
     card.id = `${data[0].word}`;
-    card.classList.add("word-card");
+    card.classList.add("card", "word-card");
 
     let innerString = `
     <div class="card-name">${num}</div>
@@ -79,7 +79,7 @@ function createNumberCard(number) {
 function createAlphabetCard(letter, parentGroup) {
     const card = document.createElement("div");
     card.id = `${letter}`;
-    card.classList.add("word-card");
+    card.classList.add("card", "word-card");
 
     if (letter != " ") {
         let innerString = `
@@ -103,7 +103,7 @@ function createAlphabetCard(letter, parentGroup) {
 function createGrammarCard(grammarDataItem) {
     const grammarCard = document.createElement('div');
     grammarCard.id = grammarDataItem.heading;
-    grammarCard.classList.add("grammar-card");
+    grammarCard.classList.add("card", "grammar-card");
 
     let innerText = `<div class="text-line"><h1>${replaceLiangTags(grammarDataItem.heading)}</h1></div>`;
 
@@ -335,7 +335,7 @@ function populateCards() {
         }
     }
     if (showAlphabet) {
-        cardContainer.classList.add('grammar-mode');
+        cardContainer.classList.add('alphabet-mode');
         const tempCardContainer = document.createDocumentFragment();
 
         const topGroup = document.createElement('div');
