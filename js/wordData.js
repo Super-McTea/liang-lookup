@@ -1748,6 +1748,13 @@ const wordData = [
                 definition: [
                     "dead"
                 ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to die",
+                    "to pass away",
+                ]
             }
         ]
     },
@@ -1807,6 +1814,131 @@ const wordData = [
         ],
         derivedFrom: [
             "zaliku"
+        ]
+    },
+
+    {
+        word: "mufi",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "soft",
+                    "quiet, gentle",
+                    "low volume"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "auti",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "loud",
+                    "noisy, deafening",
+                    "high volume",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "aranu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "sound",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "riini",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to hear",
+                    "to listen",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "bulu",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to see",
+                    "to look (at something)",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "namufi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "Piano (instrument)",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "lana",
+            "mufi",
+        ]
+    },
+
+    {
+        word: "lauti",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "Guitar (instrument)",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "lana",
+            "auti",
+        ]
+    },
+
+    {
+        word: "lana",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "string",
+                    "thread",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "apazu",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to hurt",
+                    "to injure",
+                    "to maim",
+                ]
+            }
         ]
     },
     //#endregion
