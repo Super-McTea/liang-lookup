@@ -746,7 +746,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "house"
+                    "house",
+                    "building"
                 ]
             }
         ]
@@ -1182,7 +1183,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "a song"
+                    "a song",
+                    "a melody line",
                 ]
             }
         ],
@@ -1941,6 +1943,402 @@ const wordData = [
             }
         ]
     },
+
+    {
+        word: "batidi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "collection",
+                ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to collect",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "badinu",
+            "tiidi",
+        ]
+    },
+
+    {
+        word: "tiidi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "thing",
+                    "unnamed inanimate object",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ti",
+        ]
+    },
+
+    {
+        word: "tikuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "container"
+                ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to contain",
+                    "to surround"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "tiidi",
+            "kuri",
+        ]
+    },
+
+    {
+        word: "ufazu",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to mix",
+                    "to combine",
+                    "to weave (fabrics)",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "fitazu",
+        ]
+    },
+
+    {
+        word: "laufana",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "fabric, cloth",
+                    "woven material",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "lana",
+            "ufazu",
+        ]
+    },
+
+    {
+        word: "zhuti",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "step, pace",
+                    "span",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "ramuti",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "time",
+                    "literally \"sunlight-step\""
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zurami",
+            "zhuti"
+        ]
+    },
+
+    {
+        word: "vadri",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to walk",
+                    "to move (from place to place)"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "limau",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "bell",
+                    "A metallic object which creates noise",
+                    "gong (in some cases)"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "filima",
+            "auti"
+        ]
+    },
+
+    {
+        word: "limaufi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "glockenspiel (instrument)",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "limau",
+            "mufi",
+        ]
+    },
+
+    {
+        word: "fizha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "dial, numbered display",
+                    "a knob you rotate to select a setting",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "amizha"
+        ]
+    },
+
+    {
+        word: "fizhimau",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "clock, literally \"bell-dial\""
+                ]
+            }
+        ],
+        derivedFrom: [
+            "fizha",
+            "limau",
+        ]
+    },
+
+    {
+        word: "fizhuru",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "sundial",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "fizha",
+            "zuru"
+        ]
+    },
+
+    {
+        word: "liliaubi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "library, literally \"house of books\" (shortened)",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "lilia",
+            "vuubi"
+        ]
+    },
+
+    {
+        word: "bizali",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to sing"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "lalali"
+        ]
+    },
+
+    {
+        word: "thiva",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "glass",
+                ]
+            },
+            {
+                type: wordType.genitive,
+                definition: [
+                    "glassy",
+                    "having the properties of glass"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "ravabu",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to hate",
+                    "to dislike",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "tamuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "land",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zhamuri"
+        ]
+    },
+
+    {
+        word: "piniri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "wing",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "fimavu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "feather",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "wing"
+        ]
+    },
+
+    {
+        word: "fikumuta",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "pen",
+                    "ink-based writing implement"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "fimavu",
+        ]
+    },
+
+    {
+        word: "tagili",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "tail",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "fikugili",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "pencil",
+                    "graphite-based writing implement"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "fikumuta",
+            "tagili"
+        ]
+    },
+
+    {
+        word: "iuli",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "colour, hue",
+                    "color"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "tiba",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to use",
+                ]
+            }
+        ]
+    },
+
     //#endregion
     //#region Compound Words
     {
