@@ -2339,6 +2339,18 @@ const wordData = [
         ]
     },
 
+    {
+        word: "frafumuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "France",
+                ]
+            }
+        ]
+    },
+
     //#endregion
     //#region Compound Words
     {

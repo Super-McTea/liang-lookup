@@ -118,14 +118,14 @@ function createGrammarCard(grammarDataItem) {
 }
 
 function replaceLiangTags(text) {
-    if (/<liang>.*<\/liang>/gm.test(text)) {
+    if (/<l>.*<\/l>/gm.test(text)) {
         // console.log("Test successful for:", text);
 
-        const matches = text.match(/<liang>((?!<liang>).)*<\/liang>/gm);
+        const matches = text.match(/<l>((?!<l>).)*<\/l>/gm);
         let newText = text;
 
         for (const match of matches) {
-            const newMatch = match.replace(/<liang>|<\/liang>/gm, "");
+            const newMatch = match.replace(/<l>|<\/l>/gm, "");
             const liangifiedText = `<div class="name-container">${createCardSpelling(newMatch.trim())}</div>`;
 
             newText = newText.replace(match, liangifiedText);
@@ -329,6 +329,7 @@ function populateCards() {
                 });
         }
     
+        displayWords = [...new Set(displayWords)];
 
         for (word of displayWords) {
             createWordCard(word);
