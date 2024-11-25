@@ -1,4 +1,4 @@
-function createWordCard(word) {
+function createWordCard(word, docFrag) {
     const name = word.word;
     const data = word.data;
 
@@ -39,7 +39,7 @@ function createWordCard(word) {
     card.innerHTML = innerString;
 
     // console.log(card.id);
-    cardContainer.appendChild(card);
+    docFrag.appendChild(card);
 }
 
 function createNumberCard(number) {
@@ -174,7 +174,7 @@ function sortAlphabetically(first, second) {
 }
 
 function verifyLiangWord(wordToTest) {
-    if (wordToTest.length <= 0) {
+    if (wordToTest == null || wordToTest.length <= 0) {
         return true;
     }
 
@@ -192,7 +192,6 @@ function verifyLiangWord(wordToTest) {
     }
 
     if (!found) {
-        console.log("ERROR:", wordToTest, "is false!");
         return false;
     }
 
@@ -221,7 +220,7 @@ function firstLiangCharacter(wordToTest) {
 
 function createCardSpelling(wordToSpell) {
 
-    if (wordToSpell.length <= 0) {
+    if (wordToSpell == null || wordToSpell.length <= 0) {
         return "";
     }
 
@@ -265,12 +264,27 @@ function updateErrorMessage(errorMessage) {
     searchErrorText.innerHTML = errorMessage;
 }
 
+function liangErrorReplace(pre, liangText) {
+    if (liangText == null || liangText.length <= 0) {
+        updateErrorMessage();
+        return;
+    }
+    const displayText = (pre ? pre : "") + `${verifyLiangWord(liangText) ? "<div class=\"name-container\">" + createCardSpelling(liangText) + "</div>": "not valid text: " + liangText}`
+    if (displayText) {
+        updateErrorMessage(displayText);
+    }
+    else {
+        updateErrorMessage();
+    }
+}
+
 function populateCards() {
     
     cardContainer.innerHTML = "";
     cardContainer.classList = [];
     if (showNumbers) {
         cardContainer.classList.add('number-mode');
+        updateErrorMessage();
         const numberWord = isNumeric(searchFilter) ? createNumberWords(searchFilter) : null;
         if (numberWord) {
             createNumberCard(numberWord);
@@ -331,9 +345,13 @@ function populateCards() {
     
         displayWords = [...new Set(displayWords)];
 
+        const tempCardContainer = document.createDocumentFragment();
         for (word of displayWords) {
-            createWordCard(word);
+            createWordCard(word, tempCardContainer);
         }
+        cardContainer.appendChild(tempCardContainer);
+
+        // liangErrorReplace("Searching for: ", searchFilter);
     }
     if (showAlphabet) {
         cardContainer.classList.add('alphabet-mode');
@@ -380,8 +398,11 @@ function populateCards() {
         }
 
         cardContainer.appendChild(tempCardContainer);
+
+        liangErrorReplace("", searchFilter);
     }
     if (showGrammar) {
+        updateErrorMessage();
         for (const grammarItem of grammarData) {
             createGrammarCard(grammarItem);
         }

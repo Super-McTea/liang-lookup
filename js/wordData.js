@@ -784,7 +784,8 @@ const wordData = [
             }
         ],
         derivedFrom: [
-            "aka"
+            "aka",
+            "mairi",
         ]
     },
 
@@ -2340,12 +2341,63 @@ const wordData = [
     },
 
     {
-        word: "frafumuri",
+        word: "branumuri",
         data: [
             {
                 type: wordType.noun,
                 definition: [
                     "France",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "inagumuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "England",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "bibumuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "Spain",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "bibami"
+        ]
+    },
+
+    {
+        word: "kafua",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "coffee (the drink)",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "guizha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "wood",
                 ]
             }
         ]
