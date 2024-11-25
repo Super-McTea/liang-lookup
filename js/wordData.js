@@ -2403,6 +2403,182 @@ const wordData = [
         ]
     },
 
+    {
+        word: "dizapi",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "sorry",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "daupu",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "sad",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "niami",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to learn",
+                    "to memorise",
+                    "to be taught",
+                ]
+            }
+        ]
+    },
+    {
+        word: "niamiuma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "learner",
+                    "student"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "niami",
+            "uma"
+        ]
+    },
+
+    {
+        word: "kilau",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to teach",
+                    "to instruct",
+                    "to impart",
+                ]
+            }
+        ]
+    },
+    {
+        word: "kilauma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "teacher",
+                    "instructor",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "kilau",
+            "uma"
+        ]
+    },
+
+    {
+        word: "niiubi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "school, literally \"house of learning\" (shortened)",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "ravabuma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "hater, \"one who hates\"",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ravabu",
+            "uma"
+        ]
+    },
+
+    {
+        word: "bilivuma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "enjoyer",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "bilivu",
+            "uma"
+        ]
+    },
+
+    {
+        word: "zhibalia",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to read",
+                    "to interpret",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zhiba",
+            "lilia"
+        ]
+    },
+    {
+        word: "zhibaliauma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "reader, \"one who reads\"",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zhibalia",
+            "uma"
+        ]
+    },
+
+    {
+        word: "tibauma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "user, \"one who uses\"",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "tiba",
+            "uma"
+        ]
+    },
+
     //#endregion
     //#region Compound Words
     {
@@ -2757,7 +2933,7 @@ const grammarWordData = [
             {
                 type: wordType.postposition,
                 definition: [
-                    "similar to \"-ation\", in English",
+                    "-ation",
                     "nominalisation particle",
                     "noun-verb phrase suffix"
                 ]
@@ -2894,7 +3070,7 @@ const grammarWordData = [
         word: "gaku",
         data: [
             {
-                type: wordType.adverb,
+                type: wordType.suffix,
                 definition: [
                     "-like (water-like, tough-like)",
                     "similie or comparison marker",
@@ -2991,6 +3167,32 @@ const grammarWordData = [
                 definition: [
                     "but, however",
                     "used to introduce a statement that contrasts with a previous or following statement"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "uma",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "-er",
+                    "denotes a person who performs the activity, \"one who [verb]s\"",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "uka",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "-er",
+                    "denotes a thing who performs the activity, \"thing which [verb]s\"",
                 ]
             }
         ]
