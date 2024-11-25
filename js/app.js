@@ -145,30 +145,16 @@ function sortAlphabetically(first, second) {
         return 1;
     }
 
-    let firstIndex = -1;
-    let secondIndex = -1;
+    const firstTest = firstLiangCharacter(first);
+    const secondTest = firstLiangCharacter(second);
 
-    let firstFound, secondFound = false;
-
-    for (const syllable of alphSorted) {
-        const pattern = new RegExp(String.raw`^${syllable}`, "i");
-        if (!firstFound) {
-            firstIndex++;
-            if (pattern.test(first)) {
-                firstFound = true;
-            }
-        }
-        if (!secondFound) {
-            secondIndex++;
-            if (pattern.test(second)) {
-                secondFound = true;
-            }
-        }
-    }
+    const firstIndex = alphSorted.indexOf(firstTest);
+    const secondIndex = alphSorted.indexOf(secondTest);
+    
     if (firstIndex == secondIndex) {
         return sortAlphabetically(
-            first.substring(alphSorted[firstIndex].length),
-            second.substring(alphSorted[secondIndex].length));
+            first.substring(firstTest.length),
+            second.substring(secondTest.length));
     }
     return firstIndex - secondIndex;
 }
@@ -282,9 +268,11 @@ function populateCards() {
     
     cardContainer.innerHTML = "";
     cardContainer.classList = [];
+    updateErrorMessage();
+
     if (showNumbers) {
         cardContainer.classList.add('number-mode');
-        updateErrorMessage();
+
         const numberWord = isNumeric(searchFilter) ? createNumberWords(searchFilter) : null;
         if (numberWord) {
             createNumberCard(numberWord);
@@ -402,7 +390,7 @@ function populateCards() {
         liangErrorReplace("", searchFilter);
     }
     if (showGrammar) {
-        updateErrorMessage();
+
         for (const grammarItem of grammarData) {
             createGrammarCard(grammarItem);
         }
@@ -635,6 +623,27 @@ let showGrammar = false;
 
 filterButtonContainer.addEventListener('click', (event) => {
     // event.preventDefault();
+    const url = new URL(document.location);
+
+    let tabNum = 0; // wordBox by default
+    if (numberBox.checked) {
+        tabNum = 1;
+    }
+    else if (alphaBox.checked) {
+        tabNum = 2;
+    }
+    else if (grammarBox.checked) {
+        tabNum = 3;
+    }
+
+    if (tabNum == 0) {
+        url.searchParams.delete("tab");
+    }
+    else {
+        url.searchParams.set("tab", tabNum);
+    }
+    history.replaceState(null, '', url);
+
     updateFilters();
     populateCards();
 })
@@ -645,6 +654,30 @@ searchBar.addEventListener('input', (event) => {
     populateCards();
 })
 
+function updateURLSearch() {
+    if ('URLSearchParams' in window) {
+        const url = new URL(document.location);
+        if (searchFilter) {
+            url.searchParams.set("search", searchFilter);
+        }
+        else {
+            url.searchParams.delete("search");
+        }
+        history.replaceState(null, '', url);
+    }
+}
+
+searchBar.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        updateURLSearch();
+    }
+})
+
+searchBar.addEventListener('focusout', (event) => {
+    updateURLSearch();
+})
+
+// Back To Top
 backToTop.addEventListener('click', (event) => {
     event.preventDefault();
     window.scrollTo({
@@ -654,6 +687,32 @@ backToTop.addEventListener('click', (event) => {
     });
 })
 
+// On webpage load
+if ('URLSearchParams' in window) {
+    const urlParams = new URLSearchParams(document.location.search);
+
+    if (urlParams) {
+        // Setting the Search value
+        searchBar.value = urlParams.get("search");
+
+        // Setting the URL
+        const urlTab = urlParams.get("tab");
+        if (urlTab) {
+            if (urlTab == 0) {
+                wordBox.checked = true;
+            }
+            else if (urlTab == 1) {
+                numberBox.checked = true;
+            }
+            else if (urlTab == 2) {
+                alphaBox.checked = true;
+            }
+            else if (urlTab == 3) {
+                grammarBox.checked = true;
+            }
+        }
+    }
+}
 // Populate data
 updateSearch();
 updateFilters();
