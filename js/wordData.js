@@ -2493,7 +2493,7 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "school, literally \"house of learning\" (shortened)",
+                    "school, literally \"building of learning\" (shortened)",
                 ]
             }
         ]
