@@ -1444,6 +1444,9 @@ const wordData = [
                     "(the concept of) nature"
                 ]
             }
+        ],
+        derivedFrom: [
+            "fazha"
         ]
     },
 
@@ -2349,6 +2352,10 @@ const wordData = [
                     "France",
                 ]
             }
+        ],
+        derivedFrom: [
+            "brania",
+            "tamuri"
         ]
     },
 
@@ -2361,6 +2368,10 @@ const wordData = [
                     "England",
                 ]
             }
+        ],
+        derivedFrom: [
+            "inagia",
+            "tamuri"
         ]
     },
 
@@ -2375,7 +2386,8 @@ const wordData = [
             }
         ],
         derivedFrom: [
-            "bibami"
+            "bibami",
+            "tamuri"
         ]
     },
 
@@ -2576,6 +2588,191 @@ const wordData = [
         derivedFrom: [
             "tiba",
             "uma"
+        ]
+    },
+
+    {
+        word: "pakuli",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "black, the colour",
+                ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "dark coloured",
+                    "burnt, ashen"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "pazuva",
+            "iuli"
+        ]
+    },
+
+    {
+        word: "kuaimi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "white, the colour",
+                ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "light coloured",
+                    "bleached"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "lami",
+            "iuli"
+        ]
+    },
+
+    {
+        word: "ari",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "blood",
+                ]
+            }
+        ]
+    },
+    {
+        word: "arudi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "red, the colour",
+                ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "blood coloured",
+                    "dangerous"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ari",
+            "iuli"
+        ]
+    },
+
+    {
+        word: "fazha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "plant, that grows naturally",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zhau"
+        ]
+    },
+    {
+        word: "fazhuli",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "green, the colour",
+                ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "plant coloured",
+                    "living, growing"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "fazha",
+            "iuli"
+        ]
+    },
+
+    
+    {
+        word: "giami",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to shine"
+                ]
+            }
+        ]
+    },
+    {
+        word: "giluma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "gold",
+                    "a shiny metal"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "giami",
+            "filima"
+        ]
+    },
+    {
+        word: "giluli",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "gold coloured",
+                    "a deep, shiny yellow"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "giluma",
+            "iuli"
+        ]
+    },
+
+    {
+        word: "zuruli",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "yellow, the colour",
+                ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "sun coloured",
+                    "aged, or sun damaged"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zuru",
+            "iuli"
         ]
     },
 
