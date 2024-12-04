@@ -20,10 +20,10 @@ function createWordCard(word, docFrag) {
             innerString += `
             <p class="card-type-header heading">${type}</p>
             <div class="${type}" id="${name}-${type}">
-                <ol>
+                <ul>
                     <li>${definitions.join("</li><li>")}
                     </li>
-                </ol>`;
+                </ul>`;
 
             if (derivation) {
                 innerString += `<p class="heading">Derived from [ ${derivation.join(" + ")} ]</p>`
@@ -105,15 +105,45 @@ function createGrammarCard(grammarDataItem) {
     grammarCard.id = grammarDataItem.heading;
     grammarCard.classList.add("card", "grammar-card");
 
-    let innerText = `<div class="text-line"><h1>${replaceLiangTags(grammarDataItem.heading)}</h1></div>`;
+    grammarCard.innerHTML = `<div class="text-line"><h1>${replaceLiangTags(grammarDataItem.heading)}</h1></div>`;
+
+    let grammarParaHead = null;
+    let grammarPara = null;
 
     for (const para of grammarDataItem.paragraphs) {
+
         const liangReplaced = replaceLiangTags(para);
-        innerText += `<div class="text-line">${liangReplaced}</div>`;
+        const isHeading = /^<h/.test(liangReplaced);
+
+        if (isHeading) {
+            // Append previous to the card
+            if (grammarParaHead) {
+                grammarCard.appendChild(document.createElement('hr'));
+                grammarCard.appendChild(grammarParaHead);
+                grammarCard.appendChild(grammarPara);
+            }
+            // Create Heading
+            grammarParaHead = document.createElement('div');
+            grammarParaHead.id = para;
+            grammarParaHead.classList.add('text-line', 'dropdown');
+            // Create Paragraph
+            grammarPara = document.createElement('div');
+            grammarPara.id = para + "-p";
+            grammarPara.classList.add('grammar-paragraph');
+
+            grammarParaHead.innerHTML = liangReplaced;
+        }
+        else {
+            grammarPara.innerHTML += `<div class="text-line">${liangReplaced}</div>`;
+        }
     }
 
-    grammarCard.innerHTML = innerText;
-
+    // Append previous to the card
+    if (grammarParaHead) {
+        grammarCard.appendChild(document.createElement('hr'));
+        grammarCard.appendChild(grammarParaHead);
+        grammarCard.appendChild(grammarPara);
+    }
     cardContainer.appendChild(grammarCard);
 }
 
@@ -298,11 +328,7 @@ function populateCards() {
                 (a, b) => {
                     return sortAlphabetically(a.word, b.word)
                 }
-            ).sort(
-                (a, b) => {
-                    return (searchFilter && searchFilter.length != 0) ? a.word.length - b.word.length : null;
-                }
-            );
+            ).sort(sortDesc);
 
         const nameWords = liangWordData.filter(
                 (word) => {
@@ -394,6 +420,18 @@ function populateCards() {
         for (const grammarItem of grammarData) {
             createGrammarCard(grammarItem);
         }
+
+        const dropdowns = document.getElementsByClassName('dropdown');
+        for (dropdown of dropdowns) {
+            const drop = dropdown;
+
+            drop.addEventListener('click', (event) => {
+                event.preventDefault();
+                drop.classList.toggle("active");
+                const content = drop.nextElementSibling;
+                content.classList.toggle("active");
+            });
+        }
     }
 }
 
@@ -419,6 +457,33 @@ function filterName(word) {
             return true;
         }
     }
+}
+
+function sortDesc(wordA, wordB) {
+    if (searchFilter) {
+        let aSize = Number.MAX_VALUE;
+        let bSize = Number.MAX_VALUE;
+        // A Size
+        for (const wordData of wordA.data) {
+            const lowerDef = wordData.definition.map(value => value.toLowerCase());
+            for (const def of lowerDef) {
+                if (def.includes(searchFilter) && aSize > def.length) {
+                    aSize = def.length;
+                }
+            }
+        }
+        // B Size
+        for (const wordData of wordB.data) {
+            const lowerDef = wordData.definition.map(value => value.toLowerCase());
+            for (const def of lowerDef) {
+                if (def.includes(searchFilter) && bSize > def.length) {
+                    bSize = def.length;
+                }
+            }
+        }
+        return aSize - bSize;
+    }
+    return null;
 }
 
 function createNumberWords(numberToString) {

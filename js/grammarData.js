@@ -64,7 +64,7 @@ const grammarData = [
             "<h2>A note on Genitives</h2>",
 
             `For those who may not know, the Genitive case is when a noun is used to modify another noun. In English, genitives are most commonly used for showing possession (for example in "David's house", where "David" is the genitive modifier to the noun "house").`,
-            `In <l>liang</l>, genitives take on a much larger role and in many cases replaces adjectives as the way to describe a noun, particularly for the type of material, place of origin. For example, instead of saying a "metallic rock", you would say a "rock of metal" (<l>filima fu thaduku</l>), where the adjective "metallic" (which doesn't exist) is replaced by the genitive case "of-metal" (<l>filima fu</l>). Similarly, a "French person" would be translated better as a "person of France" (<l>branumuri fu umabri</l>).`,
+            `In <l>liang</l>, genitives take on a much larger role and in many cases replaces adjectives as the way to describe a noun, particularly for the type of material or place of origin. For example, instead of saying a "metallic rock", you would say a "rock of metal" (<l>filima fu thaduku</l>), where the adjective "metallic" (which doesn't exist) is replaced by the genitive case "of-metal" (<l>filima fu</l>). Similarly, a "French person" would be translated better as a "person of France" (<l>branumuri fu umabri</l>).`,
             ``
         ]
     }

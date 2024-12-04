@@ -133,7 +133,6 @@ const wordData = [
                 definition: [
                     "a thought or idea",
                     "world-view, way of thinking",
-                    "a person's knowledge"
                 ]
             },
             {
@@ -1485,6 +1484,13 @@ const wordData = [
                     "rock",
                     "stone"
                 ]
+            },
+            {
+                type: wordType.genitive,
+                definition: [
+                    "rocky",
+                    "having the properties of rock"
+                ]
             }
         ]
     },
@@ -1710,14 +1716,25 @@ const wordData = [
     },
 
     {
-        word: "nulua",
+        word: "balia",
         data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "knowledge"
+                ]
+            },
             {
                 type: wordType.verb,
                 definition: [
-                    "to know"
+                    "to know",
+                    "to recognise"
                 ]
             }
+        ],
+        derivedFrom: [
+            "bulu",
+            "lia"
         ]
     },
 
@@ -1990,12 +2007,6 @@ const wordData = [
         word: "tikuri",
         data: [
             {
-                type: wordType.noun,
-                definition: [
-                    "container"
-                ]
-            },
-            {
                 type: wordType.verb,
                 definition: [
                     "to contain",
@@ -2006,6 +2017,22 @@ const wordData = [
         derivedFrom: [
             "tiidi",
             "kuri",
+        ]
+    },
+    {
+        word: "tikuriuka",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "container",
+                    `"Thing which contains"`
+                ]
+            },
+        ],
+        derivedFrom: [
+            "tikuri",
+            "uka"
         ]
     },
 
@@ -2411,6 +2438,13 @@ const wordData = [
                 definition: [
                     "wood",
                 ]
+            },
+            {
+                type: wordType.genitive,
+                definition: [
+                    "wooden",
+                    "having the properties of wood"
+                ]
             }
         ]
     },
@@ -2459,7 +2493,8 @@ const wordData = [
                 type: wordType.noun,
                 definition: [
                     "learner",
-                    "student"
+                    "student",
+                    "\"one who learns\""
                 ]
             }
         ],
@@ -2490,6 +2525,7 @@ const wordData = [
                 definition: [
                     "teacher",
                     "instructor",
+                    "\"one who teaches\""
                 ]
             }
         ],
@@ -2517,7 +2553,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "hater, \"one who hates\"",
+                    "hater",
+                    "\"one who hates\""
                 ]
             }
         ],
@@ -2534,6 +2571,7 @@ const wordData = [
                 type: wordType.noun,
                 definition: [
                     "enjoyer",
+                    "\"one who likes\""
                 ]
             }
         ],
@@ -2565,7 +2603,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "reader, \"one who reads\"",
+                    "reader",
+                    "\"one who reads\""
                 ]
             }
         ],
@@ -2581,7 +2620,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "user, \"one who uses\"",
+                    "user",
+                    "\"one who uses\""
                 ]
             }
         ],
@@ -2776,7 +2816,202 @@ const wordData = [
         ]
     },
 
+    {
+        word: "duzhau",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "tree",
+                    "tall wooden trunk with lateral branches"
+                ]
+            },
+        ]
+    },
+
+    {
+        word: "kazha",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to sit",
+                ]
+            },
+        ]
+    },
+    {
+        word: "kathizha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "chair",
+                    "seat"
+                ]
+            },
+        ],
+        derivedFrom: [
+            "kazha"
+        ]
+    },
+
+    {
+        word: "balizu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "skill",
+                    "applied knowledge"
+                ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to craft",
+                    "(to make with skill)"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "balia",
+            "fitazu"
+        ]
+    },
+    {
+        word: "balizuma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "artist",
+                    "artisan",
+                    "\"one who crafts\""
+                ]
+            },
+        ],
+        derivedFrom: [
+            "balizu",
+            "uma"
+        ]
+    },
+
+    {
+        word: "fitazuma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "maker",
+                    "producer",
+                    "\"one who makes\""
+                ]
+            },
+        ],
+        derivedFrom: [
+            "fitazu",
+            "uma"
+        ]
+    },
+
+    {
+        word: "baliguku",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "art",
+                    "work made with skill"
+                ]
+            },
+        ],
+        derivedFrom: [
+            "balizu",
+            "aguku"
+        ]
+    },
+
+    {
+        word: "vani",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "new",
+                ]
+            },
+        ]
+    },
+
+    {
+        word: "azuvani",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "tomorrow",
+                    `"new dawn"`,
+                ]
+            },
+        ],
+        derivedFrom: [
+            "azumi",
+            "vani"
+        ]
+    },
+
+    {
+        word: "aguku",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "work",
+                    "tasks to be done"
+                ]
+            },
+        ]
+    },
+    {
+        word: "agukuma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "worker",
+                    "employee",
+                    "\"one who works\""
+                ]
+            },
+        ],
+        derivedFrom: [
+            "aguku",
+            "uma"
+        ]
+    },
+    
+    
+    {
+        word: "gukari",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "product",
+                    "ware (hardware)",
+                    "work (artwork)"
+                ]
+            },
+        ],
+        derivedFrom: [
+            "aguku",
+            "kuri",
+        ]
+    },
+
     //#endregion
+
     //#region Compound Words
     {
         word: "akamuri amizha",
@@ -2791,6 +3026,21 @@ const wordData = [
         derivedFrom: [
             "akamuri",
             "amizha"
+        ]
+    },
+    {
+        word: "zhakuru vani libu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "New Year, as in \"Happy New Year\"",
+                ]
+            },
+        ],
+        derivedFrom: [
+            "zhakuru",
+            "vani"
         ]
     },
     {
@@ -2821,6 +3071,22 @@ const wordData = [
         derivedFrom: [
             "tinaka",
             "mazhi"
+        ]
+    },
+
+    {
+        word: "aguku zhiba",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to do work",
+                ]
+            },
+        ],
+        derivedFrom: [
+            "aguku",
+            "zhiba"
         ]
     },
     //#endregion

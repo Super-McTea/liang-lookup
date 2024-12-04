@@ -92,7 +92,7 @@
     text-transform: capitalize;
 }
 
-.word-card ol, .word-card p {
+.word-card ul, .word-card p {
     text-transform: capitalize;
     margin: 0.1em;
 }
@@ -193,6 +193,36 @@
     line-height: 2em;
 }
 
+.text-line.dropdown {
+    cursor: pointer;
+}
+
+.dropdown :after {
+    content: " ";
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    padding: 5px;
+    float: right;
+    margin-right: 1em;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+
+    transition: transform 100ms;
+}
+  
+.dropdown.active :after {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.grammar-paragraph {
+    display: none;
+}
+
+.grammar-paragraph.active {
+    display: block;
+}
+
 .grammar-card h1, .grammar-card h2 {
     text-align: center;
 }
@@ -225,10 +255,17 @@
 }
 
 /* Search Bar */
+#searchbar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
 .search-bar {
     padding: 0.5em;
-    width: calc(100% - 1em);
-    margin: 0 auto;
+    width: auto;
+    margin: 1em auto 0;
 }
 
 #search-bar {
@@ -309,7 +346,8 @@
     align-items: center;
 
     height: 50px;
-    width: 100px;
+    min-width: 100px;
+    width: 20%;
     background-color: lightsteelblue;
     border: 3px solid black;
     border-radius: 3em;
