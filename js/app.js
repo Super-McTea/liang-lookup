@@ -316,54 +316,10 @@ function populateCards() {
     if (showWords) {
         cardContainer.classList.add('word-mode');
 
-        const liangWordData = wordData.concat(grammarWordData);
+        const displayWords = generateWordList();
 
-        // Filter and Sort
-        const descWords = liangWordData
-            .filter(
-                (word) => {
-                    return verifyLiangWord(word.word)
-                }
-            ).filter(filterDesc).sort(
-                (a, b) => {
-                    return sortAlphabetically(a.word, b.word)
-                }
-            ).sort(sortDesc);
-
-        const nameWords = liangWordData.filter(
-                (word) => {
-                    return verifyLiangWord(word.word)
-                }
-            ).filter(filterName).sort(
-                (a, b) => {
-                    return sortAlphabetically(a.word, b.word);
-                }
-            ).sort(
-                (a, b) => {
-                    return (searchFilter && searchFilter.length != 0) ? a.word.length - b.word.length : null;
-                }
-            );
-
-        let displayWords = nameWords.concat(descWords);
-
-        if (displayWords.length == 0) {
-            updateErrorMessage("No Search Results Found");
-            displayWords = liangWordData.filter(
-                (word) => {
-                    return verifyLiangWord(word.word)
-                }).sort(
-                    (a, b) => {
-                        return sortAlphabetically(a.word, b.word);
-                });
-        }
-    
-        displayWords = [...new Set(displayWords)];
-
-        const tempCardContainer = document.createDocumentFragment();
-        for (word of displayWords) {
-            createWordCard(word, tempCardContainer);
-        }
-        cardContainer.appendChild(tempCardContainer);
+        generatedCards = 0;
+        populateWordCards(displayWords, cardContainer);
 
         // liangErrorReplace("Searching for: ", searchFilter);
     }
@@ -432,6 +388,45 @@ function populateCards() {
                 content.classList.toggle("active");
             });
         }
+    }
+}
+
+function generateWordList() {
+
+    // Filter and Sort
+    const descWords = liangWordData.filter(filterDesc).sort(sortDesc);
+
+    const nameWords = liangWordData.filter(filterName).sort(
+            (a, b) => {
+                return (searchFilter && searchFilter.length != 0) ? a.word.length - b.word.length : null;
+            }
+        );
+
+    let displayWords = nameWords.concat(descWords);
+
+    if (displayWords.length == 0) {
+        updateErrorMessage("No Search Results Found");
+        displayWords = liangWordData;
+    }
+
+    return [...new Set(displayWords)];
+}
+
+let generatedCards = 0;
+function populateWordCards(displayWords, container) {
+    if (!showWords) return;
+    // console.log(generatedCards);
+
+    const tempCardContainer = document.createDocumentFragment();
+    for (let i = 0; i < 50 && generatedCards < displayWords.length; i++) {
+        createWordCard(displayWords[generatedCards], tempCardContainer);
+
+        generatedCards++;
+    }
+    container.appendChild(tempCardContainer);
+
+    if (generatedCards < displayWords.length) {
+        setTimeout(populateWordCards, 0, displayWords, container);
     }
 }
 
@@ -661,6 +656,14 @@ function getDigitWord(digit) {
 // Global Variables
 const alphSorted = [...alphabet].map(a => a.toLowerCase());
 const lenSorted = [...alphabet].map(a => a.toLowerCase()).sort((a,b) => {return b.length - a.length});
+
+const liangWordData = (wordData.concat(grammarWordData)).filter(
+    (word) => {
+        return verifyLiangWord(word.word)
+    }).sort(
+    (a, b) => {
+        return sortAlphabetically(a.word, b.word);
+    });
 // console.log(alphSorted);
 // console.log(lenSorted);
 

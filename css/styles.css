@@ -79,6 +79,10 @@
     max-width: 100%;
 }
 
+.word-card.removed {
+    display: none;
+}
+
 .word-card .card-name {
     font-size: x-large;
     text-decoration: underline;
@@ -264,7 +268,7 @@
 
 .search-bar {
     padding: 0.5em;
-    width: auto;
+    width: 90%;
     margin: 1em auto 0;
 }
 
@@ -444,10 +448,6 @@
 
     .bottom-alphabet {
         grid-template-columns: repeat(6, minmax(50px, 1fr));
-    }
-
-    .search-bar {
-        width: 90%;
     }
 
     .filters {
