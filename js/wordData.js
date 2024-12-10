@@ -531,17 +531,17 @@ const wordData = [
         word: "libu",
         data: [
             {
+                type: wordType.adjective,
+                definition: [
+                    "Happy",
+                    "Merry (as in Merry Christmas)"
+                ]
+            },
+            {
                 type: wordType.noun,
                 definition: [
                     "happiness",
                     "contentment"
-                ]
-            },
-            {
-                type: wordType.adjective,
-                definition: [
-                    "Happy (as in Happy Birthday)",
-                    "Merry (as in Merry Christmas)"
                 ]
             }
         ]
@@ -654,7 +654,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "dawn"
+                    "dawn",
+                    "morning"
                 ]
             }
         ],
@@ -670,7 +671,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "dusk"
+                    "dusk",
+                    "evening"
                 ]
             }
         ],
@@ -859,9 +861,10 @@ const wordData = [
         word: "riuna",
         data: [
             {
-                type: wordType.noun,
+                type: wordType.adverb,
                 definition: [
-                    "right (directional)"
+                    "right",
+                    "(directional)"
                 ]
             }
         ]
@@ -871,9 +874,10 @@ const wordData = [
         word: "lauma",
         data: [
             {
-                type: wordType.noun,
+                type: wordType.adverb,
                 definition: [
-                    "left (directional)"
+                    "left",
+                    "(directional)"
                 ]
             }
         ]
@@ -2169,7 +2173,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "clock, literally \"bell-dial\""
+                    "clock",
+                    "literally \"bell-dial\""
                 ]
             }
         ],
@@ -2462,12 +2467,13 @@ const wordData = [
     },
 
     {
-        word: "daupu",
+        word: "daugu",
         data: [
             {
-                type: wordType.adjective,
+                type: wordType.verb,
                 definition: [
-                    "sad",
+                    "to lie",
+                    "to misinform"
                 ]
             }
         ]
@@ -2889,7 +2895,7 @@ const wordData = [
                     "artisan",
                     "\"one who crafts\""
                 ]
-            },
+            }
         ],
         derivedFrom: [
             "balizu",
@@ -2907,7 +2913,7 @@ const wordData = [
                     "producer",
                     "\"one who makes\""
                 ]
-            },
+            }
         ],
         derivedFrom: [
             "fitazu",
@@ -2924,7 +2930,7 @@ const wordData = [
                     "art",
                     "work made with skill"
                 ]
-            },
+            }
         ],
         derivedFrom: [
             "balizu",
@@ -2940,7 +2946,7 @@ const wordData = [
                 definition: [
                     "new",
                 ]
-            },
+            }
         ]
     },
 
@@ -2953,7 +2959,7 @@ const wordData = [
                     "tomorrow",
                     `"new dawn"`,
                 ]
-            },
+            }
         ],
         derivedFrom: [
             "azumi",
@@ -2970,7 +2976,7 @@ const wordData = [
                     "work",
                     "tasks to be done"
                 ]
-            },
+            }
         ]
     },
     {
@@ -2983,7 +2989,7 @@ const wordData = [
                     "employee",
                     "\"one who works\""
                 ]
-            },
+            }
         ],
         derivedFrom: [
             "aguku",
@@ -3002,11 +3008,330 @@ const wordData = [
                     "ware (hardware)",
                     "work (artwork)"
                 ]
-            },
+            }
         ],
         derivedFrom: [
             "aguku",
             "kuri",
+        ]
+    },
+
+    {
+        word: "zubu",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "sad",
+                    "unhappy"
+                ]
+            },
+            {
+                type: wordType.noun,
+                definition: [
+                    "sadness"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "giukuri",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "heavy",
+                    "having weight"
+                ]
+            },
+        ],
+        derivedFrom: [
+            "giukiu",
+            "kuri"
+        ]
+    },
+
+    {
+        word: "giukiu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "weight",
+                    "relative mass"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "nugi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "enough",
+                    "sufficient"
+                ]
+            },
+            {
+                type: wordType.adverb,
+                definition: [
+                    "enough",
+                    "adequate"
+                ]
+            }
+        ]
+    },
+    {
+        word: "nugiazu",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to satisfy",
+                    "to fulfil",
+                    "to meet (a standard)"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "nugi",
+            "fitazu"
+        ]
+    },
+
+    {
+        word: "fizhimau fu",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "o'clock",
+                    "on the clock, according to the clock"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "kupata",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "fear",
+                    "terror"
+                ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to fear",
+                    "to be afraid"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "pakuzu",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "sombre",
+                    "somber",
+                    "\"under the shade\""
+                ]
+            }
+        ],
+        derivedFrom: [
+            "pazuva",
+            "ikuzu"
+        ]
+    },
+
+    {
+        word: "makiuma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "mother",
+                    "female parent",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ki",
+            "uma"
+        ]
+    },
+
+    {
+        word: "bakiuma",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "father",
+                    "male parent",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ki",
+            "uma"
+        ]
+    },
+
+    {
+        word: "ibu",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "up",
+                    "upwards direction"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "itumi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "hill",
+                    "raised land"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ibu",
+            "tamuri"
+        ]
+    },
+
+    {
+        word: "ukumi",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "down",
+                    "downwards direction"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ikuzu",
+            "itumi"
+        ]
+    },
+
+    {
+        word: "tamuthi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "property",
+                    "owned land"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "tamuri",
+            "kuthi"
+        ]
+    },
+
+    {
+        word: "ilazu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "north",
+                    "left of the rising sun"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "lauma",
+            "azumi"
+        ]
+    },
+
+    {
+        word: "zuina",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "south",
+                    "right of the rising sun"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "riuna",
+            "azumi"
+        ]
+    },
+
+    {
+        word: "azuki",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "east",
+                    "facing the rising sun"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "kamu",
+            "azumi"
+        ]
+    },
+
+    {
+        word: "pulumi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "west",
+                    "looking at the setting sun"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "bulu",
+            "pazumi"
+        ]
+    },
+
+    {
+        word: "azumuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "Japan",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "azumi",
+            "tamuri"
         ]
     },
 
@@ -3029,7 +3354,7 @@ const wordData = [
         ]
     },
     {
-        word: "zhakuru vani libu",
+        word: "zhakuru vani",
         data: [
             {
                 type: wordType.noun,
@@ -3658,6 +3983,35 @@ const grammarWordData = [
                     "denotes a thing who performs the activity, \"thing which [verb]s\"",
                 ]
             }
+        ]
+    },
+
+    {
+        word: "ikuzu",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "under",
+                    "below"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "bufani",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "over",
+                    "above"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ibu"
         ]
     },
     //#endregion

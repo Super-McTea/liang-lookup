@@ -19,16 +19,16 @@ function createWordCard(word, docFrag) {
 
             innerString += `
             <p class="card-type-header heading">${type}</p>
-            <div class="${type}" id="${name}-${type}">
+                ${definitions ? (`<div class="` + type + `" id="` + name + "-" + type + `">
                 <ul>
-                    <li>${definitions.join("</li><li>")}
-                    </li>
-                </ul>`;
+                    <li>` + definitions.join("</li><li>") +
+                    `</li>
+                </ul>`) : ""}`;
 
             if (derivation) {
                 innerString += `<p class="heading">Derived from [ ${derivation.join(" + ")} ]</p>`
             }
-            innerString += `</div>`;
+            innerString += definitions ? `</div>` : "";
         }
     }
 
@@ -434,7 +434,7 @@ function filterDesc(word) {
     if (searchFilter) {
         let found = false;
         for (const wordData of word.data) {
-            const lowerDef = wordData.definition.map(value => value.toLowerCase());
+            const lowerDef = wordData.definition ? wordData.definition.map(value => value.toLowerCase()) : [];
             for (const def of lowerDef) {
                 if (def.includes(searchFilter)) {
                     found = true;
