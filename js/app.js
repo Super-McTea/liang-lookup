@@ -148,17 +148,26 @@ function createGrammarCard(grammarDataItem) {
 }
 
 function replaceLiangTags(text) {
-    if (/<l>.*<\/l>/gm.test(text)) {
+    if (/<l\b/gm.test(text)) {
         // console.log("Test successful for:", text);
 
-        const matches = text.match(/<l>((?!<l>).)*<\/l>/gm);
+        const matches = text.matchAll(/<l\b[^>]*?(?:(?<opening>["'`])(?<title>.*?)\k<opening>)*\s*>(?<content>.*?)<\/l>/gm);
         let newText = text;
 
+        console.log(matches);
         for (const match of matches) {
-            const newMatch = match.replace(/<l>|<\/l>/gm, "");
-            const liangifiedText = `<div class="name-container">${createCardSpelling(newMatch.trim())}</div>`;
+            const capturedTag = match[0];
+            const capturedTitle = match.groups.title;
+            const capturedContent = match.groups.content;
 
-            newText = newText.replace(match, liangifiedText);
+            console.log(capturedTag, capturedTitle);
+
+            const liangifiedText = `<div class="name-container">
+                    <span class="tooltip-content">${capturedTitle ? capturedTitle : capturedContent}</span>
+                    ${createCardSpelling(capturedContent.trim(), false)}
+                </div>`;
+
+            newText = newText.replace(capturedTag, liangifiedText);
         }
 
         return newText;
@@ -234,7 +243,7 @@ function firstLiangCharacter(wordToTest) {
     return lenSorted[index];
 }
 
-function createCardSpelling(wordToSpell) {
+function createCardSpelling(wordToSpell, useTitle = true) {
 
     if (wordToSpell == null || wordToSpell.length <= 0) {
         return "";
@@ -247,10 +256,10 @@ function createCardSpelling(wordToSpell) {
     }
 
     if (firstChar == " ") {
-        return `<div class="blanked display-character"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length));
+        return `<div class="blanked display-character"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length), useTitle);
     }
 
-    return `<div class="display-character" style="background-image: url(assets/characters/${firstChar}.png)" title="${firstChar}"></div>` + createCardSpelling(wordToSpell.substring(firstChar.length));
+    return `<div class="display-character" style="background-image: url(assets/characters/${firstChar}.png)" ${useTitle ? `title="` + firstChar + `"` : ""}></div>` + createCardSpelling(wordToSpell.substring(firstChar.length), useTitle);
 }
 
 function updateFilters() {

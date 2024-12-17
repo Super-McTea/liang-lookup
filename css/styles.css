@@ -68,6 +68,31 @@
     aspect-ratio: 1/4;
 }
 
+.tooltip-content {
+    opacity: 0;
+    min-width: calc(100% - 10px);
+    width: fit-content;
+    background-color: #434343;
+    color: #fff;
+    text-align: center;
+    line-height: normal;
+    padding: 5px;
+    border-radius: 6px;
+    
+    position: absolute;
+    z-index: 1;
+
+    top: 100%;
+    left: calc(50% - 5px);
+    margin-left: calc(-50% + 5px);
+
+    transition: opacity 100ms ease-out 300ms;
+}
+
+.name-container:hover .tooltip-content {
+    opacity: 1;
+}
+
 /* #endregion */
 
 /* #region Word Mode */

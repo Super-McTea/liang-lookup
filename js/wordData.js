@@ -3414,6 +3414,23 @@ const wordData = [
             "zhiba"
         ]
     },
+
+    {
+        word: "niri amizha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "today",
+                    "this day",
+                ]
+            },
+        ],
+        derivedFrom: [
+            "niri",
+            "amizha"
+        ]
+    },
     //#endregion
 ]
 

@@ -1,6 +1,6 @@
 const grammarData = [
     {
-        heading: "An Overview of <l>liang</l>",
+        heading: "An Overview of <l 'Liang'>liang</l>",
         paragraphs: [
 
             "<h2>Syntax Details</h2>",
