@@ -3335,6 +3335,86 @@ const wordData = [
         ]
     },
 
+    {
+        word: "zhutimuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "Korea",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zhutiu",
+            "tamuri"
+        ]
+    },
+
+    {
+        word: "kafiraki",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "other",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "kaipu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "head",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "akatanami",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "number",
+                    "digit"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "nua",
+            "aka",
+            "futa",
+            "mana",
+            "kumi"
+        ]
+    },
+
+    {
+        word: "katiu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "finish",
+                    "ending"
+                ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to finish",
+                    "to end"
+                ]
+            }
+        ]
+    },
+
     //#endregion
 
     //#region Compound Words
@@ -3700,7 +3780,8 @@ const grammarWordData = [
             {
                 type: wordType.postposition,
                 definition: [
-                    "to, in the direction of (some thing or place)",
+                    "to",
+                    "going toward (some thing or place)",
                     "(Directional)",
                 ]
             }
@@ -3712,7 +3793,8 @@ const grammarWordData = [
             {
                 type: wordType.postposition,
                 definition: [
-                    "from, coming from (some thing or place)",
+                    "from",
+                    "coming from (some thing or place)",
                     "(Directional)",
                 ]
             }
@@ -4029,6 +4111,24 @@ const grammarWordData = [
         ],
         derivedFrom: [
             "ibu"
+        ]
+    },
+
+
+
+    {
+        word: "kafi",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "or",
+                    "conjunctive particle to link alternatives"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "kafiraki"
         ]
     },
     //#endregion
