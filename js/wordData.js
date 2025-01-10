@@ -3357,7 +3357,8 @@ const wordData = [
             {
                 type: wordType.adjective,
                 definition: [
-                    "other",
+                    "different",
+                    "distinct"
                 ]
             }
         ]
@@ -3412,6 +3413,56 @@ const wordData = [
                     "to end"
                 ]
             }
+        ]
+    },
+
+    {
+        word: "favu",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "other",
+                    "second"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "2"
+        ]
+    },
+
+    {
+        word: "kafu",
+        data: [
+            {
+                type: wordType.determiner,
+                definition: [
+                    "both",
+                    "the two"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ka",
+            "futa"
+        ]
+    },
+
+    {
+        word: "vadrikafu",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "ambiguous",
+                    "uncertain"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "vadri",
+            "kafu"
         ]
     },
 
