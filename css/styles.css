@@ -439,6 +439,11 @@
 .postposition {
     background-color: white;
 }
+
+.compound {
+    background-color: darkslategrey;
+    color: white;
+}
 /* #endregion */
 
 @media screen and (min-width: 900px) {

@@ -14,6 +14,8 @@ const wordType = {
     auxillary: "auxillary",
 
     postposition: "postposition",
+
+    compound: "compound"
 }
 
 const alphabet = [
@@ -2891,8 +2893,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "artist",
                     "artisan",
+                    "crafter",
                     "\"one who crafts\""
                 ]
             }
@@ -3466,6 +3468,129 @@ const wordData = [
         ]
     },
 
+    {
+        word: "grazi",
+        data: [
+            {
+                type: wordType.determiner,
+                definition: [
+                    "all",
+                    "total"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "bakradi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "person",
+                    "individual human"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "prakamu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "character",
+                    "description"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "pira",
+            "kamu"
+        ]
+    },
+
+    {
+        word: "pira",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "out",
+                    "(Directional)"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "funi",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "in",
+                    "(Directional)"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "du",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "at",
+                    "specific location in space or in time",
+                    `"at home", "at 3 o'clock"`
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "ma",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "in",
+                    "non-specific location in space",
+                    "time interval relative to the current time",
+                    `"in Mexico", "in an hour"`
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "umida",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to rise",
+                    "to move upwards"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "braki",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "mango (orange fruit) (very sweet)"
+                ]
+            }
+        ]
+    },
+
     //#endregion
 
     //#region Compound Words
@@ -3477,26 +3602,17 @@ const wordData = [
                 definition: [
                     "Birthday, as in \"Happy Birthday\""
                 ]
-            }
-        ],
-        derivedFrom: [
-            "akamuri",
-            "amizha"
-        ]
-    },
-    {
-        word: "zhakuru vani",
-        data: [
+            },
             {
-                type: wordType.noun,
+                type: wordType.compound,
                 definition: [
-                    "New Year, as in \"Happy New Year\"",
+                    "start + day"
+                ],
+                derivedFrom: [
+                    "akamuri",
+                    "amizha"
                 ]
             },
-        ],
-        derivedFrom: [
-            "zhakuru",
-            "vani"
         ]
     },
     {
@@ -3507,11 +3623,17 @@ const wordData = [
                 definition: [
                     "Christmas"
                 ]
+            },
+            {
+                type: wordType.compound,
+                definition: [
+                    "Christ + gathering"
+                ],
+                derivedFrom: [
+                    "krizu",
+                    "badimabri"
+                ]
             }
-        ],
-        derivedFrom: [
-            "krizu",
-            "badimabri"
         ]
     },
     {
@@ -3520,13 +3642,19 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "Potion, \"magic drink\""
+                    "potion"
                 ]
-            }
-        ],
-        derivedFrom: [
-            "tinaka",
-            "mazhi"
+            },
+            {
+                type: wordType.compound,
+                definition: [
+                    "magic + drink"
+                ],
+                derivedFrom: [
+                    "tinaka",
+                    "mazhi"
+                ]
+            },
         ]
     },
 
@@ -3539,10 +3667,16 @@ const wordData = [
                     "to do work",
                 ]
             },
-        ],
-        derivedFrom: [
-            "aguku",
-            "zhiba"
+            {
+                type: wordType.compound,
+                definition: [
+                    "work + to do"
+                ],
+                derivedFrom: [
+                    "aguku",
+                    "zhiba"
+                ]
+            },
         ]
     },
 
@@ -3553,13 +3687,18 @@ const wordData = [
                 type: wordType.noun,
                 definition: [
                     "today",
-                    "this day",
                 ]
             },
-        ],
-        derivedFrom: [
-            "niri",
-            "amizha"
+            {
+                type: wordType.compound,
+                definition: [
+                    "this + day"
+                ],
+                derivedFrom: [
+                    "niri",
+                    "amizha"
+                ]
+            },
         ]
     },
     //#endregion
@@ -3990,6 +4129,18 @@ const grammarWordData = [
             }
         ]
     },
+    {
+        word: "liza bakradi",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "who, \"what person\"",
+                    "personal interrogative",
+                ]
+            }
+        ]
+    },
 
     {
         word: "tu",
@@ -4182,5 +4333,18 @@ const grammarWordData = [
             "kafiraki"
         ]
     },
+
+    {
+        word: "kika",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "again",
+                ]
+            }
+        ]
+    },
+
     //#endregion
 ]

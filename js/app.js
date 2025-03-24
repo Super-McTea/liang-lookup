@@ -26,7 +26,7 @@ function createWordCard(word, docFrag) {
                 </ul>`) : ""}`;
 
             if (derivation) {
-                innerString += `<p class="heading">Derived from [ ${derivation.join(" + ")} ]</p>`
+                innerString += `<p class="card-footer heading">Derived from [ ${derivation.join(" + ")} ]</p>`
             }
             innerString += definitions ? `</div>` : "";
         }
