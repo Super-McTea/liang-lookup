@@ -1087,7 +1087,8 @@ const wordData = [
             {
                 type: wordType.verb,
                 definition: [
-                    "to play (an instrument)"
+                    "to play",
+                    "(an instrument)"
                 ]
             }
         ]
@@ -3586,6 +3587,165 @@ const wordData = [
                 type: wordType.noun,
                 definition: [
                     "mango (orange fruit) (very sweet)"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "pika",
+        data: [
+            {
+                type: wordType.determiner,
+                definition: [
+                    "some"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "luma",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "away",
+                    "(directional)"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "zumliba",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "rain"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "upri",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to fall",
+                    "to descend"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "lirita",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "soon",
+                    "in a short time"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "liri",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "small",
+                    "little"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "abari",
+        data: [
+            {
+                type: wordType.determiner,
+                definition: [
+                    "few",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "guti",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "big",
+                    "large"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "wogiguti",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "amazing",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "wogi",
+            "guti"
+        ]
+    },
+
+    {
+        word: "kutri",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to owe",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "kutriba",
+        data: [
+            {
+                type: wordType.auxillary,
+                definition: [
+                    "should",
+                    "ought to"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "kutri",
+            "b"
+        ]
+    },
+
+    {
+        word: "zati",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to play",
+                    "(an activity for recreation)"
                 ]
             }
         ]
