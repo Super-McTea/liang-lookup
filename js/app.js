@@ -175,7 +175,7 @@ function replaceLiangTags(text) {
     return text;
 }
 
-function sorrCharCount(first, second)
+function sortCharCount(first, second)
 {
     if (first.length == 0) {
         return -1;
@@ -754,6 +754,10 @@ filterButtonContainer.addEventListener('click', (event) => {
 searchBar.addEventListener('input', (event) => {
     event.preventDefault();
     updateSearch();
+    populateCards();
+})
+
+lengthSortBox.addEventListener('input', (event) => {
     populateCards();
 })
 

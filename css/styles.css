@@ -278,7 +278,7 @@
 /* #region Filters */
 .filters {
     display: grid;
-    grid-template-areas: "top" "bottom";
+    grid-template-areas: "top" "mid" "bottom";
     grid-gap: 0;
     padding: 5px;
 }
@@ -297,6 +297,31 @@
     margin: 1em auto 0;
 }
 
+.under-bar {
+    display: flex;
+    flex-direction: row;
+
+    border: none;
+    border-top: solid 3px #222222;
+    border-bottom: solid 3px #222222;
+}
+
+.under-bar p {
+    text-align: center;
+    margin: 8px;
+}
+
+.sort-button {
+    padding: 0.1em;
+    border: 3px solid gray;
+    border-radius: 0.5em;
+    margin: 5px;
+}
+.sort-button:hover {
+    background-color: burlywood;
+    cursor: pointer;
+}
+
 #search-bar {
     font-size: 16px;
     height: 2em;
@@ -310,7 +335,7 @@
     font-weight: bold;
     width: 90%;
     margin: auto;
-    padding: 0.5em;
+    padding: 4px;
 }
 
 .error .name-container {
@@ -482,8 +507,16 @@
 
     .filters {
         display: grid;
-        grid-template-columns: 70% 1fr;
-        grid-template-areas: "left right";
+        grid-template-columns: 70% 70px 1fr;
+        grid-template-areas: "left mid right";
         grid-gap: 0;
+    }
+
+    .under-bar {
+        display: block;
+
+        border: none;
+        border-left: solid 3px #222222;
+        border-right: solid 3px #222222;
     }
 }
