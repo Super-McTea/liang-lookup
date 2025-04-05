@@ -175,6 +175,23 @@ function replaceLiangTags(text) {
     return text;
 }
 
+function sorrCharCount(first, second)
+{
+    if (first.length == 0) {
+        return -1;
+    }
+    if (second.length == 0) {
+        return 1;
+    }
+    
+    const firstTest = firstLiangCharacter(first);
+    const secondTest = firstLiangCharacter(second);
+    
+    return sortCharCount(first.substring(firstTest.length), second.substring(secondTest.length));
+
+    
+}
+
 function sortAlphabetically(first, second) {
 
     if (first.length == 0) {
@@ -403,11 +420,18 @@ function populateCards() {
 function generateWordList() {
 
     // Filter and Sort
-    const descWords = liangWordData.filter(filterDesc).sort(sortDesc);
+    const descWords = liangWordData.filter(filterDesc).sort(sortDesc).sort(
+    (a, b) => {
+        return (lengthSortBox.checked ? sortCharCount(a.word, b.word) : null);
+    });
 
     const nameWords = liangWordData.filter(filterName).sort(
             (a, b) => {
                 return (searchFilter && searchFilter.length != 0) ? a.word.length - b.word.length : null;
+            }
+        ).sort(
+            (a, b) => {
+                return (lengthSortBox.checked ? sortCharCount(a.word, b.word) : null);
             }
         );
 
@@ -665,6 +689,8 @@ function getDigitWord(digit) {
 // Global Variables
 const alphSorted = [...alphabet].map(a => a.toLowerCase());
 const lenSorted = [...alphabet].map(a => a.toLowerCase()).sort((a,b) => {return b.length - a.length});
+
+const lengthSortBox = document.getElementById('length-sort-box');
 
 const liangWordData = (wordData.concat(grammarWordData)).filter(
     (word) => {
