@@ -810,7 +810,8 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "wild (animal)"
+                    "wild (animal)",
+                    "animal grouping not including pets"
                 ]
             }
         ]
@@ -834,9 +835,16 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
+                    "Contrast",
                     "Light and Dark",
-                    "Sun and Moon",
-                    "Ying and Yang"
+                ]
+            },
+            {
+                type: wordType.noun,
+                definition: [
+                    "duality (Archaic use)",
+                    "Ying and Yang (Archaic use)",
+                    "good vs evil (Archaic use)"
                 ]
             }
         ],
@@ -2085,6 +2093,7 @@ const wordData = [
                 definition: [
                     "step, pace",
                     "span",
+                    "interval",
                 ]
             }
         ]
@@ -3652,6 +3661,9 @@ const wordData = [
                     "in a short time"
                 ]
             }
+        ],
+        derivedFrom: [
+            "liri"
         ]
     },
 
@@ -3746,6 +3758,124 @@ const wordData = [
                 definition: [
                     "to play",
                     "(an activity for recreation)"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "wogivani",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "hope",
+                    "anticipation for the future"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "wogi",
+            "vani"
+        ]
+    },
+
+    {
+        word: "fana",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "life",
+                ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to live",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "fazha",
+            "nathi"
+        ]
+    },
+
+    {
+        word: "zhugati",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "long",
+                    "of great length"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zhuti",
+            "guti"
+        ]
+    },
+    {
+        word: "zhuri",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "short",
+                    "of small length"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zhuti",
+            "liri"
+        ]
+    },
+
+    {
+        word: "katigati",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "slow",
+                    "long to end"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "katiu",
+            "zhugati"
+        ]
+    },
+    {
+        word: "tizhuri",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "fast",
+                    "short to end"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "katiu",
+            "zhuri"
+        ]
+    },
+
+    {
+        word: "vita",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "around",
+                    "(directional)"
                 ]
             }
         ]
@@ -3857,6 +3987,70 @@ const wordData = [
                 derivedFrom: [
                     "niri",
                     "amizha"
+                ]
+            },
+        ]
+    },
+
+    {
+        word: "zhutiaka",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "once"
+                ]
+            },
+            {
+                type: wordType.compound,
+                definition: [
+                    "one + interval"
+                ],
+                derivedFrom: [
+                    "zhuti",
+                    "1"
+                ]
+            },
+        ]
+    },
+    {
+        word: "zhutifuta",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "twice"
+                ]
+            },
+            {
+                type: wordType.compound,
+                definition: [
+                    "two + interval"
+                ],
+                derivedFrom: [
+                    "zhuti",
+                    "2"
+                ]
+            },
+        ]
+    },
+    {
+        word: "zhutimana",
+        data: [
+            {
+                type: wordType.adverb,
+                definition: [
+                    "thrice"
+                ]
+            },
+            {
+                type: wordType.compound,
+                definition: [
+                    "three + interval"
+                ],
+                derivedFrom: [
+                    "zhuti",
+                    "3"
                 ]
             },
         ]
@@ -3990,6 +4184,34 @@ const grammarWordData = [
                 definition: [
                     "?",
                     "Interrogative particle"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "pa",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "!",
+                    "Imperative mood",
+                    "Command, instruction, request"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "ru",
+        data: [
+            {
+                type: wordType.suffix,
+                definition: [
+                    "Infinitive form",
+                    "turns a verb into an adjective",
+                    `eg. "happy [to go]" or "problem [to solve]"`
                 ]
             }
         ]
