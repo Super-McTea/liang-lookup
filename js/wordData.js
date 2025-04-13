@@ -1986,13 +1986,16 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
+                    "group",
                     "collection",
                 ]
             },
             {
                 type: wordType.verb,
                 definition: [
+                    "to group",
                     "to collect",
+                    "to gather",
                 ]
             }
         ],
@@ -3876,6 +3879,42 @@ const wordData = [
                 definition: [
                     "around",
                     "(directional)"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "tuthi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "addition",
+                    "attachment",
+                    "incorporation"
+                ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to join",
+                    "to add",
+                    "to attach",
+                    "to accumulate",
+                ]
+            },
+        ]
+    },
+
+    {
+        word: "gazhi",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "same",
+                    "alike"
                 ]
             }
         ]
