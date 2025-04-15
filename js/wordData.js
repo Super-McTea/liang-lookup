@@ -1296,6 +1296,22 @@ const wordData = [
     },
 
     {
+        word: "mazhui",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to cast (magic)",
+                    "to expend magical energy"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "mazhia"
+        ]
+    },
+
+    {
         word: "ithida",
         data: [
             {
