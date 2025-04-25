@@ -6,10 +6,10 @@ function createWordCard(word, docFrag) {
     card.id = `${name}`;
     card.classList.add("card", "word-card", "smushed");
 
-    let innerString = `<div class="card-name heading">${name}</div>
-    <div class="name-container">`;
+    let innerString = `<div class="card-name heading">${name}</div>`
+    // <div class="name-container">`;
         
-    innerString += createCardSpelling(name) + `</div>`;
+    innerString += `<div class="name-container">` + createCardSpelling(name) + `</div>`;
 
     if (data) {
         for (const d of data) {
@@ -162,10 +162,12 @@ function replaceLiangTags(text) {
 
             console.log(capturedTag, capturedTitle);
 
-            const liangifiedText = `<div class="name-container">
-                    <span class="tooltip-content">${capturedTitle ? capturedTitle : capturedContent}</span>
-                    ${createCardSpelling(capturedContent.trim(), false)}
-                </div>`;
+            // const liangifiedText = `<div class="name-container">
+            //         <span class="tooltip-content">${capturedTitle ? capturedTitle : capturedContent}</span>
+            //         ${createCardSpelling(capturedContent.trim(), false)}
+            //     </div>`;
+
+            const liangifiedText = `<span class="liang">${capturedContent.trim()}</span>`;
 
             newText = newText.replace(capturedTag, liangifiedText);
         }
@@ -295,6 +297,7 @@ function updateSearch() {
         // updateErrorMessage("DEBUG Search Empty");
     }
     else {
+        searchUnfiltered = searchTerm.trim();
         searchFilter = searchTerm.toLowerCase();
     }
 }
@@ -311,7 +314,8 @@ function liangErrorReplace(pre, liangText) {
         updateErrorMessage();
         return;
     }
-    const displayText = (pre ? pre : "") + `${verifyLiangWord(liangText) ? "<div class=\"name-container\">" + createCardSpelling(liangText) + "</div>": "not valid text: " + liangText}`
+    const displayText = (pre ? pre : "") + "<span class=\"liang\">" + liangText + "</span>";
+    // `${verifyLiangWord(liangText) ? "<div class=\"name-container\">" + createCardSpelling(liangText) + "</div>" : "not valid text: " + liangText}`
     if (displayText) {
         updateErrorMessage(displayText);
     }
@@ -395,7 +399,7 @@ function populateCards() {
 
         cardContainer.appendChild(tempCardContainer);
 
-        liangErrorReplace("", searchFilter);
+        liangErrorReplace("", searchUnfiltered);
     }
     if (showGrammar) {
 
@@ -709,6 +713,7 @@ const backToTop = document.getElementById('back-to-top');
 // Search Bar
 const searchBar = document.getElementById('search-bar');
 let searchFilter = null;
+let searchUnfiltered = null;
 const searchErrorText = document.getElementById('search-error');
 let searchError = "";
 

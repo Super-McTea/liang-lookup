@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Liang Extended";
+    src: url("../assets/liang_expanded.ttf");
+}
+
+.liang {
+    font-family: "Liang Extended";
+    font-size: 1.5em;
+}
+
 /* #region The Base Container */
 #container {
     width: 1300px;
