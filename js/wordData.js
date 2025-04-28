@@ -439,16 +439,17 @@ const wordData = [
             {
                 type: wordType.verb,
                 definition: [
+                    "is",
                     "to be",
                     "to exist",
                 ]
             },
-            {
-                type: wordType.auxillary,
-                definition: [
-                    "is"
-                ]
-            }
+            // {
+            //     type: wordType.auxillary,
+            //     definition: [
+            //         "is"
+            //     ]
+            // }
         ]
     },
 
@@ -2581,6 +2582,10 @@ const wordData = [
                     "school, literally \"building of learning\" (shortened)",
                 ]
             }
+        ],
+        derivedFrom: [
+            "niami",
+            "vuubi"
         ]
     },
 
@@ -3800,6 +3805,23 @@ const wordData = [
     },
 
     {
+        word: "wogivuri",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "hopeful",
+                    "having hope"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "wogivani",
+            "kuri"
+        ]
+    },
+
+    {
         word: "fana",
         data: [
             {
@@ -3936,6 +3958,23 @@ const wordData = [
         ]
     },
 
+    {
+        word: "bakugiizha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "yesterday",
+                    "\"old day\""
+                ]
+            }
+        ],
+        derivedFrom: [
+            "bakugi",
+            "amizha",
+        ]
+    },
+
     //#endregion
 
     //#region Compound Words
@@ -4032,6 +4071,7 @@ const wordData = [
                 type: wordType.noun,
                 definition: [
                     "today",
+                    "Note: you can also just use \"day\" to mean today"
                 ]
             },
             {

@@ -35,16 +35,15 @@ const grammarData = [
 
             "Speaking of adjectives, they can technically be applied in any order, however they typically work and sound the best in this order:",
             `<ol>
-                <li>Purpose</li>
-                <li>Material</li>
-                <li>Origin</li>
                 <li>Colour</li>
                 <li>Shape</li>
                 <li>Age</li>
                 <li>Size</li>
                 <li>Opinion</li>
             </ol>`,
-            "An example of this would be <l>umabri bulami liai</l>, which translates to [person] [old] [knowledgable] (\"knowledgable old person\"). It happens to be the exact opposite order that English follows, so that may be of help when picking the order of your adjectives.",
+            `An example of this would be <l>umabri bulami liai</l>, which translates to [person] [old] [knowledgable] (\"knowledgable old person\"). It happens to be the exact opposite order that English follows, so that may be of help when picking the order of your adjectives. The astute of you may have noticed that "Purpose", "Material", and "Origin" are missing from this list - that is because they are covered by the genitive case (see below).`,
+
+            `Another cool thing about adjectives is that they also function as adverbs when placed after a verb! Unlike in English, where you have to add a suffix like -ly, in <l>liang</l> you can use an adjective directly to modify a verb. An example of this would be <l>na zurum giamig lami</l> [The sun is shining brightly], where the adjective <l>lami</l> [bright] is being used to modify the verb <l>giami</l> [to shine].`,
 
             "<h2>Verbs</h2>",
 
@@ -52,9 +51,60 @@ const grammarData = [
             "<strong>[ VERB => Main Negative => Auxillary Verb => Aux Negative => ADVERB => Interrogative ]</strong>",
             "In an example, <l>amamig maba iu</l>, where <l>amamig</l> [to like] is the Verb, <l>maba</l> [not] is the Main Negative, and <l>iu</l> [?] is the Interrogative.",
 
+            `<strong class="head">Verb Forms<strong>`,
+
             "Verbs can have three different suffixes: <l>b</l> [past tense], <l>d</l> [future tense], and <l>g</l> [present tense]. If a verb does not end in one of these three, it is probably in either the base form or the imperative form (i.e. causing someone to act). A useful mnemonic to remember the three tenses is: <em>\"B for Before, D for Da future, and G for riGht now\"</em>.",
 
-            "Verbs can also have three prefixes, depending on which vowel the base form ends in. Having no prefixes means that the verb is \"perfective\" (\"I <em>did</em> something\", implies completion), whereas a verb with a prefix is \"imperfective\" (\"I <em>was doing</em> something\", implies the action was interrupted, or incomplete), with the only exception being in present tense. A present-tense verb, when given a prefix, becomes habitual (\"I <em>often do</em> something\", implies repetition or a status quo). The imperfective prefixes for verbs are <l>ra</l> [for verbs that end in <l>a</l>], <l>pi</l> [for verbs that end in <l>i</l>], and <l>mu</l> [for verbs that end in <l>u</l>].",
+            `Verbs can also have three prefixes, depending on which vowel the base form ends in. Having no prefixes means that the verb is in the \"Unmarked\" form (\"I <em>did</em> something\", implies completion), whereas a verb with a prefix is in the \"Marked\" form (\"I <em>was doing</em> something\", implies the action was interrupted, or incomplete). A present-tense verb, when given a prefix, becomes habitual (\"I <em>often do</em> something\", implies repetition or a status quo). See the table below for more details:`,
+            `<table>
+                <tr>
+                    <th> </th>
+                    <th>Past</th>
+                    <th>Present</th>
+                    <th>Future</th>
+                </tr>
+                <tr>
+                    <th>Unmarked</th>
+                    <td>
+                        "did"<br>
+                        (Implies completion, with a specific start and end time)
+                    </td>
+                    <td>
+                        "am doing"<br>
+                        (Implies continuity, is currently happening)
+                    </td>
+                    <td>
+                        "will do"<br>
+                        (Implies intent, references a specific set time)
+                    </td>
+                </tr>
+                <tr>
+                    <th>Marked</th>
+                    <td>
+                        "was doing"<br>
+                        (Non-specific timeframe, does not imply completion)
+                    </td>
+                    <td>
+                        "(often) does"<br>
+                        (habitually, but not necessarily right now)
+                    </td>
+                    <td>
+                        "Will be doing"<br>
+                        (Implies intent, but non-specific time in the middle of the action being performed)
+                    </td>
+                </tr>
+            </table>`,
+            `The prefixes for \"Marked\" verbs are <l>ra</l> [for verbs that end in <l>a</l>], <l>pi</l> [for verbs that end in <l>i</l>], and <l>mu</l> [for verbs that end in <l>u</l>].`,
+            `After the tense suffix, you can also add the suffix "<l>pa</l>" to mark the verb as imperative or as a command. This only applies to verbs in the unmarked present-tense form, though! For example, <l>zhibagpa maba</l> means "do not".`,
+            `Similar to <l>pa</l>, adding "<l>ru</l>" to the end of a verb converts it to the infinitive form, "to [verb]" in English. This effectively turns the verb phrase into an adjective, most often used to modify the direct object of a sentence. For example, "<l>mim libu gizubag ru kid</l>" means "I will be happy to go", where <l>gizubag ru</l> [to go] is modifying the noun <l>libu</l> [happy], more or less specifying what kind of happy I will be (happy to go).`,
+
+            `<strong class="head">Auxillary Verbs</strong>`,
+
+            `Auxillary verbs are verbs which are used to modify the main verbs, usually to encode grammatical mood. An example of an auxillary verb might be <l>kutriba</l> [should], which indicates an obligation or desire ("<l>mim zhalumigpa kutriba</l>" [I should sleep]).`,
+
+            `<strong class="head">Adverbs</strong>`,
+
+            `Adverbs do not have a specific order like adjectives do, but are most often placed in order of emphasis and ALWAYS GO AFTER THE VERB THEY MODIFY, with the only exceptions being adverbs related to time like "today" and "tomorrow". A sentence like "Yesterday, she hopefully looked around slowly" would translate to something closer to <l>bakugiizha nurim rabulukab wogivuri vita katigati</l>, literally [yesterday she was-looking hopefully around slowly] where "hopefully" is the adverb with the most emphasis in the sentence, and "yesterday" (being time-related) is allowed to remain at the start of the sentence.`
         ]
     },
     {
@@ -64,8 +114,12 @@ const grammarData = [
             "<h2>A note on Genitives</h2>",
 
             `For those who may not know, the Genitive case is when a noun is used to modify another noun. In English, genitives are most commonly used for showing possession (for example in "David's house", where "David" is the genitive modifier to the noun "house").`,
-            `In <l>liang</l>, genitives take on a much larger role and in many cases replaces adjectives as the way to describe a noun, particularly for the type of material or place of origin. For example, instead of saying a "metallic rock", you would say a "rock of metal" (<l>filima fu thaduku</l>), where the adjective "metallic" (which doesn't exist) is replaced by the genitive case "of-metal" (<l>filima fu</l>). Similarly, a "French person" would be translated better as a "person of France" (<l>branumuri fu umabri</l>).`,
-            ``
+            `In <l>liang</l>, genitives take on a much larger role and in many cases replaces adjectives as the way to describe a noun, particularly for the type of material, place of origin, or the object's purpose. For example, instead of saying a "metallic rock", you would say a "rock of metal" or an "of-metal rock" (<l>filima fu thaduku</l>), where the adjective "metallic" (which doesn't exist) is replaced by the genitive case "of-metal" (<l>filima fu</l>). Similarly, a "French person" would be translated better as a "person of France" or "of-France person" (<l>branumuri fu umabri</l>).`,
+            
+            `<h2>Loan Words</h2>`,
+            `When dealing with loan words, they are usually written in square brackets <l>[ ]</l>, and are transliterated into a specialised form of the <l>liang</l> script which includes glyphs for consonants with no attached vowel. These were developed at a later date after the <l>liang</l> people made communications with other people groups with other languages, and they specifically realised they needed a way to write consonant clusters due to contact with the consonant-heavy languages from <l>niiubi kafiraki</l>. When romanising <l>liang</l>, the script itself is usually written in lowercase while loan words are written in [ALL CAPS].`,
+            `Foreign names are also written in this script, with <l>ng</l> added to the end to make it a proper noun eg. <l>mim [MAKTII]ng kig</l>.`,
+            `The consonant glyphs: <l>[L.M.F.TH.Z.P.T.K.R.N.V.ZH.B.D.G]</l>`
         ]
     }
 ]

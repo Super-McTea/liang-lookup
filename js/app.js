@@ -167,7 +167,7 @@ function replaceLiangTags(text) {
             //         ${createCardSpelling(capturedContent.trim(), false)}
             //     </div>`;
 
-            const liangifiedText = `<span class="liang">${capturedContent.trim()}</span>`;
+            const liangifiedText = `<span class="liang" title="${capturedTitle ? capturedTitle : capturedContent}">${capturedContent.trim()}</span>`;
 
             newText = newText.replace(capturedTag, liangifiedText);
         }
