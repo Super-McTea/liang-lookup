@@ -8,6 +8,11 @@
     font-size: 1.5em;
 }
 
+.liang.outline {
+    color: white;
+    -webkit-text-stroke: 1px black;
+}
+
 /* #region The Base Container */
 #container {
     width: 1300px;
@@ -64,11 +69,13 @@
     flex-wrap: wrap;
     justify-content: left;
 
-    margin: 0.1em 1em;
+    font-size: 4em;
+    margin: 0.1em 0.4em;
+    line-height: 1em;
 }
 
 .display-character {
-    height: 4em;
+    height: 1em;
     aspect-ratio: 3/4;
     background-position: center;
     background-size: cover;
@@ -216,6 +223,11 @@
 }
 .alphabet-mode .card-name {
     margin: auto;
+}
+
+.alphabet-mode .liang {
+    font-size: 4em;
+    line-height: 1em;
 }
 
 /* #endregion */

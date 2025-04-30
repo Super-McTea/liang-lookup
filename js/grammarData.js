@@ -28,12 +28,14 @@ const grammarData = [
             "<h2>Nouns</h2>",
 
             "Since <l>liang</l> is a post-positional language, a typical noun-phrase in <l>liang</l> goes something like this:",
-            "<strong>[ Genitives/Possessives => Demonstratives => Ordinals/Counters => NOUN => Disjunctives => ADJECTIVES => Quantifiers ]</strong>",
+
+            "<strong>[ Demonstratives => Counters => Genitives/Possessives => NOUN => ADJECTIVES => Disjunctives/Ordinals => Quantifiers ]</strong>",
+
             "To put this to an example, <l>mifu kamu katu</l>, where <l>mifu</l> [my] is the Possessive, <l>kamu</l> [face] is the Noun, and <l>katu</l> [ugly] is the Adjective.",
 
             "<h2>Adjectives</h2>",
 
-            "Speaking of adjectives, they can technically be applied in any order, however they typically work and sound the best in this order:",
+            "Speaking of adjectives, they can be typically applied in any order, however they sound the best in the order below:",
             `<ol>
                 <li>Colour</li>
                 <li>Shape</li>
@@ -41,7 +43,8 @@ const grammarData = [
                 <li>Size</li>
                 <li>Opinion</li>
             </ol>`,
-            `An example of this would be <l>umabri bulami liai</l>, which translates to [person] [old] [knowledgable] (\"knowledgable old person\"). It happens to be the exact opposite order that English follows, so that may be of help when picking the order of your adjectives. The astute of you may have noticed that "Purpose", "Material", and "Origin" are missing from this list - that is because they are covered by the genitive case (see below).`,
+            `An example of this would be <l>umabri bulami liai</l>, which translates to [person] [old] [knowledgable] (\"knowledgable old person\"). It happens to be the exact opposite order that English follows, so that may be of help when picking the order of your adjectives. If the order of adjectives deviates from this, it is usually to bring emphasis to the first adjective in the list or whichever is considered "out of place".`,
+            `The astute of you may have noticed that "Purpose", "Material", and "Origin" are missing from this list - that is because they are covered by the genitive case (see below).`,
 
             `Another cool thing about adjectives is that they also function as adverbs when placed after a verb! Unlike in English, where you have to add a suffix like -ly, in <l>liang</l> you can use an adjective directly to modify a verb. An example of this would be <l>na zurum giamig lami</l> [The sun is shining brightly], where the adjective <l>lami</l> [bright] is being used to modify the verb <l>giami</l> [to shine].`,
 
@@ -118,7 +121,7 @@ const grammarData = [
             
             `<h2>Loan Words</h2>`,
             `When dealing with loan words, they are usually written in square brackets <l>[ ]</l>, and are transliterated into a specialised form of the <l>liang</l> script which includes glyphs for consonants with no attached vowel. These were developed at a later date after the <l>liang</l> people made communications with other people groups with other languages, and they specifically realised they needed a way to write consonant clusters due to contact with the consonant-heavy languages from <l>niiubi kafiraki</l>. When romanising <l>liang</l>, the script itself is usually written in lowercase while loan words are written in [ALL CAPS].`,
-            `Foreign names are also written in this script, with <l>ng</l> added to the end to make it a proper noun eg. <l>mim [MAKTII]ng kig</l>.`,
+            `Foreign names are also written in this script, transliterated so as to preserve the pronunciation and not necessarily spelling, with <l>ng</l> added to the end as names are treated as proper nouns eg. <l 'mim [McTea]ng kig'>mim [MAKTII]ng kig</l>.`,
             `The consonant glyphs: <l>[L.M.F.TH.Z.P.T.K.R.N.V.ZH.B.D.G]</l>`
         ]
     }

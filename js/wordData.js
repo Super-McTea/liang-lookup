@@ -41,17 +41,17 @@ const alphabet = [
     "ga", "gi", "gu",
     "m", "n", "ng",
 
-    "Mla", "Mli", "Mlu",
+    "mla", "mli", "mlu",
 
-    "Fra", "Fri", "Fru",
-    "Pra", "Pri", "Pru",
-    "Tra", "Tri", "Tru",
-    "Kra", "Kri", "Kru",
+    // "Fra", "Fri", "Fru",
+    "pra", "pri", "pru",
+    "tra", "tri", "tru",
+    "kra", "kri", "kru",
 
-    "Vra", "Vri", "Vru",
-    "Bra", "Bri", "Bru",
-    "Dra", "Dri", "Dru",
-    "Gra", "Gri", "Gru",
+    // "Vra", "Vri", "Vru",
+    "bra", "bri", "bru",
+    "dra", "dri", "dru",
+    "gra", "gri", "gru",
 ]
 
 const wordData = [
@@ -3972,6 +3972,30 @@ const wordData = [
         derivedFrom: [
             "bakugi",
             "amizha",
+        ]
+    },
+
+    {
+        word: "avuri",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "side",
+                    "location beside [something], separate from thing itself",
+                    "often used in place names"
+                ]
+            },
+            {
+                type: wordType.noun,
+                definition: [
+                    "a stretch of land beside [something] (archaic use)",
+                    "land surrounding an important location to be reserved for use (archaic use)"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "tamuri",
         ]
     },
 

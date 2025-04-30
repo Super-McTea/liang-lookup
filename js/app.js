@@ -7,9 +7,9 @@ function createWordCard(word, docFrag) {
     card.classList.add("card", "word-card", "smushed");
 
     let innerString = `<div class="card-name heading">${name}</div>`
-    // <div class="name-container">`;
+    // <div class="name-container"> createCardSpelling(name)`;
         
-    innerString += `<div class="name-container">` + createCardSpelling(name) + `</div>`;
+    innerString += `<div class="name-container liang outline">` + name + `</div>`;
 
     if (data) {
         for (const d of data) {
@@ -62,11 +62,13 @@ function createNumberCard(number) {
             innerString += `
             <div class="number-word">
                 <p class="card-type-header">${type}</p>
-                <div class="name-container">
-                    ${createCardSpelling(word)}
-                </div>
+                <div class="name-container liang outline">${word}</div>
                 <p class="romanisation">${word}</p>
             </div>`;
+
+            // <div class="name-container">
+            // ${createCardSpelling(word)}
+            // </div>
         }
     }
 
@@ -82,13 +84,32 @@ function createAlphabetCard(letter, parentGroup) {
     card.classList.add("card", "word-card");
 
     if (letter != " ") {
-        let innerString = `
-        <div class="card-name">${letter}</div>
-        <div class="letter-container">
-            <div class="name-container">
-                ${createCardSpelling(letter)}
-            </div>
-        </div>`
+        let pronunciation = letter.replace(/r/g, "ɹ");
+
+        if (letter.substring(0,2) == "zh") {
+            pronunciation = "ʒ" + letter.substring(2);
+        }
+        else if (letter.substring(0,2) == "th") {
+            pronunciation = "ð" + letter.substring(2);
+        }
+        else if (letter.substring(0,1) == "y") {
+            pronunciation = "j" + letter.substring(1);
+        }
+        else if (letter == "ng") {
+            pronunciation = "ŋ";
+        }
+        
+
+        let innerString = 
+        // <div class="letter-container">
+        //     <div class="name-container">
+        //         ${createCardSpelling(letter)}
+        //     </div>
+        // </div>
+        `
+        <div class="liang outline">${letter.toLowerCase()}</div>
+        <span class="card-name">${letter.trim()}</span>
+        <span>- /${pronunciation.toLowerCase()}/</span>`
 
         card.innerHTML = innerString;
     }
@@ -293,6 +314,7 @@ function updateSearch() {
     const searchTerm = searchBar.value.trim();
     // console.log(searchTerm);
     if (searchTerm.length == 0) {
+        searchUnfiltered = null;
         searchFilter = null;
         // updateErrorMessage("DEBUG Search Empty");
     }
