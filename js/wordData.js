@@ -3926,11 +3926,11 @@ const wordData = [
         word: "tuthi",
         data: [
             {
-                type: wordType.noun,
+                type: wordType.adjective,
                 definition: [
-                    "addition",
-                    "attachment",
-                    "incorporation"
+                    "joined",
+                    "added",
+                    "attached"
                 ]
             },
             {
@@ -3981,7 +3981,7 @@ const wordData = [
             {
                 type: wordType.noun,
                 definition: [
-                    "side",
+                    "side land",
                     "location beside [something], separate from thing itself",
                     "often used in place names"
                 ]
@@ -3996,6 +3996,155 @@ const wordData = [
         ],
         derivedFrom: [
             "tamuri",
+        ]
+    },
+
+    {
+        word: "laiga",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "flat",
+                    "surface, plane"
+                ]
+            }
+        ]
+    },
+    {
+        word: "liga",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "ground",
+                    "floor",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "laiga",
+        ]
+    },
+
+    {
+        word: "fazhali",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "grass",
+                    "\"floor plant\""
+                ]
+            }
+        ],
+        derivedFrom: [
+            "fazha",
+            "liga"
+        ]
+    },
+
+    {
+        word: "nauki",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "cut",
+                    "separated piece"
+                ]
+            },
+            {
+                type: wordType.verb,
+                definition: [
+                    "to cut",
+                    "to split",
+                    "to separate"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "naizha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "unit",
+                    "building block",
+                    "brick",
+                    "a cut chunk of wood (archaic use)",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "nauki",
+            "guizha"
+        ]
+    },
+
+    {
+        word: "aigi",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "loose",
+                    "not secure"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "thadukuzu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "deep rock",
+                    "bedrock",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "thaduku",
+            "ikuzu"
+        ]
+    },
+
+    {
+        word: "naigaku",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "liquid"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "nai",
+            "gaku"
+        ]
+    },
+
+    {
+        word: "ranaiku",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "lava",
+                    "molten rock",
+                    "\"liquid fire\""
+                ]
+            }
+        ],
+        derivedFrom: [
+            "rani",
+            "naigaku"
         ]
     },
 
