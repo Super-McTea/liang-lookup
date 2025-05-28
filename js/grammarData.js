@@ -33,6 +33,8 @@ const grammarData = [
 
             "To put this to an example, <l>mifu kamu katu</l>, where <l>mifu</l> [my] is the Possessive, <l>kamu</l> [face] is the Noun, and <l>katu</l> [ugly] is the Adjective.",
 
+            `<l>liang</l> also allows for nouns to be used as though they were adjectives - in that case, they become noun-adjuncts and follow the same rules as adjectives.`,
+
             "<h2>Adjectives</h2>",
 
             "Speaking of adjectives, they can be typically applied in any order, however they sound the best in the order below:",

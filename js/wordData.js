@@ -361,6 +361,13 @@ const wordData = [
                 definition: [
                     "darkness"
                 ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "dark",
+                    "without light"
+                ]
             }
         ]
     },
@@ -1147,6 +1154,14 @@ const wordData = [
                 type: wordType.noun,
                 definition: [
                     "face (of a person)"
+                ]
+            },
+            {
+                type: wordType.adverb,
+                definition: [
+                    "in front",
+                    "facing direction",
+                    "(directional)"
                 ]
             }
         ]
@@ -2760,6 +2775,8 @@ const wordData = [
                 type: wordType.noun,
                 definition: [
                     "plant, that grows naturally",
+                    "bush",
+                    "shrub"
                 ]
             }
         ],
@@ -2774,6 +2791,7 @@ const wordData = [
                 type: wordType.noun,
                 definition: [
                     "green, the colour",
+                    "a lighter shade of green"
                 ]
             },
             {
@@ -4145,6 +4163,221 @@ const wordData = [
         derivedFrom: [
             "rani",
             "naigaku"
+        ]
+    },
+
+    {
+        word: "kanari",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "country",
+                    "nation",
+                    "empire"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "ka",
+            "avuri"
+        ]
+    },
+
+    {
+        word: "mumu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "coal",
+                    "carbon"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "filimari",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "iron",
+                    "hematite"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "filima",
+            "ari"
+        ]
+    },
+
+    {
+        word: "bulami",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "method"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "budu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "log",
+                    "trunk"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "naukiuka",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "cutter",
+                    `"Thing which cuts"`
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "dimiu",
+        data: [
+            {
+                type: wordType.verb,
+                definition: [
+                    "to grind",
+                    "to pulverise (into powder)",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "diu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "powder",
+                    "fine dust"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "dimiu"
+        ]
+    },
+
+    {
+        word: "diuku",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "sand",
+                ]
+            }
+        ],
+        derivedFrom: [
+            "thaduku",
+            "diu"
+        ]
+    },
+
+    {
+        word: "zumuli",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "azure, the colour",
+                    "a lighter shade of blue"
+                ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "sky coloured",
+                    "free, lightweight"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "zumi",
+            "iuli"
+        ]
+    },
+
+    {
+        word: "namauli",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "navy blue, the colour",
+                    "a darker shade of blue"
+                ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "deep ocean coloured",
+                    "turbulent, weighted"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "namai",
+            "iuli"
+        ]
+    },
+
+    {
+        word: "atui",
+        data: [
+            {
+                type: wordType.adjective,
+                definition: [
+                    "dull",
+                    "blunt",
+                    "useless"
+                ]
+            }
+        ]
+    },
+    {
+        word: "atuli",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "gray, the colour",
+                ]
+            },
+            {
+                type: wordType.adjective,
+                definition: [
+                    "dull coloured",
+                    "desaturated, drained"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "atui",
+            "iuli"
         ]
     },
 

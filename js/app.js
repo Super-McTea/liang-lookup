@@ -92,8 +92,17 @@ function createAlphabetCard(letter, parentGroup) {
         else if (letter.substring(0,2) == "th") {
             pronunciation = "ð" + letter.substring(2);
         }
+        else if (letter.substring(0,2) == "tr") {
+            pronunciation = "tɹ" + letter.substring(2) + "/ or /ʧɹ" + letter.substring(2);
+        }
+        else if (letter.substring(0,2) == "dr") {
+            pronunciation = "dɹ" + letter.substring(2) + "/ or /dʒɹ" + letter.substring(2);
+        }
         else if (letter.substring(0,1) == "y") {
-            pronunciation = "j" + letter.substring(1);
+            pronunciation = "j" + letter.substring(1) + "ʊ";
+        }
+        else if (letter.substring(0,1) == "w") {
+            pronunciation = letter + "ʊ";
         }
         else if (letter == "ng") {
             pronunciation = "ŋ";
