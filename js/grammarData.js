@@ -101,7 +101,7 @@ const grammarData = [
             </table>`,
             `The prefixes for \"Marked\" verbs are <l>ra</l> [for verbs that end in <l>a</l>], <l>pi</l> [for verbs that end in <l>i</l>], and <l>mu</l> [for verbs that end in <l>u</l>].`,
             `After the tense suffix, you can also add the suffix "<l>pa</l>" to mark the verb as imperative or as a command. This only applies to verbs in the unmarked present-tense form, though! For example, <l>zhibagpa maba</l> means "do not".`,
-            `Similar to <l>pa</l>, adding "<l>ru</l>" to the end of a verb converts it to the infinitive form, "to [verb]" in English. This effectively turns the verb phrase into an adjective, most often used to modify the direct object of a sentence. For example, "<l>mim libu gizubag ru kid</l>" means "I will be happy to go", where <l>gizubag ru</l> [to go] is modifying the noun <l>libu</l> [happy], more or less specifying what kind of happy I will be (happy to go).`,
+            `Similar to <l>pa</l>, adding "<l>ru</l>" to the end of a verb converts it to the infinitive form, "to [verb]" in English. This effectively turns the verb phrase into an adverb, most often used to add a reason for some action happening. For example, "<l>mim libu kid (gizubag ru)</l>" means "I will be happy to go", where <l>gizubag ru</l> [to go] is modifying the verb <l>kid</l> [will be], specifying the reason that I will be happy <em>(because I will be going)</em>.`,
 
             `<strong class="head">Auxillary Verbs</strong>`,
 
@@ -123,7 +123,7 @@ const grammarData = [
             
             `<h2>Loan Words</h2>`,
             `When dealing with loan words, they are usually written in square brackets <l>[ ]</l>, and are transliterated into a specialised form of the <l>liang</l> script which includes glyphs for consonants with no attached vowel. These were developed at a later date after the <l>liang</l> people made communications with other people groups with other languages, and they specifically realised they needed a way to write consonant clusters due to contact with the consonant-heavy languages from <l>niiubi kafiraki</l>. When romanising <l>liang</l>, the script itself is usually written in lowercase while loan words are written in [ALL CAPS].`,
-            `Foreign names are also written in this script, transliterated so as to preserve the pronunciation and not necessarily spelling, with <l>ng</l> added to the end as names are treated as proper nouns eg. <l 'mim [McTea]ng kig'>mim [MAKTII]ng kig</l>.`,
+            `Foreign names are also written in this script, transliterated so as to preserve the pronunciation and not necessarily spelling, with <l>ng</l> added to the end as names are treated as proper nouns eg. <l 'mim [McTea]ng kig'>mim [maKtii]ng kig</l>.`,
             `The consonant glyphs: <l>[L.M.F.TH.Z.P.T.K.R.N.V.ZH.B.D.G]</l>`
         ]
     }
