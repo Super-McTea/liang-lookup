@@ -4381,6 +4381,53 @@ const wordData = [
         ]
     },
 
+    {
+        word: "zazhu",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "sheep",
+                    "wooly animal"
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "diaka",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "flour",
+                    "ground grain"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "diu",
+            "taika"
+        ]
+    },
+
+    {
+        word: "diakazha",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "wheat",
+                    "barley"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "diaka",
+            "fazha"
+        ]
+    },
+
     //#endregion
 
     //#region Compound Words
