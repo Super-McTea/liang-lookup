@@ -4428,6 +4428,23 @@ const wordData = [
         ]
     },
 
+    {
+        word: "baliga",
+        data: [
+            {
+                type: wordType.auxillary,
+                definition: [
+                    "can",
+                    "able to [verb]"
+                ]
+            }
+        ],
+        derivedFrom: [
+            "balia",
+            "g"
+        ]
+    },
+
     //#endregion
 
     //#region Compound Words
@@ -5271,6 +5288,20 @@ const grammarWordData = [
                 type: wordType.adverb,
                 definition: [
                     "again",
+                ]
+            }
+        ]
+    },
+
+    {
+        word: "ina",
+        data: [
+            {
+                type: wordType.postposition,
+                definition: [
+                    "for",
+                    `used to mark the \"why\" of something`,
+                    `indicates the reason for some object or action`
                 ]
             }
         ]
