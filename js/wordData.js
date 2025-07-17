@@ -4444,6 +4444,19 @@ const wordData = [
             "g"
         ]
     },
+    
+    {
+        word: "zifi",
+        data: [
+            {
+                type: wordType.noun,
+                definition: [
+                    "friend",
+                    "comrade"
+                ]
+            }
+        ]
+    },
 
     //#endregion
 
