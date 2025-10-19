@@ -404,7 +404,7 @@ function populateCards() {
         bottomGroup.classList.add('bottom-alphabet','alphabet-grid');
 
         let sectionIndex = 0;
-        for (letter of alphabet) {
+        for (letter of alphSorted) {
             if (sectionIndex == 0) {
                 createAlphabetCard(letter, topGroup);
                 if (letter == 'u') {
@@ -721,19 +721,75 @@ function getDigitWord(digit) {
     return null;
 }
 
+// Fetch word data
+async function getWordData() {
+    const url = "https://api.github.com/repos/Super-McTea/json-files/contents/liang-word-data.json";
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // GitHub API gives base64 with newlines sometimes, so clean them up
+        const rawContent = data.content.replace(/\n/g, "");
+    
+        // Decode base64 → string
+        const decoded = atob(rawContent);
+
+        // If the file is JSON, parse it
+        const json = JSON.parse(decoded);
+
+        // console.log(json);
+        return json;
+    }
+    catch (e) {
+        console.log("uh oh! " + e);
+        updateErrorMessage("Disconnected from the word database at the moment!");
+    }
+}
+
+let liangData = {};
+
 // Global Variables
-const alphSorted = [...alphabet].map(a => a.toLowerCase());
-const lenSorted = [...alphabet].map(a => a.toLowerCase()).sort((a,b) => {return b.length - a.length});
+let alphSorted;
+let lenSorted;
+let liangWordData;
 
 const lengthSortBox = document.getElementById('length-sort-box');
 
-const liangWordData = (wordData.concat(grammarWordData)).filter(
-    (word) => {
-        return verifyLiangWord(word.word)
-    }).sort(
-    (a, b) => {
-        return sortAlphabetically(a.word, b.word);
-    });
+
+async function setupData() {
+    liangData = await getWordData();
+
+    try {
+        alphSorted = [...liangData.alphabet].map(a => a.toLowerCase());
+        lenSorted = [...liangData.alphabet].map(a => a.toLowerCase()).sort((a,b) => {return b.length - a.length});
+        liangWordData = liangData.wordlist.filter(
+            (word) => {
+                return verifyLiangWord(word.word)
+            }).sort(
+            (a, b) => {
+                return sortAlphabetically(a.word, b.word);
+            });
+
+
+        console.log(`Liang word count: ${liangWordData.length}\nLiang syllable count: ${alphSorted.length}`);
+        console.log(`All systems good :thumbsup:`);
+    }
+    catch (e)
+    {
+        console.log(`Something wrong with the data: ${e}`);
+    }
+}
+
+
+
+// (wordData.concat(grammarWordData)).filter(
+//     (word) => {
+//         return verifyLiangWord(word.word)
+//     }).sort(
+//     (a, b) => {
+//         return sortAlphabetically(a.word, b.word);
+//     });
 // console.log(alphSorted);
 // console.log(lenSorted);
 
@@ -857,9 +913,16 @@ if ('URLSearchParams' in window) {
     }
 }
 // Populate data
-updateSearch();
-updateFilters();
-populateCards();
+async function start() {
+    updateErrorMessage("");
+    await setupData();
+
+    updateSearch();
+    updateFilters();
+    populateCards();
+}
+
+start();
 
 function isNumeric(value) {
     return /^-?\d+$/.test(value);
