@@ -29,7 +29,10 @@ const grammarData = [
 
             "Since <l>liang</l> is a post-positional language, a typical noun-phrase in <l>liang</l> goes something like this:",
 
-            "<strong>[ Demonstratives => Quantifiers => Counters/Disjunctives => Genitives/Possessives => NOUN => ADJECTIVES => Ordinals ]</strong>",
+
+            `<strong>[ <a href="https://en.wikipedia.org/wiki/Determiner#Types" target="_blank">Determiners</a> => Counters/Disjunctives => Genitives/Possessives => NOUN => ADJECTIVES => Ordinals => <a href="https://en.wikipedia.org/wiki/Adpositional_phrase#Postpositional_phrases" target="_blank">Postpositionals</a> ]</strong>`,
+
+            `<a href="https://en.wikipedia.org/wiki/Noun_phrase#Components" title="Wikipedia" target="_blank" ><em>[Noun Phrase Components on Wikipedia]</em></a>`,
 
             "To put this to an example, <l>mifu kamu katu</l>, where <l>mifu</l> [my] is the Possessive, <l>kamu</l> [face] is the Noun, and <l>katu</l> [ugly] is the Adjective.",
 
