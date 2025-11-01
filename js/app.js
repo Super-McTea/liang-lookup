@@ -184,13 +184,13 @@ function replaceLiangTags(text) {
         const matches = text.matchAll(/<l\b[^>]*?(?:(?<opening>["'`])(?<title>.*?)\k<opening>)*\s*>(?<content>.*?)<\/l>/gm);
         let newText = text;
 
-        console.log(matches);
+        // console.log(matches);
         for (const match of matches) {
             const capturedTag = match[0];
             const capturedTitle = match.groups.title;
             const capturedContent = match.groups.content;
 
-            console.log(capturedTag, capturedTitle);
+            // console.log(capturedTag, capturedTitle);
 
             // const liangifiedText = `<div class="name-container">
             //         <span class="tooltip-content">${capturedTitle ? capturedTitle : capturedContent}</span>
@@ -564,8 +564,8 @@ function createNumberWords(numberToString) {
     const placeRadix = 3;
     
     try {
-        let disjunctive = "";
         let counting = "";
+        let disjunctive = "";
         let ordinal = "";
 
         let firstDigitSeen = false;
@@ -653,17 +653,17 @@ function createNumberWords(numberToString) {
             }
 
             // Setting the numbers
-            disjunctive = 
+            counting = 
             // Number Prefix
                 (placeValue == 0 ? numberPrefixes(0) : firstLiangCharacter(numberPrefixes(0))) + 
             // Place Value
-                placePrefixes(0) + disjunctive;
+                placePrefixes(0) + counting;
 
-            counting = 
+            disjunctive = 
             // Number Prefix
                 (placeValue == 0 ? numberPrefixes(firstDigitSeen ? 0 : 1) : firstLiangCharacter(numberPrefixes(firstDigitSeen ? 0 : 1))) + 
             // Place Value
-                placePrefixes(firstDigitSeen ? 0 : 1) + counting;
+                placePrefixes(firstDigitSeen ? 0 : 1) + disjunctive;
 
             ordinal = 
             // Number Prefix
@@ -674,7 +674,7 @@ function createNumberWords(numberToString) {
             // console.log(disjunctive);
 
             // First digit checker
-            if (disjunctive != "") {
+            if (counting != "") {
                 firstDigitSeen = true;
             }
         }
@@ -683,15 +683,15 @@ function createNumberWords(numberToString) {
             number:numberToString,
             data: [
                 {
-                    type: numberType.disjunctive,
-                    word: disjunctive
-                },
-                {
-                    type: numberType.counting,
+                    type: "counting",
                     word: counting
                 },
                 {
-                    type: numberType.ordinal,
+                    type: "disjunctive",
+                    word: disjunctive
+                },
+                {
+                    type: "ordinal",
                     word: ordinal
                 },
             ]
@@ -722,7 +722,7 @@ function getDigitWord(digit) {
 }
 
 // Fetch word data
-async function getWordData() {
+async function getLiangData() {
     const url = "https://api.github.com/repos/Super-McTea/json-files/contents/liang-word-data.json";
 
     try {
@@ -754,15 +754,21 @@ let alphSorted;
 let lenSorted;
 let liangWordData;
 
+let numberData;
+
 const lengthSortBox = document.getElementById('length-sort-box');
 
 
 async function setupData() {
-    liangData = await getWordData();
+    liangData = await getLiangData();
 
     try {
+        // Alphabet
         alphSorted = [...liangData.alphabet].map(a => a.toLowerCase());
         lenSorted = [...liangData.alphabet].map(a => a.toLowerCase()).sort((a,b) => {return b.length - a.length});
+        console.log(`Liang syllable count: ${alphSorted.length}`);
+
+        // Words
         liangWordData = liangData.wordlist.filter(
             (word) => {
                 return verifyLiangWord(word.word)
@@ -770,9 +776,13 @@ async function setupData() {
             (a, b) => {
                 return sortAlphabetically(a.word, b.word);
             });
+        console.log(`Liang word count: ${liangWordData.length}`);
 
+        // Numbers
+        numberData = liangData.numberlist;
+        console.log(`Liang number entries: ${numberData.length}`);
 
-        console.log(`Liang word count: ${liangWordData.length}\nLiang syllable count: ${alphSorted.length}`);
+        // Check
         console.log(`All systems good :thumbsup:`);
     }
     catch (e)
@@ -780,8 +790,6 @@ async function setupData() {
         console.log(`Something wrong with the data: ${e}`);
     }
 }
-
-
 
 // (wordData.concat(grammarWordData)).filter(
 //     (word) => {

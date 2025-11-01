@@ -7,7 +7,7 @@ const grammarData = [
 
             "As a language, <l>liang</l> is an example of a Subject-Object-Verb language (SOV), which is different to a language like English, which is structured using SVO. For example, while in English a phrase might be written like \"he ate food\", the same phrase in <l>liang</l> would be written as \"<l>narim ramaki taikab</l>\" [he, food ate].",
             "<l>liang</l> is also categorised as a post-positional language, once again the opposite of English (which is prepositional). This means that most of the important word modifiers in a sentence come after the noun phrase that they modify, such as words like \"when\", \"of\", \"and\", \"to\", and \"from\".",
-            "Given that so much of <l>liang</l> is the reverse of English, an efficient English translator would work backwards from the end of a sentence and translate it that way.",
+            "Given that so much of <l>liang</l> is the reverse of English, an efficient English translator could work backwards from the end of a sentence and translate it that way.",
 
             "<h2>Syllable Structure</h2>",
 
@@ -29,11 +29,27 @@ const grammarData = [
 
             "Since <l>liang</l> is a post-positional language, a typical noun-phrase in <l>liang</l> goes something like this:",
 
-            "<strong>[ Demonstratives => Counters => Genitives/Possessives => NOUN => ADJECTIVES => Disjunctives/Ordinals => Quantifiers ]</strong>",
+            "<strong>[ Demonstratives => Quantifiers => Counters/Disjunctives => Genitives/Possessives => NOUN => ADJECTIVES => Ordinals ]</strong>",
 
             "To put this to an example, <l>mifu kamu katu</l>, where <l>mifu</l> [my] is the Possessive, <l>kamu</l> [face] is the Noun, and <l>katu</l> [ugly] is the Adjective.",
 
-            `<l>liang</l> also allows for nouns to be used as though they were adjectives - in that case, they become noun-adjuncts and follow the same rules as adjectives.`,
+            `<l>liang</l> also allows for nouns to be used as though they were adjectives - in that case, they become noun-adjuncts and follow the same rules as adjectives. However, a noun cannot be used as an adverb.`,
+
+            `<strong class="head">Noun Suffixes<strong>`,
+
+            `Nouns can have three possible suffixes: <l>m</l> [m], <l>n</l> [n], and <l>ng</l> [ng].`,
+            `<ol>
+                <li><l>m</l> is the Subject marker, meaning it is used in sentences to mark the subject. Using an example in English, "He ate an apple" could be written as "He<l>m</l> ate an apple", since "He" is the subject of the sentence.</li>
+                <li><l>n</l> is the Plural suffix, and it turns a noun into its plural form. <l>(arima)</l> [apple] becomes <l>(ariman)</l> [apples], for example.</li>
+                <li><l>ng</l> is the Proper Noun suffix, which is appended to nouns in a similar fashion to capitalising names in English. The scope of what is considered a proper noun differs to English, but it usually covers areas where specificity is required (such as names of people or places).
+                <ul>
+                    <li>Whereas in Ancient <l>liang</l> it was strictly necessary to append <l>ng</l> to every proper noun, in Modern <l>liang</l> it is more often reserved for disambiguation purposes, when context cannot fully inform which thing is being spoken of. This is most commonly seen in names, otherwise every single person's name will end in <l>ng</l>.</li>
+                    <li>That being said, a proper noun should always be introduced with the <l>ng</l> suffix first, before it can be dropped in future conversation.</li>
+                </ul>
+                </li>
+            </ol>`,
+
+            `These suffixes cannot be combined, so when it is necessary the plural or proper noun suffixes take the place of the subject marker and fulfil the same role. In the same vein, the proper noun suffix takes precedence over the plural suffix - a proper noun is rarely plural.`,
 
             "<h2>Adjectives</h2>",
 
