@@ -362,6 +362,10 @@
     margin: 8px;
 }
 
+.under-bar label {
+    text-align: center;
+}
+
 .sort-button {
     padding: 0.1em;
     border: 3px solid gray;
@@ -504,7 +508,7 @@
     background-color: palegoldenrod;
 }
 
-.determiner, .demonstrative {
+.determiner {
     background-color: yellow;
 }
 
@@ -558,13 +562,14 @@
 
     .filters {
         display: grid;
-        grid-template-columns: 70% 70px 1fr;
+        grid-template-columns: 65% 130px 1fr;
         grid-template-areas: "left mid right";
         grid-gap: 0;
     }
 
     .under-bar {
-        display: block;
+        display: flex;
+        flex-direction: column;
 
         border: none;
         border-left: solid 3px #222222;

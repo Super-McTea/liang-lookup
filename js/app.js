@@ -470,7 +470,7 @@ function generateWordList() {
             }
         );
 
-    let displayWords = nameWords.concat(descWords);
+    let displayWords = nameWords.concat(descWords).filter(filterType);
 
     if (displayWords.length == 0) {
         updateErrorMessage("No Search Results Found");
@@ -520,6 +520,23 @@ function filterName(word) {
             return true;
         }
     }
+}
+
+function filterType(word) {
+    const currentFilter = typeFilterBox.value;
+    if (!currentFilter) {
+        return true;
+    }
+
+    let found = false;
+    for (const wordData of word.data) {
+        const type = wordData.type.toLowerCase();
+        if (type == currentFilter) {
+            found = true;
+        }
+    }
+    return found;
+
 }
 
 function sortDesc(wordA, wordB) {
@@ -812,6 +829,8 @@ let searchUnfiltered = null;
 const searchErrorText = document.getElementById('search-error');
 let searchError = "";
 
+const typeFilterBox = document.getElementById('type-filter');
+
 // Filter Checkboxes
 const wordBox = document.getElementById('word-box');
 const numberBox = document.getElementById('number-box');
@@ -857,7 +876,11 @@ searchBar.addEventListener('input', (event) => {
     populateCards();
 })
 
-lengthSortBox.addEventListener('input', (event) => {
+lengthSortBox.addEventListener('change', (event) => {
+    populateCards();
+})
+
+typeFilterBox.addEventListener('change', (event) => {
     populateCards();
 })
 

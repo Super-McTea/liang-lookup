@@ -28,9 +28,28 @@
                 </div>
                 <div class="under-bar">
                     <p>Sort</p>
-                    <label class="sort-button">
-                        Len
+                    <label for="length-sort-box" class="sort-button">
+                        Length
                         <input type="checkbox" name="length-sort" id="length-sort-box">
+                    </label>
+                    <label for="type-filter">
+                        Filter by:
+                        <select name="type-filter" id="type-filter">
+                            <option value="" selected>All</option>
+                            <option value="noun">Nouns</option>
+                            <option value="proper">Proper Nouns</option>
+                            <option value="verb">Verbs</option>
+                            <option value="adjective">Adjectives</option>
+                            <option value="genitive">Genitives</option>
+                            <option value="adverb">Adverbs</option>
+                            <option value="exclamation">Exclamations</option>
+                            <option value="auxillary">Auxillary Verbs</option>
+                            <option value="determiner">Determiners</option>
+                            <option value="prefix">Prefixes</option>
+                            <option value="suffix">Suffixes</option>
+                            <option value="postposition">Postpositionals</option>
+                            <option value="compound">Compounds</option>
+                        </select>
                     </label>
                 </div>
                 <div id="filter-button-container">
@@ -62,7 +81,7 @@
 
             <footer class="footer box">
                 <div class="left">
-                    Updated last: October 19th 2025
+                    Updated last: January 4th 2026
                 </div>
                 <div class="center">
 
