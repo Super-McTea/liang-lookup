@@ -474,7 +474,7 @@ function generateWordList() {
 
     if (displayWords.length == 0) {
         updateErrorMessage("No Search Results Found");
-        displayWords = liangWordData;
+        displayWords = liangWordData.filter(filterType);
     }
 
     return [...new Set(displayWords)];
