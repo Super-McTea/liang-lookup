@@ -161,6 +161,7 @@
 .word-card .derivation:hover {
     scale: 1.2;
     transition: scale 100ms;
+    cursor: pointer;
 }
 
 /* #endregion */
