@@ -79,7 +79,9 @@ const grammarData = [
 
             "Verbs can have three different suffixes: <l>b</l> [past tense], <l>d</l> [future tense], and <l>g</l> [present tense]. If a verb does not end in one of these three, it is probably in either the base form or the imperative form (i.e. causing someone to act). A useful mnemonic to remember the three tenses is: <em>\"B for Before, D for Da future, and G for riGht now\"</em>.",
 
-            `Verbs can also have three prefixes, depending on which vowel the base form ends in. Having no prefixes means that the verb is in the \"Unmarked\" form (\"I <em>did</em> something\", implies completion), whereas a verb with a prefix is in the \"Marked\" form (\"I <em>was doing</em> something\", implies the action was interrupted, or incomplete). A present-tense verb, when given a prefix, becomes habitual (\"I <em>often do</em> something\", implies repetition or a status quo). See the table below for more details:`,
+            `Verbs can also have three prefixes, depending on which vowel the base form ends in. Having no prefixes means that the verb is in the \"Unmarked\" form (\"I <em>did</em> something\", implies completion), whereas a verb with a prefix is in the \"Marked\" form (\"I <em>was doing</em> something\", implies the action was interrupted, or incomplete). A present-tense verb, when given a prefix, becomes habitual (\"I <em>often do</em> something\", implies repetition or a status quo).`,
+            `The prefixes for \"Marked\" verbs are <l>ra</l> [for verbs that end in <l>a</l> "a"], <l>pi</l> [for verbs that end in <l>i</l> "i"], and <l>mu</l> [for verbs that end in <l>u</l> "u"].`,
+            `See the table below for more details:`,
             `<table>
                 <tr>
                     <th> </th>
@@ -90,37 +92,47 @@ const grammarData = [
                 <tr>
                     <th>Unmarked</th>
                     <td>
-                        "did"<br>
+                        <l>zhibab</l> "did"<br>
                         (Implies completion, with a specific start and end time)
                     </td>
                     <td>
-                        "am doing"<br>
+                        <l>zhibag</l> "am doing"<br>
                         (Implies continuity, is currently happening)
                     </td>
                     <td>
-                        "will do"<br>
+                        <l>zhibad</l> "will do"<br>
                         (Implies intent, references a specific set time)
                     </td>
                 </tr>
                 <tr>
                     <th>Marked</th>
                     <td>
-                        "was doing"<br>
+                        <l>razhibab</l> "was doing"<br>
                         (Non-specific timeframe, does not imply completion)
                     </td>
                     <td>
-                        "(often) does"<br>
+                        <l>razhibag</l> "(often) does"<br>
                         (habitually, but not necessarily right now)
                     </td>
                     <td>
-                        "Will be doing"<br>
+                        <l>razhibad</l> "Will be doing"<br>
                         (Implies intent, but non-specific time in the middle of the action being performed)
                     </td>
                 </tr>
             </table>`,
-            `The prefixes for \"Marked\" verbs are <l>ra</l> [for verbs that end in <l>a</l>], <l>pi</l> [for verbs that end in <l>i</l>], and <l>mu</l> [for verbs that end in <l>u</l>].`,
-            `After the tense suffix, you can also add the suffix "<l>pa</l>" to mark the verb as imperative or as a command. This only applies to verbs in the unmarked present-tense form, though! For example, <l>zhibagpa maba</l> means "do not".`,
-            `Similar to <l>pa</l>, adding "<l>ru</l>" to the end of a verb converts it to the infinitive form, "to [verb]" in English. This effectively turns the verb phrase into an adverb, most often used to add a reason for some action happening. For example, "<l>mim libu kid (gizubag ru)</l>" means "I will be happy to go", where <l>gizubag ru</l> [to go] is modifying the verb <l>kid</l> [will be], specifying the reason that I will be happy <em>(because I will be going)</em>.`,
+
+            `<strong>Additional Verb Forms</strong>`,
+
+            `After the tense suffix, you can also add the suffix "<l>pa</l>" to mark the verb as imperative or as a command. In English it only applies to the present tense, but in Liang you can use it with any tense and marking to give a variety of meanings (parentheses supply additional context):
+            <ul>
+                <li><l>zhalumigpa</l>, as "Go to sleep (now)"</li>
+                <li><l>zhalumidpa</l>, as "Go to sleep (later)"</li>
+                <li><l>zhalumibpa</l>, as "(You should) have slept already" <em>(strong tone implied)</em></li>
+                <li><l>pizhalumigpa</l>, as "(You should) go to sleep more often"</li>
+                <li><l>pizhalumidpa</l>, as "Be sleeping (later)"</li>
+                <li><l>pizhalumibpa</l>, as "(You should) have be sleeping already" <em>(not as strong as <l>zhalumibpa</l>)</em></li>
+            </ul>`,
+            `Similarly to <l>pa</l>, adding "<l>ru</l>" to the end of a verb converts the verb phrase into a "Verb Complement", most often used to add a reason or context for some action happening. For example, "<l>mim libu kid (gizubag ru)</l>" means "I will be happy to go", where <l>gizubag ru</l> [to go] is modifying the verb <l>kid</l> [will be], specifying the reason that I will be happy <em>(because I will be going)</em>. In English, the equivalent would be to use the Infinitive form, "To [verb]", however the Infinitive form in English covers a broader spectrum than just the Verb Complement, so I would caution you to consider how it is translated.`,
 
             `<strong class="head">Auxillary Verbs</strong>`,
 
@@ -128,7 +140,7 @@ const grammarData = [
 
             `<strong class="head">Adverbs</strong>`,
 
-            `Adverbs do not have a specific order like adjectives do, but are most often placed in order of emphasis and ALWAYS GO AFTER THE VERB THEY MODIFY, with the only exceptions being adverbs related to time like "today" and "tomorrow". A sentence like "Yesterday, she hopefully looked around slowly" would translate to something closer to <l>bakugiizha nurim rabulukab wogivuri vita katigati</l>, literally [yesterday she was-looking hopefully around slowly] where "hopefully" is the adverb with the most emphasis in the sentence, and "yesterday" (being time-related) is allowed to remain at the start of the sentence.`
+            `Adverbs do not have a specific order like adjectives do, but are most often placed in order of emphasis and ALWAYS GO AFTER THE VERB THEY MODIFY, with the only exceptions being adverbs related to time like "today" and "tomorrow". A sentence like "Yesterday, she hopefully looked around slowly" would translate to something closer to <l>bakugiizha nurim rabulukab wogivuri vita katigati</l>, literally [yesterday she was-looking hopefully around slowly] where "hopefully" is the adverb with the most emphasis in the sentence, and "yesterday" (being time-related) allowed to remain at the start of the sentence.`
         ]
     },
     {
