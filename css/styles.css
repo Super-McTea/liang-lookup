@@ -58,6 +58,12 @@
     border-radius: 5px;
     padding: 0.5em;
     margin: 0.5em;
+
+    scroll-margin-top: 40px;
+}
+
+.glow-anim {
+    animation: glow 2s ease-in-out;
 }
 /* #endregion */
 
@@ -146,6 +152,15 @@
 .word-card .card-footer {
     font-style: italic;
     margin: 0.1em 1em;
+}
+
+.word-card .derivation {
+    display: inline-block;
+    transition: scale 100ms;
+}
+.word-card .derivation:hover {
+    scale: 1.2;
+    transition: scale 100ms;
 }
 
 /* #endregion */
@@ -574,5 +589,16 @@
         border: none;
         border-left: solid 3px #222222;
         border-right: solid 3px #222222;
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 15px 10px #ffff00;
+        scale: 1.05;
+    }
+    100% {
+        box-shadow: 0px 0px 0px 0px #ffffff;
+        scale: 1;
     }
 }

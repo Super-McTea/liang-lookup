@@ -18,7 +18,8 @@ function createWordCard(word, docFrag) {
             const derivation = d.derivedFrom;
 
             innerString += `
-            <p class="card-type-header heading">${type}</p>
+            <p class="card-type-header heading">${type}
+            ${type == 'verb' ? (` - Marking: <span class="liang" title="${word.marking}">${word.marking}</span>`) : ""}</p>
                 ${definitions ? (`<div class="` + type + `" id="` + name + "-" + type + `">
                 <ul>
                     <li>` + definitions.join("</li><li>") +
@@ -26,20 +27,32 @@ function createWordCard(word, docFrag) {
                 </ul>`) : ""}`;
 
             if (derivation) {
-                innerString += `<p class="card-footer heading">Derived from [ ${derivation.join(" + ")} ]</p>`
+                innerString += `<p class="card-footer heading">Derived from [ ${derivation.map(a => `<span class="derivation">${a}</span>`).join(" + ")} ]</p>`
             }
             innerString += definitions ? `</div>` : "";
         }
     }
 
     if (word.derivedFrom) {
-        innerString += `<p class="card-footer heading">Derived from [ ${word.derivedFrom.join(" + ")} ]</p>`
+        innerString += `<p class="card-footer heading">Derived from [ ${word.derivedFrom.map(a => `<span class="derivation">${a}</span>`).join(" + ")} ]</p>`
     }
 
     card.innerHTML = innerString;
 
     // console.log(card.id);
     docFrag.appendChild(card);
+
+    const derivations = card.getElementsByClassName("derivation");
+    for (const deriv of derivations) {
+        deriv.addEventListener("click", (e) => {
+            const queryId = deriv.textContent;
+            const toScroll = document.getElementById(queryId);
+            if (toScroll) {
+                toScroll.scrollIntoView({behavior: "smooth"});
+                toScroll.classList.add("glow-anim");
+            }
+        })
+    }
 }
 
 function createNumberCard(number) {
@@ -566,6 +579,23 @@ function sortDesc(wordA, wordB) {
     return null;
 }
 
+function generateMarkings(word) {
+    const name = word.word;
+    word.marking = "";
+
+    if (name[name.length - 1] == 'a') {
+        word.marking = 'ra';
+    }
+    if (name[name.length - 1] == 'i') {
+        word.marking = 'pi';
+    }
+    if (name[name.length - 1] == 'u') {
+        word.marking = 'mu';
+    }
+    // console.log(word);
+    return word;
+}
+
 function createNumberWords(numberToString) {
 
     numberToString = Math.floor(Math.abs(numberToString));
@@ -792,7 +822,7 @@ async function setupData() {
             }).sort(
             (a, b) => {
                 return sortAlphabetically(a.word, b.word);
-            });
+            }).map(a => generateMarkings(a));
         console.log(`Liang word count: ${liangWordData.length}`);
 
         // Numbers
@@ -882,6 +912,11 @@ lengthSortBox.addEventListener('change', (event) => {
 
 typeFilterBox.addEventListener('change', (event) => {
     populateCards();
+})
+
+document.addEventListener('animationend', (event) => {
+    if (event.animationName !== "glow") return;
+    event.target.classList.remove("glow-anim");
 })
 
 function updateURLSearch() {
