@@ -1,7 +1,51 @@
+html {
+    --card-colour: #FFFFFF;
+    --background-colour: #FAF7F0;
+    --page-colour: #46362a;
+    --borders: #E5E7EB;
+
+    --primary-highlight: #0B3B83;
+    --secondary-highlight: #B45309;
+
+    --text-colour: #1F2937;
+    --subtext-colour: #6B7280;
+
+    /* Word types (using highlighters) */
+    /* From: https://www.reddit.com/r/GoodNotes/comments/jg3xzz/hex_set_of_bright_highlighters_enjoy_hex_codes/ */
+    --lemon-sunshine: #FFDC7488;
+    --beach-at-sunset: #FBAC8788;
+    --watermelon-spring: #FF8C8788;
+    --cotton-candy-cheeks: #F3A6C888;
+    --moonlit-lilly: #DEACF988;
+    --clear-sky-sea: #AEB5FF88;
+    --mountain-breeze-waves: #95C8F388;
+    --toes-in-the-lagoon: #81E3E188;
+    --jungle-getaway: #7DE19888;
+    --golf-club-special: #B3E56188;
+
+
+
+    --line: #1F6FEB44;
+    --line-gap: 35px;
+    --line-thickness: 1px;
+}
+
 @font-face {
     font-family: "Liang Extended";
     src: url("../assets/liang_expanded.ttf");
 }
+
+body {
+    color: var(--text-colour);
+    background-color: var(--page-colour);
+    background-image: url("/assets/textured.jpg");
+    background-blend-mode: multiply;
+}
+
+h1 {
+    color: var(--primary-highlight);
+}
+
 
 .liang {
     font-family: "Liang Extended";
@@ -9,8 +53,13 @@
 }
 
 .liang.outline {
-    color: white;
-    -webkit-text-stroke: 1px black;
+    color: #FDFFFF;
+    -webkit-text-stroke: 1px var(--text-colour);
+}
+
+.default-text {
+    color: var(--text-colour);
+    font-weight: normal;
 }
 
 /* #region The Base Container */
@@ -19,13 +68,26 @@
     max-width: 90%;
     margin: auto;
 
-    background-color: #ffebcd;
 }
 
 .box {
     padding: 0 5px;
-    border: 3px solid black;
+    border: 3px solid var(--text-colour);
     border-radius: 5px;
+
+    background-color: var(--background-colour);
+
+    background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(var(--line-gap) - var(--line-thickness)),
+      var(--line) calc(var(--line-gap) - var(--line-thickness)),
+      var(--line) var(--line-gap)
+    ),
+    var(--background-colour);
+
+    box-shadow: 2px 2px 10px 0px #00000030;
 }
 
 #card-container {
@@ -53,17 +115,20 @@
 }
 
 .card {
-    background-color: #fdf6e2;
-    border: 5px solid black;
+    background-color: var(--card-colour);
+    border: 5px solid var(--borders);
     border-radius: 5px;
     padding: 0.5em;
     margin: 0.5em;
 
     scroll-margin-top: 40px;
+
+    
+    box-shadow: 2px 2px 6px 0px #00000030;
 }
 
 .glow-anim {
-    animation: glow 2s ease-in-out;
+    animation: glow 1.8s ease-in-out;
 }
 /* #endregion */
 
@@ -79,43 +144,6 @@
     margin: 0.1em 0.4em;
     line-height: 1em;
 }
-
-.display-character {
-    height: 1em;
-    aspect-ratio: 3/4;
-    background-position: center;
-    background-size: cover;
-}
-
-.blanked.display-character {
-    aspect-ratio: 1/4;
-}
-
-.tooltipable .tooltip-content {
-    opacity: 0;
-    /* min-width: calc(100% - 10px); */
-    width: fit-content;
-    background-color: #434343;
-    color: #fff;
-    text-align: center;
-    line-height: normal;
-    padding: 5px;
-    border-radius: 6px;
-    
-    position: absolute;
-    z-index: 1;
-
-    top: 0%;
-    left: calc(50% - 5px);
-    margin-left: calc(-50% + 5px);
-
-    transition: opacity 100ms ease-out 300ms;
-}
-
-.tooltipable:hover .tooltip-content {
-    opacity: 1;
-}
-
 /* #endregion */
 
 /* #region Word Mode */
@@ -142,6 +170,7 @@
     margin: 0.5em 1em 0.1em;
     font-style: italic;
     text-transform: capitalize;
+    color: var(--subtext-colour);
 }
 
 .word-card ul, .word-card p {
@@ -149,14 +178,20 @@
     margin: 0.1em;
 }
 
+.word-card div {
+    border-radius: 0.3em;
+}
+
 .word-card .card-footer {
     font-style: italic;
     margin: 0.1em 1em;
+    color: var(--subtext-colour);
 }
 
 .word-card .derivation {
     display: inline-block;
     transition: scale 100ms;
+    color: var(--text-colour);
 }
 .word-card .derivation:hover {
     scale: 1.2;
@@ -184,7 +219,7 @@
     min-width: 30%;
     width: fit-content;
     max-width: 90%;
-    border: 3px solid gray;
+    border: 3px solid var(--borders);
     border-radius: 5px;
     margin: 0.1em 0;
 }
@@ -195,6 +230,7 @@
 
 .romanisation {
     text-align: center;
+    color: var(--subtext-colour);
 }
 
 /* #endregion */
@@ -266,7 +302,7 @@
 
 .dropdown :after {
     content: " ";
-    border: solid black;
+    border: solid var(--text-colour);
     border-width: 0 5px 5px 0;
     padding: 5px;
     float: right;
@@ -319,8 +355,8 @@
 }
 
 .text-line tbody {
-    background-color: #ffffff;
-    border: 1px solid gray;
+    background-color: var(--card-colour);
+    border: 1px solid var(--borders);
     border-radius: 2px;
 }
 
@@ -331,7 +367,7 @@
 
 .text-line th, .text-line td {
     display: table-cell;
-    border: 1px solid gray;
+    border: 1px solid var(--borders);
     text-align: center;
     padding: 0.5em;
 }
@@ -364,18 +400,29 @@
     margin: 1em auto 0;
 }
 
+#search-bar {
+    font-size: 16px;
+    height: 2em;
+    width: calc(100% - (3.2px + 4px));
+    border: 1.6px solid var(--subtext-colour);
+    border-radius: 4px;
+}
+
 .under-bar {
     display: flex;
     flex-direction: row;
 
+    align-items: center;
+    justify-content: space-evenly;
+
     border: none;
-    border-top: solid 3px #222222;
-    border-bottom: solid 3px #222222;
+    border-top: solid 3px var(--text-colour);
+    border-bottom: solid 3px var(--text-colour);
 }
 
 .under-bar p {
     text-align: center;
-    margin: 8px;
+    margin: 0;
 }
 
 .under-bar label {
@@ -384,21 +431,32 @@
 
 .sort-button {
     padding: 0.1em;
-    border: 3px solid gray;
+    border: 3px solid var(--subtext-colour);
     border-radius: 0.5em;
     margin: 5px;
+    background-color: rgb(from var(--borders) r g b / 0.3);
 }
 .sort-button:hover {
-    background-color: burlywood;
+    background-color: rgb(from var(--primary-highlight) r g b / 0.3);
     cursor: pointer;
 }
+.sort-button:has(input:checked) {
+    background-color: rgb(from var(--secondary-highlight) r g b / 0.5);
+}
 
-#search-bar {
-    font-size: 16px;
-    height: 2em;
-    width: calc(100% - (3.2px + 4px));
-    border: 1.6px solid gray;
-    border-radius: 4px;
+/* Type Filters */
+select {
+    padding: 0.1em;
+    border: 3px solid var(--subtext-colour);
+    border-radius: 0.5em;
+    margin: 5px;
+    background-color: rgb(from var(--borders) r g b / 0.3);
+
+    text-align: center;
+}
+select:hover {
+    background-color: rgb(from var(--primary-highlight) r g b / 0.3);
+    cursor: pointer;
 }
 
 .error {
@@ -445,15 +503,29 @@
 
 .filter-button {
     padding: 0.5em;
-    border: 3px solid gray;
-    border-radius: 0.5em;
+    border: 3px solid var(--subtext-colour);
+    border-radius: 0.5em 0.5em 0 0;
     height: fit-content;
     margin: 5px;
     text-transform: capitalize;
+
+    transform-origin: bottom;
+    transition: scale 100ms ease-in, box-shadow 100ms ease-in;
+}
+.filter-button:has(input:checked) {
+    /* font-weight: bold; */
+    border-color: var(--primary-highlight);
+    box-shadow: 
+        inset 0 0 3px rgb(from var(--text-colour) r g b / 0.3);
+        /* 0 0 5px 2px rgb(from var(--text-colour) r g b / 0.3); */
 }
 .filter-button:hover {
-    background-color: burlywood;
     cursor: pointer;
+
+    scale: 1.05;
+    box-shadow: 
+        0 0 3px rgb(from var(--text-colour) r g b / 0.3);
+    transition: scale 100ms ease-in, box-shadow 100ms ease-in;
 }
 
 /* #endregion */
@@ -474,18 +546,18 @@
     min-width: 100px;
     width: 20%;
     background-color: lightsteelblue;
-    border: 3px solid black;
+    border: 3px solid var(--text-colour);
     border-radius: 3em;
 }
 
 #back-to-top:hover {
-    background-color: burlywood;
+    background-color: var(--secondary-highlight);
     cursor: pointer;
     scale: 1.05;
 }
 
 #back-to-top .back-to-top-text {
-    color: #222222;
+    color: var(--text-colour);
 }
 
 /* #endregion */
@@ -493,52 +565,52 @@
 /* #region Word Types */
 
 .noun {
-    background-color: aqua;
+    background-color: var(--toes-in-the-lagoon);
 }
 
 .proper {
-    background-color: aquamarine;
+    background-color: var(--toes-in-the-lagoon);
 }
 
 .verb {
-    background-color: greenyellow;
+    background-color: var(--golf-club-special);
 }
 
 .adjective {
-    background-color: pink;
+    background-color: var(--watermelon-spring);
 }
 
 .genitive {
-    background-color: cadetblue;
+    background-color: var(--jungle-getaway);
 }
 
 .adverb {
-    background-color: rosybrown;
+    background-color: var(--cotton-candy-cheeks);
 }
 
 .exclamation {
-    background-color: plum;
+    background-color: var(--moonlit-lilly);
 }
 
 .auxillary {
-    background-color: palegoldenrod;
+    background-color: var(--beach-at-sunset);
 }
 
 .determiner {
-    background-color: yellow;
+    background-color: var(--lemon-sunshine);
 }
 
 .prefix, .suffix {
-    background-color: cornflowerblue;
+    background-color: var(--mountain-breeze-waves);
 }
 
 .postposition {
-    background-color: white;
+    background-color: whitesmoke;
 }
 
 .compound {
-    background-color: darkslategrey;
-    color: white;
+    background-color: var(--clear-sky-sea);
+    /* color: white; */
 }
 /* #endregion */
 
@@ -588,18 +660,26 @@
         flex-direction: column;
 
         border: none;
-        border-left: solid 3px #222222;
-        border-right: solid 3px #222222;
+        border-left: solid 3px var(--text-colour);
+        border-right: solid 3px var(--text-colour);
+    }
+
+    .sort-button {
+        width: 80%;
     }
 }
 
 @keyframes glow {
     0% {
-        box-shadow: 0px 0px 15px 10px #ffff00;
+        box-shadow: 0px 0px 15px 10px var(--lemon-sunshine);
         scale: 1.05;
     }
+    50% {
+        box-shadow: 0px 0px 10px 5px var(--lemon-sunshine);
+        scale: 1.025;
+    }
     100% {
-        box-shadow: 0px 0px 0px 0px #ffffff;
+        box-shadow: 2px 2px 10px 0px #00000030;
         scale: 1;
     }
 }

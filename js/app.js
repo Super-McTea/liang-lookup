@@ -358,7 +358,7 @@ function liangErrorReplace(pre, liangText) {
         updateErrorMessage();
         return;
     }
-    const displayText = (pre ? pre : "") + "<span class=\"liang\">" + liangText + "</span>";
+    const displayText = (pre ? pre : "") + "<span class=\"liang default-text\">" + liangText + "</span>";
     // `${verifyLiangWord(liangText) ? "<div class=\"name-container\">" + createCardSpelling(liangText) + "</div>" : "not valid text: " + liangText}`
     if (displayText) {
         updateErrorMessage(displayText);
