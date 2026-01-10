@@ -38,7 +38,7 @@ html {
 body {
     color: var(--text-colour);
     background-color: var(--page-colour);
-    background-image: url("/assets/textured.jpg");
+    background-image: url("../assets/textured.jpg");
     background-blend-mode: multiply;
 }
 
