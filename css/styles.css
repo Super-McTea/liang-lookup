@@ -9,6 +9,9 @@ html {
 
     --text-colour: #1F2937;
     --subtext-colour: #6B7280;
+    --grammar-heading: #0B3B83;
+
+    --page-border: var(--text-colour);
 
     /* Word types (using highlighters) */
     /* From: https://www.reddit.com/r/GoodNotes/comments/jg3xzz/hex_set_of_bright_highlighters_enjoy_hex_codes/ */
@@ -30,6 +33,24 @@ html {
     --line-thickness: 1px;
 }
 
+@media (prefers-color-scheme: dark) {
+    body {
+        --card-colour: #434343;
+        --background-colour: #232323;
+        --page-colour: #232E43;
+        --borders: black;
+
+        --primary-highlight: #0B3B83;
+        --secondary-highlight: #B45309;
+
+        --text-colour: #e5e5e5;
+        --subtext-colour: #B1B5BE;
+        --grammar-heading: #6895DF;
+
+        --page-border: black;
+    }
+}
+
 @font-face {
     font-family: "Liang Extended";
     src: url("../assets/liang_expanded.ttf");
@@ -48,7 +69,8 @@ body {
 }
 
 h1 {
-    color: var(--primary-highlight);
+    color: var(--grammar-heading);
+    text-shadow: 2px 2px 2px #00000030;
 }
 
 
@@ -59,7 +81,7 @@ h1 {
 
 .liang.outline {
     color: #FDFFFF;
-    -webkit-text-stroke: 1px var(--text-colour);
+    -webkit-text-stroke: 1px var(--page-border);
 }
 
 .default-text {
@@ -77,7 +99,7 @@ h1 {
 
 .box {
     padding: 0 5px;
-    border: 3px solid var(--text-colour);
+    border: 3px solid var(--page-border);
     border-radius: 5px;
 
     background-color: var(--background-colour);
@@ -366,7 +388,7 @@ h1 {
 }
 
 .text-line tr:nth-child(even) {
-    background-color: #D6EEEE;
+    background-color: rgb(from var(--primary-highlight) r g b / 0.2);
 
 }
 
@@ -421,8 +443,9 @@ h1 {
     justify-content: space-evenly;
 
     border: none;
-    border-top: solid 3px var(--text-colour);
-    border-bottom: solid 3px var(--text-colour);
+    border-top: solid 3px;
+    border-bottom: solid 3px;
+    border-color: var(--page-border);
 }
 
 .under-bar p {
@@ -451,6 +474,7 @@ h1 {
 
 /* Type Filters */
 select {
+    color: var(--text-colour);
     padding: 0.1em;
     border: 3px solid var(--subtext-colour);
     border-radius: 0.5em;
@@ -551,7 +575,7 @@ select:hover {
     min-width: 100px;
     width: 20%;
     background-color: lightsteelblue;
-    border: 3px solid var(--text-colour);
+    border: 3px solid var(--page-border);
     border-radius: 3em;
 }
 
@@ -562,7 +586,7 @@ select:hover {
 }
 
 #back-to-top .back-to-top-text {
-    color: var(--text-colour);
+    color: var(--page-border);
 }
 
 /* #endregion */
@@ -610,6 +634,7 @@ select:hover {
 }
 
 .postposition {
+    color: #1F2937;
     background-color: whitesmoke;
 }
 
@@ -665,8 +690,9 @@ select:hover {
         flex-direction: column;
 
         border: none;
-        border-left: solid 3px var(--text-colour);
-        border-right: solid 3px var(--text-colour);
+        border-left: solid 3px;
+        border-right: solid 3px;
+        border-color: var(--page-border);
     }
 
     .sort-button {
