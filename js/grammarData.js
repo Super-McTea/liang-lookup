@@ -69,6 +69,16 @@ const grammarData = [
 
             `Another cool thing about adjectives is that they also function as adverbs when placed after a verb! Unlike in English, where you have to add a suffix like -ly, in <l>liang</l> you can use an adjective directly to modify a verb. An example of this would be <l>na zurum giamig lami</l> [The sun is shining brightly], where the adjective <l>lami</l> [bright] is being used to modify the verb <l>giami</l> [to shine].`,
 
+            `<strong>Comparatives</strong>`,
+            
+            `When comparing two objects, you can say that one is "more [adjective]" than the other with the word "<l>bufani</l>" [over] appended to the end of the adjective. For example, to say that "I am older than you" in <l>liang</l>, you would say "<l>mim zu mairi [bakugi bufani] kig</l>", which literally translates as "I, from you, am over-old." The sentence structure sets the baseline [from you] and then describes how that baseline is exceeded [over-old].`,
+            
+            `The same is true when one is less than the other, but by using the word "<l>ikuzu</l>" [under] appended to the adjective instead ("<l>azuvanim bazukagi mairi [rai ikuzu] kid</l>" [Tomorrow will be less hot than yesterday]).`,
+
+            `<strong>Superlatives</strong>`,
+
+            `Unlike in English, <l>liang</l> does not have explicit superlative forms for its adjectives. Instead, objects are compared against everything using the word "<l>grazi</l>" [all]. For example, to say "this horse is the fastest" in <l>liang</l>, you would say "<l>niri tukim [grazi mairi] tizhuri bufani kig</l>", which literally translates as "This horse, from all, is over-fast."`,
+
             "<h2>Verbs</h2>",
 
             "Verb phrases follow a similar pattern to nouns, where the important verb modifiers and the adverbs follow the verb. A typical verb phrase in <l>liang</l> would look something like this:",
@@ -139,10 +149,13 @@ const grammarData = [
             `<strong class="head">Auxillary Verbs</strong>`,
 
             `Auxillary verbs are verbs which are used to modify the main verbs, usually to encode grammatical mood. An example of an auxillary verb might be <l>kutriba</l> [should], which indicates an obligation or desire ("<l>mim zhalumigpa kutriba</l>" [I should sleep]).`,
+        
+            `<h2>Adverbs</h2>`,
 
-            `<strong class="head">Adverbs</strong>`,
-
-            `Adverbs do not have a specific order like adjectives do, but are most often placed in order of emphasis and ALWAYS GO AFTER THE VERB THEY MODIFY, with the only exceptions being adverbs related to time like "today" and "tomorrow". A sentence like "Yesterday, she hopefully looked around slowly" would translate to something closer to <l>bakugiizha nurim rabulukab wogivuri vita katigati</l>, literally [yesterday she was-looking hopefully around slowly] where "hopefully" is the adverb with the most emphasis in the sentence, and "yesterday" (being time-related) allowed to remain at the start of the sentence.`
+            `Adverbs do not have a specific order like adjectives do, but are most often placed in order of emphasis and ALWAYS DIRECTLY FOLLOW THE VERB THEY MODIFY.`,
+            `The only exception to this rule are the Adverbs of Time, which specify when, how long, or how often the action occurs, such as "today", "always", "later", or "usually". Adverbs of Time are allowed to start or finish sentences, but can be used as regular adverbs too.`,
+            
+            `A sentence like "Yesterday, she hopefully looked around slowly" would translate to something closer to <l>bakugiizha nurim rabulukab wogivuri vita katigati</l>, literally [yesterday she was-looking hopefully around slowly] where "hopefully" is the adverb with the most emphasis in the sentence, and "yesterday" (being an Adverb of Time) allowed to remain at the beginning of the sentence.`
         ]
     },
     {
