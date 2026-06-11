@@ -162,13 +162,23 @@ const grammarData = [
         heading: "Miscellaneous Grammar Notes",
         paragraphs: [
             
-            "<h2>A note on Genitives</h2>",
+            "<h2>A Note on Genitives</h2>",
 
             `For those who may not know, the Genitive case is when a noun is used to modify another noun. In English, genitives are most commonly used for showing possession (for example in "David's house", where "David" is the genitive modifier to the noun "house").`,
+
             `In <l>liang</l>, genitives take on a much larger role and in many cases replaces adjectives as the way to describe a noun, particularly for the type of material, place of origin, or the object's purpose. For example, instead of saying a "metallic rock", you would say a "rock of metal" or an "of-metal rock" (<l>filima fu thaduku</l>), where the adjective "metallic" (which doesn't exist) is replaced by the genitive case "of-metal" (<l>filima fu</l>). Similarly, a "French person" would be translated better as a "person of France" or "of-France person" (<l>branumuri fu umabri</l>).`,
+
+            "<h2>Conditionals and Hypotheticals</h2>",
+            
+            `In <l>liang</l>, cause and effect is marked using the particle "<l>kiia</l>", which sits between two clauses to denote that the second clause happens after/as a result of the first clause. For example, "<l>mim ka palaba kimab kiia mim na palaba taikab</l>" [I took a banana, then I ate the banana].`,
+            
+            `When dealing with hypotheticals, <l>liang</l> uses the term "<l>nulia ma</l>" [in a thought] at the beginning of a conditional to indicate that it is hypothetical, similar to starting a sentence in English with "suppose..." or "in theory..." In literal terms, the phrase indicates that the following condition happens explicitly "within a thought-space" separate from reality, allowing unreal sentences to be constructed, discussed, and reasoned with. For example, "<l>nulia ma, mim ka palaba kimab kiia mim na palaba taikad</l>" [IF I took a banana, then I will eat the banana]. An important thing to note is that the tense of the verbs in the conditional change how the sentences are understood, such as the difference between "If I had taken" (hypothetical scenario where the present will have changed) and "If I will take" (future scenario that is possible but not set yet).`,
+
+            `Conditionals and hypotheticals can both be used in questions too, where the second clause is replaced with an interrogative phrase. For example, "<l>nulia ma, mim na palaba kimag kiia liza akamurib iu</l>" [IF I take the banana, what will happen?] An important thing to note is that the first clause can also feature an interrogative, however this is rarer and more commonly used with the complementiser instead (eg. "What did you do [that] the banana disappeared?").`,
             
             `<h2>Loan Words</h2>`,
             `When dealing with loan words, they are usually written in square brackets <l>[ ]</l>, and are transliterated into a specialised form of the <l>liang</l> script which includes glyphs for consonants with no attached vowel. These were developed at a later date after the <l>liang</l> people made communications with other people groups with other languages, and they specifically realised they needed a way to write consonant clusters due to contact with the consonant-heavy languages from <l>niiubi kafiraki</l>. When romanising <l>liang</l>, the script itself is usually written in lowercase while loan words are written in [ALL CAPS].`,
+
             `Foreign names are also written in this script, transliterated so as to preserve the pronunciation and not necessarily spelling, with <l>ng</l> added to the end as names are treated as proper nouns eg. <l 'mim [McTea]ng kig'>mim [maKtii]ng kig</l>.`,
             `The consonant glyphs: <l>[L.M.F.TH.Z.P.T.K.R.N.V.ZH.B.D.G]</l>`
         ]
