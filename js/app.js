@@ -856,8 +856,10 @@ const backToTop = document.getElementById('back-to-top');
 const searchBar = document.getElementById('search-bar');
 let searchFilter = null;
 let searchUnfiltered = null;
-const searchErrorText = document.getElementById('search-error');
+let searchErrorText = document.getElementById('search-error');
 let searchError = "";
+
+let isCompact = false;
 
 const typeFilterBox = document.getElementById('type-filter');
 
@@ -957,6 +959,43 @@ if ('URLSearchParams' in window) {
     const urlParams = new URLSearchParams(document.location.search);
 
     if (urlParams) {
+        isCompact = urlParams.get("compact");
+
+        if (isCompact) {
+            const documentContainer = document.getElementById("container");
+            documentContainer.innerHTML = `
+            <p id="search-error" class="error"></p>
+            <div class="text-line compact">
+            <table class="word-card">
+            <tr>
+                <th><strong>Liang Word</strong></th>
+                <th><strong>Definition</strong></th>
+            </tr>
+            <tr>
+                <td id="result1" style="width: 25%;"></td>
+                <td id="definition1"></td>
+            </tr>
+            <tr>
+                <td id="result2"></td>
+                <td id="definition2"></td>
+            </tr>
+            <tr>
+                <td id="result3"></td>
+                <td id="definition3"></td>
+            </tr>
+            <tr>
+                <td id="result4"></td>
+                <td id="definition4"></td>
+            </tr>
+            <tr>
+                <td id="result5"></td>
+                <td id="definition5"></td>
+            </tr>
+            </table></div>`;
+
+            searchErrorText = document.getElementById('search-error');
+        }
+
         // Setting the Search value
         searchBar.value = urlParams.get("search");
 
@@ -985,7 +1024,45 @@ async function start() {
 
     updateSearch();
     updateFilters();
-    populateCards();
+
+    if (isCompact) {
+        // Create a small window and use it to display the top 5 search results
+        const liangSearchResults = generateWordList();
+
+        for (let i = 0; i < 5 && liangSearchResults[i] != null; i++) {
+            let card = liangSearchResults[i];
+
+            const tableResult = document.getElementById("result" + (i+1));
+            tableResult.innerHTML = `<div class="liang outline" style="font-size: 3em;">${card.word}</div>
+            <p>${card.word}</p>`;
+
+            const tableDefinition = document.getElementById("definition" + (i+1));
+
+            let innerString = "";
+            if (card.data) {
+                for (const d of card.data) {
+                    const type = d.type;
+                    const definitions = d.definition;
+
+                    innerString += `
+                    <p class="card-type-header heading">${type}
+                    ${type == 'verb' ? (` - Marking: <span class="liang" title="${card.marking}">${card.marking}</span>`) : ""}</p>
+                        
+                    ${definitions ? (`<div class="` + type + `" id="` + card.word + "-" + type + `">
+                        <ul>
+                            <li>` + definitions.join("</li><li>") +
+                            `</li>
+                        </ul>`) : ""}`;
+                    innerString += definitions ? `</div>` : "";
+                }
+            }
+
+            tableDefinition.innerHTML = innerString;
+        }
+    }
+    else {
+        populateCards();
+    }
 }
 
 start();

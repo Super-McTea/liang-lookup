@@ -375,9 +375,8 @@ h1 {
 }
 
 .text-line table {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: table;
+    width: 100%;
     border-spacing: 0;
 }
 
