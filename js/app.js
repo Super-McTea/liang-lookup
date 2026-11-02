@@ -329,6 +329,8 @@ function updateFilters() {
     showWords = wordBox.checked;
     showAlphabet = alphaBox.checked;
     showGrammar = grammarBox.checked;
+
+    updateSearchTerms();
 }
 
 function updateSearch() {
@@ -360,7 +362,7 @@ function updateSearchTerms() {
 
     searchTermsList = searchRaw.split(" ");
 
-    if (!searchRaw || searchRaw == "") {
+    if (!showWords || !searchRaw || searchRaw == "") {
         searchTermsText.innerHTML = "";
         return;
     }
@@ -531,7 +533,7 @@ function populateCards() {
 
         cardContainer.appendChild(tempCardContainer);
 
-        liangErrorReplace("", searchUnfiltered);
+        
     }
     if (showGrammar) {
 
@@ -991,11 +993,23 @@ filterButtonContainer.addEventListener('click', (event) => {
 
     updateFilters();
     populateCards();
+
+    if (showAlphabet) {
+        liangErrorReplace("", searchBar.value.trim());
+    }
 })
 
 searchBar.addEventListener('input', (event) => {
     event.preventDefault();
     updateSearchTerms();
+
+    if (showAlphabet) {
+        liangErrorReplace("", searchBar.value.trim());
+    }
+    else if (showNumbers) {
+        updateSearch();
+        populateCards();
+    }
 })
 
 lengthSortBox.addEventListener('change', (event) => {
@@ -1014,8 +1028,9 @@ document.addEventListener('animationend', (event) => {
 function updateURLSearch() {
     if ('URLSearchParams' in window) {
         const url = new URL(document.location);
-        if (searchTermsList.length > 0) {
-            url.searchParams.set("search", searchTermsList.join(" "));
+        const searchTerm = searchTermsList.join(" ");
+        if (searchTerm.length > 0) {
+            url.searchParams.set("search", searchTerm);
         }
         else {
             url.searchParams.delete("search");
@@ -1027,16 +1042,29 @@ function updateURLSearch() {
 searchBar.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         updateURLSearch();
-        updateSearchTerms();
-        updateSearch();
-        populateCards();
+        if (showWords) {
+            updateSearchTerms();
+        }
+        if (!showAlphabet) {
+            updateSearch();
+            populateCards();
+        }
+        else {
+            liangErrorReplace("", searchBar.value.trim());
+        }
     }
 })
 
 searchBar.addEventListener('focusout', (event) => {
     updateURLSearch();
-    updateSearch();
-    populateCards();
+
+    if (!showAlphabet) {
+        updateSearch();
+        populateCards();
+    }
+    else {
+        liangErrorReplace("", searchBar.value.trim());
+    }
 })
 
 // Back To Top
@@ -1168,6 +1196,10 @@ async function start() {
     }
     else {
         populateCards();
+    }
+
+    if (showAlphabet) {
+        liangErrorReplace("", searchBar.value.trim());
     }
 }
 
