@@ -456,6 +456,31 @@ h1 {
     text-align: center;
 }
 
+.search-terms {
+    padding: 0.5em;
+    width: 90%;
+    margin: 0 auto;
+
+    font-size: 1.25em;
+    color: var(--subtext-colour);
+}
+
+.search-term {
+    margin-right: 0.25em;
+}
+
+.search-term:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.search-term.selected {
+    color: var(--text-colour);
+
+    border: 3px solid var(--line);
+    border-radius: 4px;
+}
+
 .sort-button {
     padding: 0.1em;
     border: 3px solid var(--subtext-colour);

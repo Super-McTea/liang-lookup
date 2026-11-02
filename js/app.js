@@ -332,10 +332,12 @@ function updateFilters() {
 }
 
 function updateSearch() {
+    // console.log(`Search Index is ${searchTermsIndex}`)
     updateErrorMessage();
-    const searchTerm = searchBar.value.trim();
+    const searchTerm = searchTermsList.length > 0 ? searchTermsList[searchTermsIndex] : "";
     // console.log(searchTerm);
-    if (searchTerm.length == 0) {
+    if (!searchTerm || searchTerm.length == 0) {
+        selectSearchTerm(0);
         searchUnfiltered = null;
         searchFilter = null;
         // updateErrorMessage("DEBUG Search Empty");
@@ -351,6 +353,56 @@ function updateErrorMessage(errorMessage) {
         errorMessage = "";
     }
     searchErrorText.innerHTML = errorMessage;
+}
+
+function updateSearchTerms() {
+    const searchRaw = searchBar.value.trim();
+
+    searchTermsList = searchRaw.split(" ");
+
+    if (!searchRaw || searchRaw == "") {
+        searchTermsText.innerHTML = "";
+        return;
+    }
+
+    // Create search buttons
+    const termDocFrag = document.createDocumentFragment();
+
+    for (const termIndex in searchTermsList) {
+        // Strip punctuation from the search terms
+        searchTermsList[termIndex] = searchTermsList[termIndex].replace(/\W/g, '');
+
+        const termCard = document.createElement("span");
+        const term = searchTermsList[termIndex];
+        termCard.id = `search-term-${term}`;
+        termCard.classList.add("search-term");
+        termCard.textContent = term;
+
+        termDocFrag.appendChild(termCard);
+
+        termCard.addEventListener("click", (e) => {
+            e.preventDefault();
+            selectSearchTerm(termIndex);
+            updateSearch();
+            populateCards();
+        });
+    }
+    searchTermsText.innerHTML = "";
+    searchTermsText.appendChild(termDocFrag);
+    selectSearchTerm(0);
+}
+
+function selectSearchTerm(index) {
+    searchTermsIndex = index;
+
+    if (searchTermsText.childElementCount <= 0) {
+        return;
+    }
+
+    for (const term of searchTermsText.children) {
+        term.classList.remove("selected");
+    }
+    searchTermsText.children[index].classList.add("selected");
 }
 
 function liangErrorReplace(pre, liangText) {
@@ -369,6 +421,42 @@ function liangErrorReplace(pre, liangText) {
 }
 
 function populateCards() {
+    if (isCompact) {
+        // Create a small window and use it to display the top 5 search results
+        const liangSearchResults = generateWordList();
+
+        for (let i = 0; i < 5 && liangSearchResults[i] != null; i++) {
+            let card = liangSearchResults[i];
+
+            const tableResult = document.getElementById("result" + (i+1));
+            tableResult.innerHTML = `<div class="liang outline" style="font-size: 3em;">${card.word}</div>
+            <p>${card.word}</p>`;
+
+            const tableDefinition = document.getElementById("definition" + (i+1));
+
+            let innerString = "";
+            if (card.data) {
+                for (const d of card.data) {
+                    const type = d.type;
+                    const definitions = d.definition;
+
+                    innerString += `
+                    <p class="card-type-header heading">${type}
+                    ${type == 'verb' ? (` - Marking: <span class="liang" title="${card.marking}">${card.marking}</span>`) : ""}</p>
+                        
+                    ${definitions ? (`<div class="` + type + `" id="` + card.word + "-" + type + `">
+                        <ul>
+                            <li>` + definitions.join("</li><li>") +
+                            `</li>
+                        </ul>`) : ""}`;
+                    innerString += definitions ? `</div>` : "";
+                }
+            }
+
+            tableDefinition.innerHTML = innerString;
+        }
+        return;
+    }
     
     cardContainer.innerHTML = "";
     cardContainer.classList = [];
@@ -486,7 +574,7 @@ function generateWordList() {
     let displayWords = nameWords.concat(descWords).filter(filterType);
 
     if (displayWords.length == 0) {
-        updateErrorMessage("No Search Results Found");
+        updateErrorMessage(`No Search Results Found For: ${searchUnfiltered}`);
         displayWords = liangWordData.filter(filterType);
     }
 
@@ -515,7 +603,7 @@ function filterDesc(word) {
     if (searchFilter) {
         let found = false;
         for (const wordData of word.data) {
-            const lowerDef = wordData.definition ? wordData.definition.map(value => value.toLowerCase()) : [];
+            const lowerDef = wordData.definition ? wordData.definition.map(value => value.toLowerCase().replace(/\W/g, '')) : [];
             for (const def of lowerDef) {
                 if (def.includes(searchFilter)) {
                     found = true;
@@ -529,7 +617,7 @@ function filterDesc(word) {
 
 function filterName(word) {
     if (searchFilter) {
-        if (word.word.includes(searchFilter)) {
+        if (word.word.replace(/\W/g, '').includes(searchFilter)) {
             return true;
         }
     }
@@ -558,7 +646,7 @@ function sortDesc(wordA, wordB) {
         let bSize = Number.MAX_VALUE;
         // A Size
         for (const wordData of wordA.data) {
-            const lowerDef = wordData.definition.map(value => value.toLowerCase());
+            const lowerDef = wordData.definition.map(value => value.toLowerCase().replace(/\W/g, ''));
             for (const def of lowerDef) {
                 if (def.includes(searchFilter) && aSize > def.length) {
                     aSize = def.length;
@@ -567,7 +655,7 @@ function sortDesc(wordA, wordB) {
         }
         // B Size
         for (const wordData of wordB.data) {
-            const lowerDef = wordData.definition.map(value => value.toLowerCase());
+            const lowerDef = wordData.definition.map(value => value.toLowerCase().replace(/\W/g, ''));
             for (const def of lowerDef) {
                 if (def.includes(searchFilter) && bSize > def.length) {
                     bSize = def.length;
@@ -858,6 +946,9 @@ let searchFilter = null;
 let searchUnfiltered = null;
 let searchErrorText = document.getElementById('search-error');
 let searchError = "";
+let searchTermsText = document.getElementById("search-terms");
+let searchTermsList = [];
+let searchTermsIndex = 0;
 
 let isCompact = false;
 
@@ -904,8 +995,7 @@ filterButtonContainer.addEventListener('click', (event) => {
 
 searchBar.addEventListener('input', (event) => {
     event.preventDefault();
-    updateSearch();
-    populateCards();
+    updateSearchTerms();
 })
 
 lengthSortBox.addEventListener('change', (event) => {
@@ -924,8 +1014,8 @@ document.addEventListener('animationend', (event) => {
 function updateURLSearch() {
     if ('URLSearchParams' in window) {
         const url = new URL(document.location);
-        if (searchFilter) {
-            url.searchParams.set("search", searchFilter);
+        if (searchTermsList.length > 0) {
+            url.searchParams.set("search", searchTermsList.join(" "));
         }
         else {
             url.searchParams.delete("search");
@@ -937,11 +1027,16 @@ function updateURLSearch() {
 searchBar.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         updateURLSearch();
+        updateSearchTerms();
+        updateSearch();
+        populateCards();
     }
 })
 
 searchBar.addEventListener('focusout', (event) => {
     updateURLSearch();
+    updateSearch();
+    populateCards();
 })
 
 // Back To Top
@@ -969,6 +1064,7 @@ if ('URLSearchParams' in window) {
 
             documentContainer.innerHTML = `
             <p id="search-error" class="error"></p>
+            <p id="search-terms" class="search-terms"></p>
             <div class="text-line compact">
             <table class="word-card">
             <tr>
@@ -1000,6 +1096,7 @@ if ('URLSearchParams' in window) {
             document.getElementById("back-to-top").remove();
 
             searchErrorText = document.getElementById('search-error');
+            searchTermsText = document.getElementById('search-terms');
         }
 
         // Setting the URL
@@ -1025,86 +1122,48 @@ async function start() {
     updateErrorMessage("");
     await setupData();
 
+    updateSearchTerms();
     updateSearch();
     updateFilters();
 
-    if (isCompact) {
-        // If numeric, generate a number card instead
-        if (isNumeric(searchFilter)) {
-            const number = createNumberWords(searchFilter);
-            if (number) {
-                const documentContainer = document.getElementById("container");
-                documentContainer.innerHTML = "";
+    if (isCompact && isNumeric(searchFilter)) {
+        const number = createNumberWords(searchFilter);
+        if (number) {
+            const documentContainer = document.getElementById("container");
+            documentContainer.innerHTML = "";
 
-                const num = number.number;
-                const data = number.data;
+            const num = number.number;
+            const data = number.data;
 
-                const card = document.createElement("div");
-                card.id = `${data[0].word}`;
-                card.classList.add("card", "word-card");
+            const card = document.createElement("div");
+            card.id = `${data[0].word}`;
+            card.classList.add("card", "word-card");
 
-                let innerString = `
-                <div class="card-name">${num}</div>
-                <div class="number-container">`
+            let innerString = `
+            <div class="card-name">${num}</div>
+            <div class="number-container">`
 
-                if (data) {
-                    for (d of data) {
-                        const type = d.type;
-                        const word = d.word;
+            if (data) {
+                for (d of data) {
+                    const type = d.type;
+                    const word = d.word;
 
-                        innerString += `
-                        <div class="number-word">
-                            <p class="card-type-header">${type}</p>
-                            <div class="name-container liang outline">${word}</div>
-                            <p class="romanisation">${word}</p>
-                        </div>`;
+                    innerString += `
+                    <div class="number-word">
+                        <p class="card-type-header">${type}</p>
+                        <div class="name-container liang outline">${word}</div>
+                        <p class="romanisation">${word}</p>
+                    </div>`;
 
-                        // <div class="name-container">
-                        // ${createCardSpelling(word)}
-                        // </div>
-                    }
+                    // <div class="name-container">
+                    // ${createCardSpelling(word)}
+                    // </div>
                 }
-
-                card.innerHTML = innerString + "</div>";
-
-                documentContainer.append(card);
             }
-        }
-        else {
 
-            // Create a small window and use it to display the top 5 search results
-            const liangSearchResults = generateWordList();
+            card.innerHTML = innerString + "</div>";
 
-            for (let i = 0; i < 5 && liangSearchResults[i] != null; i++) {
-                let card = liangSearchResults[i];
-
-                const tableResult = document.getElementById("result" + (i+1));
-                tableResult.innerHTML = `<div class="liang outline" style="font-size: 3em;">${card.word}</div>
-                <p>${card.word}</p>`;
-
-                const tableDefinition = document.getElementById("definition" + (i+1));
-
-                let innerString = "";
-                if (card.data) {
-                    for (const d of card.data) {
-                        const type = d.type;
-                        const definitions = d.definition;
-
-                        innerString += `
-                        <p class="card-type-header heading">${type}
-                        ${type == 'verb' ? (` - Marking: <span class="liang" title="${card.marking}">${card.marking}</span>`) : ""}</p>
-                            
-                        ${definitions ? (`<div class="` + type + `" id="` + card.word + "-" + type + `">
-                            <ul>
-                                <li>` + definitions.join("</li><li>") +
-                                `</li>
-                            </ul>`) : ""}`;
-                        innerString += definitions ? `</div>` : "";
-                    }
-                }
-
-                tableDefinition.innerHTML = innerString;
-            }
+            documentContainer.append(card);
         }
     }
     else {
